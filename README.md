@@ -1,0 +1,1 @@
+In attempting to gain further insight into into calibration techniques for IMU decided to do a bit of a dive into the calibration techniques from accelerometers, magnetometers and gyroscopes.   So here goes.
