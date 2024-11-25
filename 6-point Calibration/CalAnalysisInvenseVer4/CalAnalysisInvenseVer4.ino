@@ -34,20 +34,85 @@ calibrations are written to EEPROM where they can be retrieved upon IMU startup.
 ////////////////////////////////////////////////////////////////////////////////////
 */
 
-#include "mpu9250.h"
+//Select BFS IMU
+//#define MPU9250
+//#define ICM20948
+#define ICM20649
+//#define MPU6500
+//#define MPU6050
+
+//Separate Magnetometer test
+//Uncomment EXTMAG and one of the magnetometometers upported
+#define EXTMAG
+//#define HMC5983A
+#define LIS3MDLA
+
 #include "EEPROM.h"
+
+#if defined(MPU9250)
+#include "mpu9250.h"
+#define IMU_TYPE bfs::Mpu9250
+#define IMU_ADDR I2C_ADDR_PRIM
+bfs::Mpu9250 Imu;
+
+#elif defined(ICM20948)
+#include "icm20948.h"
+#include "ak09916.h"
+#define IMU_TYPE bfs::Icm20948
+#define IMU_ADDR I2C_ADDR_SEC //Sparkfun Breakout is on Secondary
+bfs::Icm20948 Imu;
+bfs::Ak09916 mag;
+
+#elif defined(ICM20649)
+#include "icm20649.h"
+#define IMU_TYPE bfs::Icm20649
+#define IMU_ADDR I2C_ADDR_PRIM
+bfs::Icm20649 Imu;
+
+#elif defined(MPU6500)
+#include "mpu6500.h"
+#define IMU_ADDR I2C_ADDR_PRIM
+#define IMU_TYPE bfs::Mpu6500
+bfs::Mpu6500 Imu;
+
+#elif defined(MPU6050)
+#include "mpu6050.h"
+#define IMU_TYPE bfs::Mpu6050
+#define IMU_ADDR I2C_ADDR_PRIM
+bfs::Mpu6050 Imu;
+#endif
+
+#if defined(HMC5983A)
+#include "HMC5983.h"
+HMC5983 mag(&Wire);
+#elif defined(LIS3MDLA)
+#include <Adafruit_LIS3MDL.h>
+#include <Adafruit_Sensor.h>
+Adafruit_LIS3MDL mag;
+#endif
 
 // IMU Declares
 #define IMU_BUS       Wire  //Wire // SPI
-#define IMU_SCL       19  //47 // 0x255
-#define IMU_SDA       18  //48 // 0x255
 #define IMU_SPD       400000  //1000000 // 0==NULL or other
-#define IMU_SRD        9   // Used in initIMU setSRD() - setting SRD to 9 for a 100 Hz update rate
-#define IMU_INT_PIN    1  //50 // 1 // 14
-//#include <Wire.h>
-
-bfs::Mpu9250 Imu;
-
+  /* Set the sample rate divider for both accelerometer and gyroscope*/
+  /* these settings apply to ICM20948
+    rate = 1125/(SRD + 1) HZ
+    ==========================
+    SRD 4  => rate = 225 HZ
+    SRD 5  => rate = 187.5 HZ
+    SRD 8  => rate = 125 HZ
+    SRD 9  => rate = 112.5 HZ
+    SRD 10 => rate = 102.3 HZ
+    SRD 11 => rate = 93.75 HZ
+    SRD 19 => rate = 56.25 HZ
+    SRD 20 => rate = 53,57 HZ
+    SRD 21 => rate = 51,14 HZ
+    SRD 22 => rate = 48.91 HZ
+    when using SRD to set sampling rate magnetometer is 
+    automatically set to 50Hz for SRD's > 10 otherwise it
+    is set to 100Hz.
+   */
+#define IMU_SRD       9   // Used in initIMU setSRD() - setting SRD to 9 for a 100 Hz update rate
 
 int status;
 
@@ -79,13 +144,22 @@ void setup() {
   // start communication with IMU 
   Serial.println(" ");
   /* Start the I2C bus */
-  Wire2.begin();
-  Wire2.setClock(400000);
+  IMU_BUS.begin();
+  IMU_BUS.setClock(IMU_SPD);
 
   Serial.println("Beginning IMU Initialization...");
-  Imu.Config(&Wire2, bfs::Mpu9250::I2C_ADDR_PRIM);
 
+  Imu.Config(&IMU_BUS, IMU_TYPE::IMU_ADDR);
+  #if defined(ICM20948)
+
+  mag.Config(&IMU_BUS);
+  #endif
+
+  #if defined(ICM20948)
+  if (!Imu.Begin(bfs::Icm20948::MAG_PASSTHROUGH)) {
+  #else
   if (!Imu.Begin()) {
+  #endif
     Serial.println("IMU initialization unsuccessful");
     Serial.println("Check IMU wiring or try cycling power");
     Serial.print("Status: ");
@@ -102,10 +176,67 @@ void setup() {
   }
 
   // set IMU operating parameters
+  #if defined(MPU9250)
   // setting a 20 Hz DLPF bandwidth
-  Imu.ConfigDlpfBandwidth(bfs::Mpu9250::DLPF_BANDWIDTH_20HZ);
+  Imu.ConfigDlpfBandwidth(IMU_TYPE::DLPF_BANDWIDTH_20HZ);
+  Imu.ConfigAccelRange(IMU_TYPE::ACCEL_RANGE_8G);
+  Imu.ConfigGyroRange(IMU_TYPE::GYRO_RANGE_250DPS);
+
+  #elif defined(ICM20948)
+  Imu.ConfigGyroDlpfBandwidth(IMU_TYPE::GYRO_DLPF_BANDWIDTH_23HZ);
+  Imu.ConfigAccelDlpfBandwidth(IMU_TYPE::ACCEL_DLPF_BANDWIDTH_23HZ);
+  Imu.ConfigAccelRange(IMU_TYPE::ACCEL_RANGE_8G);
+  Imu.ConfigGyroRange(IMU_TYPE::GYRO_RANGE_250DPS);
+
+  #elif defined(ICM20649)
+  Imu.ConfigGyroDlpfBandwidth(IMU_TYPE::GYRO_DLPF_BANDWIDTH_23HZ);
+  Imu.ConfigAccelDlpfBandwidth(IMU_TYPE::ACCEL_DLPF_BANDWIDTH_23HZ);
+  Imu.ConfigAccelRange(IMU_TYPE::ACCEL_RANGE_8G);
+  Imu.ConfigGyroRange(IMU_TYPE::GYRO_RANGE_500DPS);
+
+  #elif defined(MPU6050)
+  Imu.ConfigAccelRange(IMU_TYPE::ACCEL_RANGE_8G);
+  Imu.ConfigGyroRange(IMU_TYPE::GYRO_RANGE_250DPS);
+  Imu.ConfigDlpfBandwidth(IMU_TYPE::DLPF_BANDWIDTH_20HZ);
+  #endif
+
+  #if defined(HMC5983)
+  if(!mag.Begin()) {
+    Serial.println("Mag failed to start!!");
+    while(1) {}
+  };
+  mag.setRange(HMC5983_RANGE_8_1GA);
+  mag.setMeasurementMode(HMC5983_CONTINOUS);
+  mag.setSampleAverages(HMC5983_SAMPLEAVERAGE_8);
+  mag.setDataRate(HMC5983_DATARATE_75HZ);
+
+  #elif defined(LIS3MDLA)
+  if (! mag.begin_I2C()) {          // hardware I2C mode, can pass in address & alt Wire
+    Serial.println("Failed to find LIS3MDL chip");
+    while (1) { delay(10); }
+  }
+  Serial.println("LIS3MDL Found!");
+  mag.setPerformanceMode(LIS3MDL_MEDIUMMODE);
+  mag.setOperationMode(LIS3MDL_CONTINUOUSMODE);
+  mag.setDataRate(LIS3MDL_DATARATE_155_HZ);
+  mag.setRange(LIS3MDL_RANGE_8_GAUSS);
+  mag.setIntThreshold(500);
+  mag.configInterrupt(true, true, true, // enable z axis
+                          true, // polarity
+                          false, // don't latch
+                          true); // enabled!
+  #endif
+  
   // setting SRD to 9 for a 100 Hz update rate
   Imu.ConfigSrd(IMU_SRD);
+
+  #if defined(ICM20948)
+  /* MAG */
+  if (!mag.Begin()) {
+    Serial.println("Error initializing communication with MAG");
+    while (1) {}
+  }
+  #endif
 
   // Read and print current calibration values
   printEEPROMBiases();

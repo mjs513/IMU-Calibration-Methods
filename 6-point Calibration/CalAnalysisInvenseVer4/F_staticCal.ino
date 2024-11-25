@@ -34,10 +34,38 @@ void staticCal(){
     cbgX.push_back(Imu.gyro_x_radps());
     cbgY.push_back(Imu.gyro_y_radps());
     cbgZ.push_back(Imu.gyro_z_radps());
+    
+    #if defined(MPU9250)
     cbhX.push_back(Imu.mag_x_ut()-hNorth);
     cbhY.push_back(Imu.mag_y_ut()-hEast);
     cbhZ.push_back(Imu.mag_z_ut()-hDown);
+    
+    #elif defined(ICM20948)
+    mag.Read();
+    cbhX.push_back(mag.mag_x_ut()-hNorth);
+    cbhY.push_back(mag.mag_y_ut()-hEast);
+    cbhZ.push_back(mag.mag_z_ut()-hDown);
+    
+    #elif defined(HMC5983A)
+    float mag_val[3];
+    mag.getMagScaled(mag_val);
+    cbhX.push_back(-mag_val[0]-hNorth);
+    cbhY.push_back(mag_val[1]-hEast);
+    cbhZ.push_back(-mag_val[2]-hDown);
 
+    #elif defined(LIS3MDLA)
+  /* Or....get a new sensor event, normalized to uTesla */
+    sensors_event_t event; 
+    mag.getEvent(&event);
+    cbhX.push_back(event.magnetic.x-hNorth);
+    cbhY.push_back(event.magnetic.y-hEast);
+    cbhZ.push_back(event.magnetic.z-hDown);
+
+    #else
+    cbhX.push_back(0);
+    cbhY.push_back(0);
+    cbhZ.push_back(0);
+    #endif
     delayMicroseconds(200);
   }
   
@@ -83,9 +111,38 @@ void noiseLevelsIMU(){
     cbgX.push_back(Imu.gyro_x_radps());
     cbgY.push_back(Imu.gyro_y_radps());
     cbgZ.push_back(Imu.gyro_z_radps());
+    
+    #if defined(MPU9250)
     cbhX.push_back(Imu.mag_x_ut());
     cbhY.push_back(Imu.mag_y_ut());
     cbhZ.push_back(Imu.mag_z_ut());
+    
+    #elif defined(ICM20948)
+    mag.Read();
+    cbhX.push_back(mag.mag_x_ut());
+    cbhY.push_back(mag.mag_y_ut());
+    cbhZ.push_back(mag.mag_z_ut());
+    
+    #elif defined(HMC5983A)
+    float mag_val[3];
+    mag.getMagScaled(mag_val);
+    cbhX.push_back(-mag_val[0]);
+    cbhY.push_back(mag_val[1]);
+    cbhZ.push_back(-mag_val[2]);
+
+    #elif defined(LIS3MDLA)
+  /* Or....get a new sensor event, normalized to uTesla */
+    sensors_event_t event; 
+    mag.getEvent(&event);
+    cbhX.push_back(event.magnetic.x-hNorth);
+    cbhY.push_back(event.magnetic.y-hEast);
+    cbhZ.push_back(event.magnetic.z-hDown);
+    
+    #else
+    cbhX.push_back(0);
+    cbhY.push_back(0);
+    cbhZ.push_back(0);
+    #endif
 
     delayMicroseconds(200);
   }

@@ -1,7 +1,7 @@
 #include "mpu9250.h"
 
 /* Mpu9250 object */
-bfs::Mpu9250 imu;
+bfs::Mpu9250 imu(&Wire, bfs::Mpu9250::I2C_ADDR_PRIM);
 uint32_t time_old = 0;
 
 #include <Wire.h>
@@ -20,10 +20,9 @@ void setup() {
   while (!Serial) ; // wait for serial port open
   delay(800);
 
-  Wire2.begin();
-  Wire2.setClock(400000);
+  Wire1.begin();
+  Wire1.setClock(400000);
   /* I2C bus,  0x68 address */
-  imu.Config(&Wire2, bfs::Mpu9250::I2C_ADDR_PRIM);
   /* Initialize and configure IMU */
   if (!imu.Begin()) {
     Serial.println("Error initializing communication with IMU");

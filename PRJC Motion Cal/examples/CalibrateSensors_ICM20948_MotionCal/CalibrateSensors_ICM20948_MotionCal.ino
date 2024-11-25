@@ -1,18 +1,17 @@
-#include "BMI270_AUX_BMM150.h"
-BMI2_BMM1_Class IMU(Wire);
+#include "icm20948.h"
+#include "ak09916.h"
 
+/* Icm20948 object */
+bfs::Icm20948 imu(&Wire, bfs::Icm20948::I2C_ADDR_SEC);
+bfs::Ak09916 mag(&Wire);
 
 uint32_t time_old = 0;
 
 #include <Wire.h>
-#include <EEPROM.h>
 #include <util/crc16.h>
-
-uint32_t sample_rate = 0;
-uint8_t new_mag_data = 0;
-uint8_t new_accel_data = 0;
-uint8_t new_gyro_data = 0;
-float deg2rad = PI / 180.0f;
+#if defined(TEENSYDUIO)
+#include <EEPROM.h>
+#endif
 
 const int ledPin = 13;
 int ledState = LOW;
@@ -26,21 +25,27 @@ void setup() {
   while (!Serial) ; // wait for serial port open
   delay(800);
 
-  IMU.setAcellConfig(BMI2_ACC_ODR_100HZ, BMI2_ACC_RANGE_16G, BMI2_ACC_NORMAL_AVG4);
-  IMU.setGyroConfig(BMI2_GYR_ODR_200HZ, BMI2_GYR_RANGE_2000, BMI2_GYR_NORMAL_MODE);
-  IMU.setMagConfig(BMM150_POWERMODE_NORMAL, BMM150_PRESETMODE_REGULAR);
-
-  Serial.println("Beginning IMU Initialization...");
-
-  if (!IMU.begin()) {
-    Serial.println("IMU initialization unsuccessful");
-    Serial.println("Check IMU wiring or try cycling power");
+  Wire.begin();
+  Wire.setClock(400000);
+  /* I2C bus,  0x68 address */
+  /* Initialize and configure IMU */
+  if (!imu.Begin()) {
+    Serial.println("Error initializing communication with IMU");
     while(1) {}
   }
-  Serial.println("IMU Initialization Complete");
-  Serial.println(" ");
 
-  Serial.println("IMU Connected!");
+  /* MAG */
+  if (!mag.Begin()) {
+    Serial.println("Error initializing communication with MAG");
+    while (1) {}
+  }
+
+  if (!imu.ConfigSrd(10)) {
+    Serial.println("Error configured SRD");
+    while(1) {}
+  }
+
+  //imu.ConfigAccelRange(bfs::Mpu9250::ACCEL_RANGE_4G);
 
   pinMode(ledPin, OUTPUT);
 }
@@ -50,12 +55,11 @@ float accel_zerog[3], gyro_zerorate[3], mag_hardiron[3], mag_softiron[9];
 float magfield, mag_field;
 
 void loop() {
-  float raw_values[9];
+  float raw_values[6];
 
   // get and print uncalibrated data
-  getCalIMU(raw_values);
-  
-    if(new_mag_data){
+  if(imu.Read(raw_values)){
+    if(imu.new_imu_data()){
       //imu.readMotionSensor(ax, ay, az, gx, gy, gz, mx, my, mz);
       Serial.print("Raw:");
       Serial.print(int(raw_values[0] *8192/9.805));
@@ -64,20 +68,24 @@ void loop() {
       Serial.print(',');
       Serial.print(int(raw_values[2] *8192/9.805));
       Serial.print(',');
-      Serial.print(int (raw_values[3]*16 ));
+      Serial.print(int (raw_values[3] * 16 ));
       Serial.print(',');
-      Serial.print(int (raw_values[4]*16 ));
+      Serial.print(int (raw_values[4] * 16 ));
       Serial.print(',');
-      Serial.print(int (raw_values[5]*16 ));
+      Serial.print(int (raw_values[5] * 16 ));
       Serial.print(',');
-      Serial.print(int (raw_values[6]*10));
+    }
+    if (mag.Read()) {
+      Serial.print(int (mag.mag_x_ut() * 10));
       Serial.print(',');
-      Serial.print(int (raw_values[7]*10));
+      Serial.print(int (mag.mag_y_ut()*10));
       Serial.print(',');
-      Serial.print(int (raw_values[8]*10));
+      Serial.print(int (mag.mag_z_ut()*10));
       Serial.println("");
       loopcount = loopcount + 1;
     }
+
+  }
 
   // check for incoming calibration
   receiveCalibration();
@@ -222,48 +230,4 @@ uint16_t crc16_update(uint16_t crc, uint8_t a)
   return crc;
 }
 
-void getCalIMU(float *val) {
-  float ax, ay, az;
-  float gx, gy, gz;
-  float mx, my, mz;
-
-  new_mag_data = 0;
-  new_accel_data = 0;
-  new_gyro_data = 0;
-
-  if(IMU.accelerationAvailable()) {
-    IMU.readAcceleration(ax, ay, az);
-    new_accel_data = 1;
-  }
-  val[0] = ax ;
-  val[1] = -ay;
-  val[2] = -az ;
-
-  if(IMU.gyroscopeAvailable()) {
-    IMU.readGyroscope(gx, gy, gz);
-    new_gyro_data = 1;
-  }
-  val[3] = gx * deg2rad;
-  val[4] = -gy * deg2rad;
-  val[5] = -gz * deg2rad;
-
-  if (IMU.magneticFieldAvailable()) {
-    IMU.readMagneticField(mx, my, mz);
-    new_mag_data = 1;
-  }
-  val[6] = mx;
-  val[7] = my;
-  val[8] = mz;
-
-  //float norm_mag = sqrt(val[6]*val[6] + val[7]*val[7] + val[8]*val[8]);
-  //val[6] /= norm_mag;
-  //val[7] /= norm_mag;
-  //val[8] /= norm_mag;
-
-  //if(new_accel_data && new_gyro_data) {
-  //  Serial.printf(" %f, %f, %f, %f, %f, %f, %f, %f, %f\n", val[0], val[1], 
-  //              val[2], val[3], val[4], val[5], val[6], val[7], val[8]);
-  //}
-
-}
 

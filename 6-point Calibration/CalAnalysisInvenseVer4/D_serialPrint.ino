@@ -11,10 +11,15 @@ void serialPrint(){
   textIndex = 10 * 31;
   char text[textIndex];
   //float headingVal, hxVal, hyVal, hzVal;
-   
+  #if defined(MPU9250) || defined(ICM20648)
   float hxVal = Imu.mag_x_ut();
   float hyVal = Imu.mag_y_ut();
   float hzVal = Imu.mag_z_ut();
+  #else
+  float hxVal = 0;
+  float hyVal = 0;
+  float hzVal = 0;
+  #endif
   float headingVal;
   
   if (-hyVal > 0){
