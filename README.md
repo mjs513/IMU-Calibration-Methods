@@ -1,6 +1,6 @@
 In attempting to gain further insight into into calibration techniques for IMU decided to do a bit of a dive into the calibration techniques from accelerometers, magnetometers and gyroscopes.   So here goes.
 
-INSERT LINK to paper
+The complete write up with more detail than you can image is https://github.com/mjs513/IMU-Calibration-Methods/blob/main/docs/IMU%20CalibrationV1.docx
 
 
 ## Magnetometers
