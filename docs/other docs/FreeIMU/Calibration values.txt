@@ -1,0 +1,107 @@
+Printing IMU:
+IMU Biases:
+Accel X Bias:         0.093902
+Accel X Scale Factor: 1.001197
+Accel Y Bias:         0.093902
+Accel Y Scale Factor: 0.999423
+Accel Z Bias:         -0.310150
+Accel Z Scale Factor: 1.029498
+Gyro X Bias:          -0.069605
+Gyro Y Bias:          0.038339
+Gyro Z Bias:          -0.018238
+Mag X Bias:           18.221668
+Mag X Scale Factor:   1.013987
+Mag Y Bias:           2.135885
+Mag Y Scale Factor:   1.013153
+Mag Z Bias:           -31.471630
+Mag Z Scale Factor:   0.973922
+
+Wait... Conducting IMU static calibration...
+Static Calibration Bias Values:
+axb: 0.312721
+ayb: -0.165614
+azb: -0.604146
+gxb: -0.005327
+gyb: 0.016831
+gzb: -0.012272
+hxb: 24.372444
+hyb: 20.906870
+hzb: -33.975266
+ 
+Wait... Conducting IMU noise sigma calculation...
+Static IMU Sensor Sigma Values:
+axb Sigma (m/ss):  0.008317  axMax: 0.335193  axMin: -0.186751
+ayb Sigma (m/ss):  0.009390  ayMax: -0.138866  ayMin: -0.186751
+azb Sigma (m/ss):  0.014450  azMax: -10.381417  azMin: -10.448455
+gxb Sigma (deg/s): 0.000809  gxMax: -0.003196  gxMin: -0.007457
+gyb Sigma (deg/s): 0.000729  gyMax: 0.019175  gyMin: 0.015979
+gzb Sigma (deg/s): 0.000771  gzMax: -0.010653  gzMin: -0.013849
+hxb Sigma (uT):    5.145304  hxMax: 90.328842  hxMin: 0.000000
+hyb Sigma (uT):    0.817196  hyMax: 18.280838  hyMin: 14.158688
+hzb Sigma (uT):    0.726693  hzMax: 14.168059  hzMin: 10.885217
+
+========================================================================
+
+Accelerometer Scale: 0.00049
+Gyro Scale: 0.06104
+Magnetometer Scales:
+	Magx: 0.17922
+	Magx: 0.17922
+	Magx: 0.17278
+OK....Accelerometer Scale: 0.00049
+Gyro Scale: 0.06104
+Magnetometer Scales:
+	Magx: 0.17922
+	Magx: 0.17922
+	Magx: 0.17278
+OK....
+
+==========================================================================
+
+#define CALIBRATION_H
+
+const int acc_off_x = -37;
+const int acc_off_y = 30;
+const int acc_off_z = 130;
+const int acc_scale_x = 2047.000000;
+const int acc_scale_y = 2060.000000;
+const int acc_scale_z = 2065.000000;
+
+const int magn_off_x = 99;
+const int magn_off_y = 16;
+const int magn_off_z = -186;
+const int magn_scale_x = 239.000000;
+const int magn_scale_y = 246.000000;
+const int magn_scale_z = 263.000000;
+
+==========================================================================
+
+1.0034,-0.0051,-0.0025,-0.0051,1.0065,0.0065,-0.0025,0.0065,0.99030.000,0.000,0.000,0.000,0.000,0.000,17.791,3.680,-32.655,44.126
+
+==========================================================================
+
+========================================================================
+Accelerometer Scale: 0.00049
+Gyro Scale: 0.06104
+Magnetometer Scales:
+	Magx: 0.17922
+	Magx: 0.17922
+	Magx: 0.17278
+No Cal: -0.022759, -0.100129, -1.055997, 0.665429, 0.722207, 0.188737
+FreeIMU Avg: -0.037976, -0.082286, -0.983792, 0.135063, 0.509187, 0.851521
+MotionCal: 0.000000, 0.000000, 0.000000, 0.120326, 0.490594, 0.863040
+Magneto1.2: 0.005139, -0.035185, -0.989124, 0.124463, 0.515762, 0.847643
+Min/Max: -0.032398, -0.108801, -1.054241, 0.122629, 0.532700, 0.837373
+
+============================================
+No Cal: 0.042984, 0.996876, -0.049605, 0.549364, -0.687921, -0.474304
+FreeIMU Avg: 0.027684, 1.015095, 0.012024, 0.307280, -0.945406, 0.125361
+MotionCal: 0.000000, 0.000000, 0.000000, 0.290120, -0.948288, 0.128762
+Magneto1.2: -0.008669, 0.042733, -0.003710, 0.289586, -0.950179, 0.115324
+Min/Max: 0.035453, 0.985617, -0.035038, 0.278928, -0.953162, 0.116967
+==================================================================
+No Cal: 1.007872, -0.074820, -0.005015, -0.730439, -0.144621, -0.667491
+FreeIMU Avg: 0.987631, -0.055896, 0.056252, -0.971967, -0.172845, 0.226426
+MotionCal: 0.000000, 0.000000, 0.000000, -0.946564, -0.196635, 0.255639
+Magneto1.2: 0.010810, 1.007685, 0.045439, -0.953090, -0.182460, 0.241509
+Min/Max: 0.999335, -0.083722, 0.018620, -0.961202, -0.162570, 0.222850

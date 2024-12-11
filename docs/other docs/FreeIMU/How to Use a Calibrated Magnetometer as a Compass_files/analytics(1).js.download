@@ -1,0 +1,11 @@
+function __analyticsView(data) {
+    var utag = window.utag;
+    if (utag) {
+        utag.dkView(Object.assign({}, data));
+    }
+    
+    var dl = window.dataLayer;
+    if (dl) {
+        dl.push(Object.assign({}, data));
+    }
+}

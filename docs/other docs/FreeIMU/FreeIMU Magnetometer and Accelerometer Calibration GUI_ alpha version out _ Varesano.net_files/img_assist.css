@@ -1,0 +1,47 @@
+
+span.inline-left {
+  display: block;
+  float: left;
+  margin: 5px 5px 5px 0px;
+}
+span.inline-right {
+  display: block;
+  float: right;
+  margin: 5px 0px 5px 5px;
+}
+span.inline-center {
+  display: block;
+  text-align: center;
+}
+span.inline .caption {
+  display: block;
+}
+.image-clear {
+  display: block;
+  clear: both;
+  height: 1px;
+  line-height: 0px;
+  font-size: 0px;
+  margin-bottom: -1px;
+}
+
+/*
+     FILE ARCHIVED ON 07:47:10 May 05, 2019 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 12:20:35 Sep 16, 2024.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 0.899
+  exclusion.robots: 0.037
+  exclusion.robots.policy: 0.021
+  esindex: 0.024
+  cdx.remote: 6.836
+  LoadShardBlock: 73.843 (3)
+  PetaboxLoader3.datanode: 72.843 (4)
+  load_resource: 97.858
+  PetaboxLoader3.resolve: 44.424
+*/

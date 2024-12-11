@@ -1,0 +1,191 @@
+$(function () {
+    $("#changeFavoriteLink").on("click", function (e) {
+        e.preventDefault();
+        var guid = $(this).data("guid");
+        var type = $(this).data("contenttype");
+        var antiforgeryToken = $('[name=__RequestVerificationToken]').val();
+        $.ajax({
+            type: 'post',
+            context: this,
+            url: "/api/scTools/ProjectRightColumn/ChangeFavoriteStatus",
+            data: { contentId: guid, contentType: type, __RequestVerificationToken: antiforgeryToken },
+            beforeSend: function () {
+                ChangeFavoriteStatus(this);
+            },
+            error: function () {
+                ChangeFavoriteStatus(this);
+            }
+        });
+    });
+
+    $("#changeLikeLink").on("click", function (e) {
+        e.preventDefault();
+        var guid = $(this).data("guid");
+        var type = $(this).data("contenttype");
+        var antiforgeryToken = $('[name=__RequestVerificationToken]').val();
+        $.ajax({
+            type: 'post',
+            context: this,
+            url: "/api/scTools/ProjectRightColumn/ChangeLikeStatus",
+            data: { contentId: guid, contentType: type, __RequestVerificationToken: antiforgeryToken },
+            beforeSend: function () {
+                ChangeLikeStatus(this);
+            },
+            error: function () {
+                ChangeLikeStatus(this);
+            }
+        });
+    });
+
+    function ChangeLikeStatus(context) {
+        var text = $(context).text();
+        if (text == document.Phrases.likeText) {
+            $(context).text(document.Phrases.unlikeText);
+        } else {
+            $(context).text(document.Phrases.likeText);
+        }
+    }
+
+    function ChangeFavoriteStatus(context) {
+        var text = $(context).text();
+        if (text == document.Phrases.saveText) {
+            $(context).text(document.Phrases.unsaveText);
+        }
+        else {
+            $(context).text(document.Phrases.saveText);
+        }
+    }
+});
+
+$(function () {
+    $("#publishProjectButton").on("click", function () {
+        var guid = $(this).data("guid");
+        var antiforgeryToken = $('[name=__RequestVerificationToken]').val();
+        $.ajax({
+            type: 'post',
+            context: this,
+            url: "/api/scTools/ProjectRightColumn/PublishProject",
+            data: { contentId: guid, __RequestVerificationToken: antiforgeryToken },
+            beforeSend: function () {
+            },
+            success: function () {
+                ChangePublishToUnpublish();
+            },
+            error: function () {
+            }
+        });
+    });
+});
+
+$(function () {
+    $("#finalApprovalProjectButton").on("click", function () {
+        var guid = $(this).data("guid");
+        var antiforgeryToken = $('[name=__RequestVerificationToken]').val();
+        $.ajax({
+            type: 'post',
+            context: this,
+            url: "/api/scTools/ProjectRightColumn/FinalApprovalProject",
+            data: { contentId: guid, __RequestVerificationToken: antiforgeryToken },
+            beforeSend: function () {
+            },
+            success: function (res) {
+                if (res.success) {
+                    FinalApprovalProject();
+                }
+                else {
+                    alert(res.responseText);
+                }
+            },
+            error: function () {
+            }
+        });
+    });
+});
+
+function FinalApprovalProject() {
+    $("#finalApprovalProjectButton").hide();
+}
+
+function ChangePublishToUnpublish() {
+    $("#publishProjectButton").hide();
+    $("#unpublishProjectButton").show();
+}
+
+$(function () {
+    $("#deleteYes").on("click", function () {
+        var guid = $(this).data("guid");
+        var antiforgeryToken = $('[name=__RequestVerificationToken]').val();
+        $.ajax({
+            type: 'post',
+            context: this,
+            url: "/api/scTools/ProjectRightColumn/DeleteProject",
+            data: { contentId: guid, __RequestVerificationToken: antiforgeryToken },
+            beforeSend: function () {
+            },
+            success: function (d) {
+                window.location = d;
+            },
+            error: function () {
+            }
+        });
+    });
+});
+
+$(function () {
+    $("#recoverYes").on("click", function () {
+        var guid = $(this).data("guid");
+        var antiforgeryToken = $('[name=__RequestVerificationToken]').val();
+        $.ajax({
+            type: 'post',
+            context: this,
+            url: "/api/scTools/ProjectRightColumn/RecoverProject",
+            data: { contentId: guid, __RequestVerificationToken: antiforgeryToken },
+            beforeSend: function () {
+            },
+            success: function (d) {
+                window.location = d;
+            },
+            error: function () {
+            }
+        });
+    });
+});
+
+$(function () {
+    $("#deleteNo").on("click", function () {
+        $("#deleteProjectButton").show();
+        $("#deleteConfirmation").hide();
+    });
+});
+
+$(function () {
+    $("#deleteProjectButton").on("click", function () {
+        $("#deleteProjectButton").hide();
+        $("#deleteConfirmation").show();
+    });
+});
+
+$(function () {
+    $("#unpublishProjectButton").on("click", function () {
+        var guid = $(this).data("guid");
+        var antiforgeryToken = $('[name=__RequestVerificationToken]').val();
+        $.ajax({
+            type: 'post',
+            context: this,
+            url: "/api/scTools/ProjectRightColumn/UnpublishProject",
+            data: { contentId: guid, __RequestVerificationToken: antiforgeryToken },
+            beforeSend: function () {
+            },
+            success: function () {
+                ChangeUnpublishToPublish();
+            },
+            error: function () {
+            }
+        });
+    });
+});
+
+function ChangeUnpublishToPublish() {
+    $("#unpublishProjectButton").hide();
+    $("#publishProjectButton").show();
+}

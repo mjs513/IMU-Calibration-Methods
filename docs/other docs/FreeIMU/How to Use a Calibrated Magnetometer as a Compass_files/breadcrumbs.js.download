@@ -1,0 +1,18 @@
+function appendBreadcrumb(urlToAppend, nameToAppend) {
+    if (urlToAppend !== "" && nameToAppend !== "") {
+        var breadcrumbsList = document.getElementsByClassName("dk-breadcrumb")[0];
+        if (breadcrumbsList) {
+            breadcrumbsList.firstElementChild.lastElementChild.removeAttribute("aria-current");
+
+            var newBreadcrumb = document.createElement("a");
+            newBreadcrumb.setAttribute("aria-current", "page");
+            newBreadcrumb.setAttribute("href", urlToAppend);
+            newBreadcrumb.innerText = nameToAppend;
+
+            var newBreadcrumbLi = document.createElement("li");
+            newBreadcrumbLi.appendChild(newBreadcrumb);
+
+            breadcrumbsList.firstElementChild.appendChild(newBreadcrumbLi);
+        }
+    }
+}

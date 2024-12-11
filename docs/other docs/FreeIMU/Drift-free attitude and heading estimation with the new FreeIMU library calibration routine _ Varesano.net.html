@@ -1,0 +1,983 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- saved from url=(0160)https://web.archive.org/web/20191118033038/http://www.varesano.net/blog/fabio/drift-free-attitude-and-heading-estimation-new-freeimu-library-calibration-routine -->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr" class="js"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><script src="./Drift-free attitude and heading estimation with the new FreeIMU library calibration routine _ Varesano.net_files/osd.js.download"></script><script src="./Drift-free attitude and heading estimation with the new FreeIMU library calibration routine _ Varesano.net_files/f.txt" id="google_shimpl"></script><script src="./Drift-free attitude and heading estimation with the new FreeIMU library calibration routine _ Varesano.net_files/athena.js.download" type="text/javascript"></script>
+<script type="text/javascript">window.addEventListener('DOMContentLoaded',function(){var v=archive_analytics.values;v.service='wb';v.server_name='wwwb-app220.us.archive.org';v.server_ms=565;archive_analytics.send_pageview({});});</script>
+<script type="text/javascript" src="./Drift-free attitude and heading estimation with the new FreeIMU library calibration routine _ Varesano.net_files/bundle-playback.js.download" charset="utf-8"></script>
+<script type="text/javascript" src="./Drift-free attitude and heading estimation with the new FreeIMU library calibration routine _ Varesano.net_files/wombat.js.download" charset="utf-8"></script>
+<script>window.RufflePlayer=window.RufflePlayer||{};window.RufflePlayer.config={"autoplay":"on","unmuteOverlay":"hidden"};</script>
+<script type="text/javascript" src="./Drift-free attitude and heading estimation with the new FreeIMU library calibration routine _ Varesano.net_files/ruffle.js.download"></script>
+<script type="text/javascript">
+    __wm.init("https://web.archive.org/web");
+  __wm.wombat("http://www.varesano.net:80/blog/fabio/drift-free-attitude-and-heading-estimation-new-freeimu-library-calibration-routine","20191118033038","https://web.archive.org/","web","https://web-static.archive.org/_static/",
+	      "1574047838");
+</script>
+<link rel="stylesheet" type="text/css" href="./Drift-free attitude and heading estimation with the new FreeIMU library calibration routine _ Varesano.net_files/banner-styles.css">
+<link rel="stylesheet" type="text/css" href="./Drift-free attitude and heading estimation with the new FreeIMU library calibration routine _ Varesano.net_files/iconochive.css">
+<!-- End Wayback Rewrite JS Include -->
+
+
+
+<link rel="canonical" href="https://web.archive.org/web/20191118033038/http://www.varesano.net/blog/fabio/drift-free-attitude-and-heading-estimation-new-freeimu-library-calibration-routine">
+<link rel="shortcut icon" href="https://web.archive.org/web/20191118033038im_/http://www.varesano.net/misc/favicon.ico" type="image/x-icon">
+<meta name="description" content="The problem of missing calibration routines for the FreeIMU has been bothering me for a long time.. I was aware of many approaches to the problem but simply never been able to work on it.">
+<link rel="canonical" href="https://web.archive.org/web/20191118033038/http://www.varesano.net/blog/fabio/drift-free-attitude-and-heading-estimation-new-freeimu-library-calibration-routine">
+<meta name="revisit-after" content="1 day">
+<title>Drift-free attitude and heading estimation with the new FreeIMU library calibration routine | Varesano.net</title>
+<meta http-equiv="Content-Style-Type" content="text/css">
+<link type="text/css" rel="stylesheet" media="all" href="./Drift-free attitude and heading estimation with the new FreeIMU library calibration routine _ Varesano.net_files/eu_cookie_compliance.css">
+<link type="text/css" rel="stylesheet" media="all" href="./Drift-free attitude and heading estimation with the new FreeIMU library calibration routine _ Varesano.net_files/node.css">
+<link type="text/css" rel="stylesheet" media="all" href="./Drift-free attitude and heading estimation with the new FreeIMU library calibration routine _ Varesano.net_files/defaults.css">
+<link type="text/css" rel="stylesheet" media="all" href="./Drift-free attitude and heading estimation with the new FreeIMU library calibration routine _ Varesano.net_files/system.css">
+<link type="text/css" rel="stylesheet" media="all" href="./Drift-free attitude and heading estimation with the new FreeIMU library calibration routine _ Varesano.net_files/system-menus.css">
+<link type="text/css" rel="stylesheet" media="all" href="./Drift-free attitude and heading estimation with the new FreeIMU library calibration routine _ Varesano.net_files/user.css">
+<link type="text/css" rel="stylesheet" media="all" href="./Drift-free attitude and heading estimation with the new FreeIMU library calibration routine _ Varesano.net_files/img_assist.css">
+<link type="text/css" rel="stylesheet" media="all" href="./Drift-free attitude and heading estimation with the new FreeIMU library calibration routine _ Varesano.net_files/mollom.css">
+<link type="text/css" rel="stylesheet" media="all" href="./Drift-free attitude and heading estimation with the new FreeIMU library calibration routine _ Varesano.net_files/tagadelic.css">
+<link type="text/css" rel="stylesheet" media="all" href="./Drift-free attitude and heading estimation with the new FreeIMU library calibration routine _ Varesano.net_files/video_filter.css">
+<link type="text/css" rel="stylesheet" media="all" href="./Drift-free attitude and heading estimation with the new FreeIMU library calibration routine _ Varesano.net_files/extlink.css">
+<link type="text/css" rel="stylesheet" media="all" href="./Drift-free attitude and heading estimation with the new FreeIMU library calibration routine _ Varesano.net_files/views.css">
+<link type="text/css" rel="stylesheet" media="all" href="./Drift-free attitude and heading estimation with the new FreeIMU library calibration routine _ Varesano.net_files/comment.css">
+<link type="text/css" rel="stylesheet" media="all" href="./Drift-free attitude and heading estimation with the new FreeIMU library calibration routine _ Varesano.net_files/style.css">
+<script type="text/javascript" src="./Drift-free attitude and heading estimation with the new FreeIMU library calibration routine _ Varesano.net_files/jquery.js.download"></script>
+<script type="text/javascript" src="./Drift-free attitude and heading estimation with the new FreeIMU library calibration routine _ Varesano.net_files/drupal.js.download"></script>
+<script type="text/javascript" src="./Drift-free attitude and heading estimation with the new FreeIMU library calibration routine _ Varesano.net_files/img_assist.js.download"></script>
+<script type="text/javascript" src="./Drift-free attitude and heading estimation with the new FreeIMU library calibration routine _ Varesano.net_files/mollom.js.download"></script>
+<script type="text/javascript" src="./Drift-free attitude and heading estimation with the new FreeIMU library calibration routine _ Varesano.net_files/spamspan.compressed.js.download"></script>
+<script type="text/javascript" src="./Drift-free attitude and heading estimation with the new FreeIMU library calibration routine _ Varesano.net_files/extlink.js.download"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+jQuery.extend(Drupal.settings, { "basePath": "/", "spamspan": { "m": "spamspan", "u": "u", "d": "d", "h": "h", "t": "t" }, "extlink": { "extTarget": 0, "extClass": "ext", "extSubdomains": 1, "extExclude": "", "extInclude": "", "extAlert": 0, "extAlertText": "This link will take you to an external web site. We are not responsible for their content.", "mailtoClass": "mailto" } });
+//--><!]]>
+</script>
+<!--[if lte IE 7]>
+<style type="text/css" media="all">@import "/sites/all/themes/varesano_net/fix-ie.css";</style>
+<![endif]-->
+<link rel="preload" href="./Drift-free attitude and heading estimation with the new FreeIMU library calibration routine _ Varesano.net_files/f(1).txt" as="script"><script type="text/javascript" src="./Drift-free attitude and heading estimation with the new FreeIMU library calibration routine _ Varesano.net_files/f(1).txt"></script><link rel="preload" href="https://web.archive.org/web/20191118033038mp_/https://pagead2.googlesyndication.com/pagead/js/r20191112/r20190131/show_ads_impl.js" as="script"></head>
+
+<body class="sliding-popup-processed"><div id="sliding-popup" style="height: auto; width: 100%; top: 0px;" class="sliding-popup-top">
+  <div class="popup-content info">
+    <div id="popup-text">
+      <h2>Questo sito fa uso di cookies.</h2>
+<p>Cliccando un qualunque link accetti al loro utilizzo.</p>
+    </div>
+    <div id="popup-buttons">
+      <button type="button" class="agree-button">OK</button>
+    <button type="button" class="find-more-button">No</button>
+    </div>
+  </div>
+</div><!-- BEGIN WAYBACK TOOLBAR INSERT -->
+<script>__wm.rw(0);</script>
+<div id="wm-ipp-base" lang="en" style="display: block; direction: ltr;"><template shadowrootmode="closed"><div id="wm-ipp" style="position:fixed;left:0;top:0;right:0;">
+<div id="donato" style="position:relative;width:100%;">
+  <div id="donato-base">
+    <iframe id="donato-if" src="https://archive.org/includes/donate.php?as_page=1&amp;platform=wb&amp;referer=https%3A//web.archive.org/web/20191118033038/http%3A//www.varesano.net/blog/fabio/drift-free-attitude-and-heading-estimation-new-freeimu-library-calibration-routine" scrolling="no" frameborder="0" style="width:100%; height:100%">
+    </iframe>
+  </div>
+</div><div id="wm-ipp-inside">
+  <div id="wm-toolbar" style="position:relative;display:flex;flex-flow:row nowrap;justify-content:space-between;">
+    <div id="wm-logo" style="/*width:110px;*/padding-top:12px;">
+      <a href="https://web.archive.org/web/" title="Wayback Machine home page"><img src="https://web-static.archive.org/_static/images/toolbar/wayback-toolbar-logo-200.png" srcset="https://web-static.archive.org/_static/images/toolbar/wayback-toolbar-logo-100.png, https://web-static.archive.org/_static/images/toolbar/wayback-toolbar-logo-150.png 1.5x, https://web-static.archive.org/_static/images/toolbar/wayback-toolbar-logo-200.png 2x" alt="Wayback Machine" style="width:100px" border="0"></a>
+    </div>
+    <div class="c" style="display:flex;flex-flow:column nowrap;justify-content:space-between;flex:1;">
+      <form class="u" style="display:flex;flex-direction:row;flex-wrap:nowrap;" target="_top" method="get" action="https://web.archive.org/web/submit" name="wmtb" id="wmtb"><input type="text" name="url" id="wmtbURL" value="http://www.varesano.net/blog/fabio/drift-free-attitude-and-heading-estimation-new-freeimu-library-calibration-routine" onfocus="this.focus();this.select();" style="flex:1;" autocomplete="off"><input type="hidden" name="type" value="replay"><input type="hidden" name="date" value="20191118033038"><input type="submit" value="Go">
+      </form>
+      <div style="display:flex;flex-flow:row nowrap;align-items:flex-end;">
+                <div class="s" id="wm-nav-captures" style="flex:1;"><a class="t" href="https://web.archive.org/web/*/http://www.varesano.net/blog/fabio/drift-free-attitude-and-heading-estimation-new-freeimu-library-calibration-routine" title="See a list of every capture for this URL">80 captures</a><div class="r" title="Timespan for captures of this URL">7 Aug 2012 - 5 Dec 2022</div></div>
+        <div class="k">
+          <a href="https://web.archive.org/web/20191118033038/http://www.varesano.net/blog/fabio/drift-free-attitude-and-heading-estimation-new-freeimu-library-calibration-routine" id="wm-graph-anchor">
+            <div id="wm-ipp-sparkline" title="Explore captures for this URL" style="position: relative">
+              <canvas id="wm-sparkline-canvas" width="725" height="27" border="0"></canvas>
+            <div class="yt" style="display: none; width: 25px; height: 27px;"></div><div class="mt" style="display: none; width: 2px; height: 27px;"></div></div>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="n">
+      <table>
+        <tbody>
+          <!-- NEXT/PREV MONTH NAV AND MONTH INDICATOR -->
+          <tr class="m">
+            <td class="b" nowrap="nowrap"><a href="https://web.archive.org/web/20190921231532/http://www.varesano.net:80/blog/fabio/drift-free-attitude-and-heading-estimation-new-freeimu-library-calibration-routine" title="21 Sep 2019"><strong>Sep</strong></a></td>
+            <td class="c" id="displayMonthEl" title="You are here: 03:30:38 Nov 18, 2019">NOV</td>
+            <td class="f" nowrap="nowrap"><a href="https://web.archive.org/web/20191218050355/http://www.varesano.net:80/blog/fabio/drift-free-attitude-and-heading-estimation-new-freeimu-library-calibration-routine" title="18 Dec 2019"><strong>Dec</strong></a></td>
+          </tr>
+          <!-- NEXT/PREV CAPTURE NAV AND DAY OF MONTH INDICATOR -->
+          <tr class="d">
+            <td class="b" nowrap="nowrap"><a href="https://web.archive.org/web/20191018213208/http://www.varesano.net:80/blog/fabio/drift-free-attitude-and-heading-estimation-new-freeimu-library-calibration-routine" title="21:32:08 Oct 18, 2019"><img src="https://web-static.archive.org/_static/images/toolbar/wm_tb_prv_on.png" alt="Previous capture" width="14" height="16" border="0"></a></td>
+            <td class="c" id="displayDayEl" style="width:34px;font-size:22px;white-space:nowrap;" title="You are here: 03:30:38 Nov 18, 2019">18</td>
+            <td class="f" nowrap="nowrap"><a href="https://web.archive.org/web/20191218050355/http://www.varesano.net:80/blog/fabio/drift-free-attitude-and-heading-estimation-new-freeimu-library-calibration-routine" title="05:03:55 Dec 18, 2019"><img src="https://web-static.archive.org/_static/images/toolbar/wm_tb_nxt_on.png" alt="Next capture" width="14" height="16" border="0"></a></td>
+          </tr>
+          <!-- NEXT/PREV YEAR NAV AND YEAR INDICATOR -->
+          <tr class="y">
+            <td class="b" nowrap="nowrap"><a href="https://web.archive.org/web/20181111114405/http://www.varesano.net:80/blog/fabio/drift-free-attitude-and-heading-estimation-new-freeimu-library-calibration-routine" title="11 Nov 2018"><strong>2018</strong></a></td>
+            <td class="c" id="displayYearEl" title="You are here: 03:30:38 Nov 18, 2019">2019</td>
+            <td class="f" nowrap="nowrap"><a href="https://web.archive.org/web/20221205111542/http://www.varesano.net/blog/fabio/drift-free-attitude-and-heading-estimation-new-freeimu-library-calibration-routine" title="05 Dec 2022"><strong>2022</strong></a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="r" style="display:flex;flex-flow:column nowrap;align-items:flex-end;justify-content:space-between;">
+      <div id="wm-btns" style="text-align:right;height:23px;">
+                <span class="xxs">
+          <div id="wm-save-snapshot-success">success</div>
+          <div id="wm-save-snapshot-fail">fail</div>
+          <a id="wm-save-snapshot-open" href="https://web.archive.org/web/20191118033038/http://www.varesano.net/blog/fabio/drift-free-attitude-and-heading-estimation-new-freeimu-library-calibration-routine#" title="Share via My Web Archive" style="display: none;">
+            <span class="iconochive-web"></span>
+          </a>
+          <a href="https://archive.org/account/login.php" title="Sign In" id="wm-sign-in" style="display: inline-block;">
+            <span class="iconochive-person"></span>
+          </a>
+          <span id="wm-save-snapshot-in-progress" class="iconochive-web" style="display: none;"></span>
+        </span>
+                <a class="xxs" href="http://faq.web.archive.org/" title="Get some help using the Wayback Machine" style="top:-6px;"><span class="iconochive-question" style="color:rgb(87,186,244);font-size:160%;"></span></a>
+        <a id="wm-tb-close" href="https://web.archive.org/web/20191118033038/http://www.varesano.net/blog/fabio/drift-free-attitude-and-heading-estimation-new-freeimu-library-calibration-routine#close" style="top:-2px;" title="Close the toolbar"><span class="iconochive-remove-circle" style="color:#888888;font-size:240%;"></span></a>
+      </div>
+      <div id="wm-share" class="xxs">
+        <a href="https://web.archive.org/web/20191118033038/http://web.archive.org/screenshot/http://www.varesano.net/blog/fabio/drift-free-attitude-and-heading-estimation-new-freeimu-library-calibration-routine" id="wm-screenshot" title="screenshot" style="visibility: hidden;">
+          <span class="wm-icon-screen-shot"></span>
+        </a>
+        <a href="https://web.archive.org/web/20191118033038/http://www.varesano.net/blog/fabio/drift-free-attitude-and-heading-estimation-new-freeimu-library-calibration-routine#" id="wm-video" title="video">
+          <span class="iconochive-movies"></span>
+        </a>
+        <a id="wm-share-facebook" href="https://web.archive.org/web/20191118033038/http://www.varesano.net/blog/fabio/drift-free-attitude-and-heading-estimation-new-freeimu-library-calibration-routine#" data-url="https://web.archive.org/web/20191118033038/http://www.varesano.net:80/blog/fabio/drift-free-attitude-and-heading-estimation-new-freeimu-library-calibration-routine" title="Share on Facebook" style="margin-right:5px;" target="_blank"><span class="iconochive-facebook" style="color:#3b5998;font-size:160%;"></span></a>
+        <a id="wm-share-twitter" href="https://web.archive.org/web/20191118033038/http://www.varesano.net/blog/fabio/drift-free-attitude-and-heading-estimation-new-freeimu-library-calibration-routine#" data-url="https://web.archive.org/web/20191118033038/http://www.varesano.net:80/blog/fabio/drift-free-attitude-and-heading-estimation-new-freeimu-library-calibration-routine" title="Share on Twitter" style="margin-right:5px;" target="_blank"><span class="iconochive-twitter" style="color:#1dcaff;font-size:160%;"></span></a>
+      </div>
+      <div style="padding-right:2px;text-align:right;white-space:nowrap;">
+        <a id="wm-expand" class="wm-btn wm-closed" href="https://web.archive.org/web/20191118033038/http://www.varesano.net/blog/fabio/drift-free-attitude-and-heading-estimation-new-freeimu-library-calibration-routine#expand"><span id="wm-expand-icon" class="iconochive-down-solid"></span> <span class="xxs" style="font-size:80%;">About this capture</span></a>
+      </div>
+    </div>
+  </div>
+    <div id="wm-capinfo" style="border-top:1px solid #777;display:none; overflow: hidden">
+        <div id="wm-capinfo-notice" source="api"></div>
+                <div id="wm-capinfo-collected-by">
+    <div style="background-color:#666;color:#fff;font-weight:bold;text-align:center">COLLECTED BY</div>
+    <div style="padding:3px;position:relative" id="wm-collected-by-content">
+            <div style="display:inline-block;vertical-align:top;width:50%;">
+			<span class="c-logo" style="background-image:url(https://archive.org/services/img/alexacrawls);"></span>
+		Organization: <a style="color:#33f;" href="https://archive.org/details/alexacrawls" target="_new"><span class="wm-title">Alexa Crawls</span></a>
+		<div style="max-height:75px;overflow:hidden;position:relative;">
+	  <div style="position:absolute;top:0;left:0;width:100%;height:75px;background:linear-gradient(to bottom,rgba(255,255,255,0) 0%,rgba(255,255,255,0) 90%,rgba(255,255,255,255) 100%);"></div>
+	  Starting in 1996, <a href="http://www.alexa.com/">Alexa Internet</a> has been donating their crawl data to the Internet Archive.  Flowing in every day, these data are added to the <a href="http://web.archive.org/">Wayback Machine</a> after an embargo period.
+	</div>
+	      </div>
+      <div style="display:inline-block;vertical-align:top;width:49%;">
+			<span class="c-logo" style="background-image:url(https://archive.org/services/img/alexacrawls)"></span>
+		<div>Collection: <a style="color:#33f;" href="https://archive.org/details/alexacrawls" target="_new"><span class="wm-title">Alexa Crawls</span></a></div>
+		<div style="max-height:75px;overflow:hidden;position:relative;">
+	  <div style="position:absolute;top:0;left:0;width:100%;height:75px;background:linear-gradient(to bottom,rgba(255,255,255,0) 0%,rgba(255,255,255,0) 90%,rgba(255,255,255,255) 100%);"></div>
+	  Starting in 1996, <a href="http://www.alexa.com/">Alexa Internet</a> has been donating their crawl data to the Internet Archive.  Flowing in every day, these data are added to the <a href="http://web.archive.org/">Wayback Machine</a> after an embargo period.
+	</div>
+	      </div>
+    </div>
+    </div>
+    <div id="wm-capinfo-timestamps">
+    <div style="background-color:#666;color:#fff;font-weight:bold;text-align:center" title="Timestamps for the elements of this page">TIMESTAMPS</div>
+    <div>
+      <div id="wm-capresources" style="margin:0 5px 5px 5px;max-height:250px;overflow-y:scroll !important"></div>
+      <div id="wm-capresources-loading" style="text-align:left;margin:0 20px 5px 5px;display:none"><img src="https://web-static.archive.org/_static/images/loading.gif" alt="loading"></div>
+    </div>
+    </div>
+  </div></div></div><link rel="stylesheet" type="text/css" href="./Drift-free attitude and heading estimation with the new FreeIMU library calibration routine _ Varesano.net_files/banner-styles.css"><link rel="stylesheet" type="text/css" href="./Drift-free attitude and heading estimation with the new FreeIMU library calibration routine _ Varesano.net_files/iconochive.css"><div class="wb-autocomplete-suggestions "></div></template>
+</div><div id="wm-ipp-print">The Wayback Machine - https://web.archive.org/web/20191118033038/http://www.varesano.net:80/blog/fabio/drift-free-attitude-and-heading-estimation-new-freeimu-library-calibration-routine</div>
+<script type="text/javascript">//<![CDATA[
+__wm.bt(725,27,25,2,"web","http://www.varesano.net/blog/fabio/drift-free-attitude-and-heading-estimation-new-freeimu-library-calibration-routine","20191118033038",1996,"https://web-static.archive.org/_static/",["https://web-static.archive.org/_static/css/banner-styles.css?v=S1zqJCYt","https://web-static.archive.org/_static/css/iconochive.css?v=qtvMKcIJ"], false);
+  __wm.rw(1);
+//]]></script>
+<!-- END WAYBACK TOOLBAR INSERT -->
+ 
+  <div id="container">
+    <div id="header">
+      <h2><a href="https://web.archive.org/web/20191118033038/http://www.varesano.net/" title="Varesano.net "><span>Varesano.net</span></a></h2>
+                  <span id="nav">Navigation</span>
+        <ul id="navigation"><li class="menu-43 first"><a href="https://web.archive.org/web/20191118033038/http://www.varesano.net/" title="Go back to this website homepage">Home</a></li>
+<li class="menu-46"><a href="https://web.archive.org/web/20191118033038/http://www.varesano.net/about" title="Informations about Fabio Varesano">About</a></li>
+<li class="menu-68"><a href="https://web.archive.org/web/20191118033038/http://www.varesano.net/topic" title="A list of all Topics / Tags available on this website">Topics</a></li>
+<li class="menu-76"><a href="https://web.archive.org/web/20191118033038/http://www.varesano.net/contents/projects" title="Some of the projects I work on">Projects</a></li>
+<li class="menu-87"><a href="https://web.archive.org/web/20191118033038/http://www.varesano.net/socialize" title="Follow me on Social Networks and Communities online">Socialize</a></li>
+<li class="menu-45 last"><a href="https://web.archive.org/web/20191118033038/http://www.varesano.net/contact" title="Contact Fabio Varesano">Contact</a></li>
+</ul>       <!-- primary links  -->
+
+    </div> <!-- header -->
+
+    <div id="content">
+                        <div id="breadcrumbs">
+            <div class="breadcrumb"><a href="https://web.archive.org/web/20191118033038/http://www.varesano.net/">Home</a> » <a href="https://web.archive.org/web/20191118033038/http://www.varesano.net/blog">Blogs</a> » <a href="https://web.archive.org/web/20191118033038/http://www.varesano.net/blog/fabio">fabio's blog</a></div>          </div>
+              
+      
+              <h1 id="title">Drift-free attitude and heading estimation with the new FreeIMU library calibration routine</h1>
+      
+      
+      
+      
+      <!-- start main content -->
+      <div class="node node-page" id="node-272">
+
+  <div class="info">Submitted by fabio on Tue, 2012-07-31 15:15.</div>
+
+  <div class="content">
+    <p>The problem of missing calibration routines for the FreeIMU has been bothering me for a <a href="https://web.archive.org/web/20191118033038/http://www.varesano.net/blog/fabio/first-steps-hmc5843-arduino-verify-accuracy-its-results">long time</a>.. I was aware of many approaches to the problem but simply never been able to work on it.</p>
+<p>Thanks to the help of <a href="https://web.archive.org/web/20191118033038/http://www.aepwebmasters.it/" class="ext">Andrea and Pasquale Cirillo</a><span class="ext"></span> which provided me with some calibration code based upon the "infamous" AN3192 from ST Microsystems, I've been able to embed everything into a nice calibration procedure for the FreeIMU library.</p>
+<p>The results are very promising, as you should see from the video below. Code is available on the <a href="https://web.archive.org/web/20191118033038/https://launchpad.net/freeimu/" class="ext">FreeIMU repository</a><span class="ext"></span> and will be published in the next version of the <a href="https://web.archive.org/web/20191118033038/http://www.varesano.net/projects/hardware/FreeIMU#library">FreeIMU library</a>.</p>
+<p><iframe src="./Drift-free attitude and heading estimation with the new FreeIMU library calibration routine _ Varesano.net_files/YJ7JPKdffkY.html" width="600" height="363" class="video-filter video-youtube vf-yj7jpkdffky" frameborder="0" data-ruffle-polyfilled=""></iframe></p>
+  </div>
+    <div class="meta"><ul class="links inline"><li class="blog_usernames_blog first"><a href="https://web.archive.org/web/20191118033038/http://www.varesano.net/blog/fabio" title="Read fabio&#39;s latest blog entries.">fabio's blog</a></li>
+<li class="comment_forbidden"><span><a href="https://web.archive.org/web/20191118033038/http://www.varesano.net/user/login?destination=node%2F272%23comment-form">Login</a> to post comments</span></li>
+<li class="statistics_counter last"><span>71346 reads</span></li>
+</ul>          <div class="terms">Posted in: <ul class="links inline"><li class="taxonomy_term_152 first last"><a href="https://web.archive.org/web/20191118033038/http://www.varesano.net/topic/freeimu" rel="tag" title="">FreeIMU</a></li>
+</ul></div>
+      </div>
+</div>
+
+
+<div id="comments">
+  <a id="comment-23410"></a>
+<div class="comment  ">
+
+  <h3 class="title"><a href="https://web.archive.org/web/20191118033038/http://www.varesano.net/blog/fabio/drift-free-attitude-and-heading-estimation-new-freeimu-library-calibration-routine#comment-23410" class="active">Can the Calibration GUI be set up to work on the Sparkfun IMU</a></h3>
+    <div class="author">Submitted by Brad P. (not verified) on Mon, 2013-11-18 18:24.</div>
+  <div class="content"><p>I am using the Sparkfun IMU Digital Combo Board - 6 Degrees of Freedom ITG3200/ADXL345 SEN-10121 and I am trying to slow down, eliminate, or reduced the drift in the sensor. I have the Arduino and process codes working which I downloaded the on chip version off of <a href="https://web.archive.org/web/20191118033038/http://www.varesano.net/blog/fabio/my-first-6-dof-imu-sensors-fusion-implementation-adxl345-itg3200-arduino-and-processing?page=8" title="http://www.varesano.net/blog/fabio/my-first-6-dof-imu-sensors-fusion-implementation-adxl345-itg3200-arduino-and-processing?page=8">http://www.varesano.net/blog/fabio/my-first-6-dof-imu-sensors-fusion-imp...</a>. The FreeIMU-GUI in the library however is not working. I can launch the .bat file and the GUI opens, but when I connect the COM3 (Windows 7) it says it is awaiting Arduino reset and freezes. Is the GUI not applicable to this board or is there another way I can calibrate this board? I am brand new to Arduino and coding in general this semester, so I equate my knowledge to a blind man trying to run a marathon. Please Help.</p>
+</div>
+    <div class="links"><ul class="links"><li class="comment_forbidden first last"><span><a href="https://web.archive.org/web/20191118033038/http://www.varesano.net/user/login?destination=node%2F272%23comment-form">Login</a> to post comments</span></li>
+</ul></div>
+</div>
+<div class="indented"><a id="comment-23523"></a>
+<div class="comment  ">
+
+  <h3 class="title"><a href="https://web.archive.org/web/20191118033038/http://www.varesano.net/blog/fabio/drift-free-attitude-and-heading-estimation-new-freeimu-library-calibration-routine#comment-23523" class="active">did u solve that problem ? ..</a></h3>
+    <div class="author">Submitted by mahmoud (not verified) on Fri, 2014-02-28 19:06.</div>
+  <div class="content"><p>did u solve that problem ? .. i have the same problem with MPU-6050 it freezes</p>
+</div>
+    <div class="links"><ul class="links"><li class="comment_forbidden first last"><span><a href="https://web.archive.org/web/20191118033038/http://www.varesano.net/user/login?destination=node%2F272%23comment-form">Login</a> to post comments</span></li>
+</ul></div>
+</div>
+</div><a id="comment-22414"></a>
+<div class="comment  ">
+
+  <h3 class="title"><a href="https://web.archive.org/web/20191118033038/http://www.varesano.net/blog/fabio/drift-free-attitude-and-heading-estimation-new-freeimu-library-calibration-routine#comment-22414" class="active">It works on windows</a></h3>
+    <div class="author">Submitted by JG (not verified) on Fri, 2012-11-02 13:48.</div>
+  <div class="content"><p>It works on windows,thanks a lot!!!! but everytime i commented your website says: "Your submission has triggered the spam filter and will not be accepted."</p>
+</div>
+    <div class="links"><ul class="links"><li class="comment_forbidden first last"><span><a href="https://web.archive.org/web/20191118033038/http://www.varesano.net/user/login?destination=node%2F272%23comment-form">Login</a> to post comments</span></li>
+</ul></div>
+</div>
+<div class="indented"><a id="comment-22423"></a>
+<div class="comment  ">
+
+  <h3 class="title"><a href="https://web.archive.org/web/20191118033038/http://www.varesano.net/blog/fabio/drift-free-attitude-and-heading-estimation-new-freeimu-library-calibration-routine#comment-22423" class="active">here it is not working on</a></h3>
+    <div class="author">Submitted by legacy (not verified) on Tue, 2012-11-06 14:15.</div>
+  <div class="content"><p>here it is not working on windows, i am not able to install the package because it says there are files missing in the python stuff</p>
+<p>what have you installed ?</p>
+</div>
+    <div class="links"><ul class="links"><li class="comment_forbidden first last"><span><a href="https://web.archive.org/web/20191118033038/http://www.varesano.net/user/login?destination=node%2F272%23comment-form">Login</a> to post comments</span></li>
+</ul></div>
+</div>
+<div class="indented"><a id="comment-22425"></a>
+<div class="comment  ">
+
+  <h3 class="title"><a href="https://web.archive.org/web/20191118033038/http://www.varesano.net/blog/fabio/drift-free-attitude-and-heading-estimation-new-freeimu-library-calibration-routine#comment-22425" class="active">Did you downloaded the</a></h3>
+    <div class="author">Submitted by JG (not verified) on Tue, 2012-11-06 14:28.</div>
+  <div class="content"><p>Did you downloaded the windows version? Run the freeimu.bat .</p>
+</div>
+    <div class="links"><ul class="links"><li class="comment_forbidden first last"><span><a href="https://web.archive.org/web/20191118033038/http://www.varesano.net/user/login?destination=node%2F272%23comment-form">Login</a> to post comments</span></li>
+</ul></div>
+</div>
+<div class="indented"><a id="comment-22427"></a>
+<div class="comment  ">
+
+  <h3 class="title"><a href="https://web.archive.org/web/20191118033038/http://www.varesano.net/blog/fabio/drift-free-attitude-and-heading-estimation-new-freeimu-library-calibration-routine#comment-22427" class="active">offcourse, i downloaded the</a></h3>
+    <div class="author">Submitted by legacy (not verified) on Tue, 2012-11-06 18:23.</div>
+  <div class="content"><p>offcourse, i downloaded the windows package</p>
+<p>when i run the .bat it say python is missing of the QT library and it stops</p>
+<p>also in the folder of python i can't install python because it says it is missing of files</p>
+<p>it smell like something missing that need to be install before using the package you have put on here</p>
+<p>so, what have i to pre-install in order to use your package ?</p>
+</div>
+    <div class="links"><ul class="links"><li class="comment_forbidden first last"><span><a href="https://web.archive.org/web/20191118033038/http://www.varesano.net/user/login?destination=node%2F272%23comment-form">Login</a> to post comments</span></li>
+</ul></div>
+</div>
+<div class="indented"><a id="comment-22433"></a>
+<div class="comment  ">
+
+  <h3 class="title"><a href="https://web.archive.org/web/20191118033038/http://www.varesano.net/blog/fabio/drift-free-attitude-and-heading-estimation-new-freeimu-library-calibration-routine#comment-22433" class="active">Python 2.7 and PyQT v4.9.5</a></h3>
+    <div class="author">Submitted by JG (not verified) on Wed, 2012-11-07 06:58.</div>
+  <div class="content"><p>Python 2.7 and PyQT v4.9.5 have been installed on my windows.You should download them on their offical website,try it.</p>
+</div>
+    <div class="links"><ul class="links"><li class="comment_forbidden first last"><span><a href="https://web.archive.org/web/20191118033038/http://www.varesano.net/user/login?destination=node%2F272%23comment-form">Login</a> to post comments</span></li>
+</ul></div>
+</div>
+<div class="indented"><a id="comment-22434"></a>
+<div class="comment  owner">
+
+  <h3 class="title"><a href="https://web.archive.org/web/20191118033038/http://www.varesano.net/blog/fabio/drift-free-attitude-and-heading-estimation-new-freeimu-library-calibration-routine#comment-22434" class="active">Actually, the windows program</a></h3>
+    <div class="author">Submitted by fabio on Wed, 2012-11-07 09:32.</div>
+  <div class="content"><p>Actually, the windows program downloadable from <a href="https://web.archive.org/web/20191118033038/http://www.varesano.net/blog/fabio/freeimu-magnetometer-and-accelerometer-calibration-gui-alpha-version-out">here</a> should be runnable without downloading any external dependency. You shouold extract the archive and simply run the freeimu.bat.</p>
+<p>If that won't work, please note the error it gives you and I'll try to help.</p>
+</div>
+    <div class="links"><ul class="links"><li class="comment_forbidden first last"><span><a href="https://web.archive.org/web/20191118033038/http://www.varesano.net/user/login?destination=node%2F272%23comment-form">Login</a> to post comments</span></li>
+</ul></div>
+</div>
+<div class="indented"><a id="comment-22436"></a>
+<div class="comment  ">
+
+  <h3 class="title"><a href="https://web.archive.org/web/20191118033038/http://www.varesano.net/blog/fabio/drift-free-attitude-and-heading-estimation-new-freeimu-library-calibration-routine#comment-22436" class="active">Fabio, i downloaded the</a></h3>
+    <div class="author">Submitted by legacy (not verified) on Wed, 2012-11-07 10:46.</div>
+  <div class="content"><p>Fabio, i downloaded the windows package from your link, running freeimu.bat says PyQT is missing, i have also seen the "python" folder with python-2.7.2 installer .exe, but if i invoked it says that "python/lib/test/*" is missing, so the installer stops without installing nothing.<br>
+Now I am downloading manually python and PyQT from their websites.</p>
+</div>
+    <div class="links"><ul class="links"><li class="comment_forbidden first last"><span><a href="https://web.archive.org/web/20191118033038/http://www.varesano.net/user/login?destination=node%2F272%23comment-form">Login</a> to post comments</span></li>
+</ul></div>
+</div>
+<div class="indented"><a id="comment-22437"></a>
+<div class="comment  ">
+
+  <h3 class="title"><a href="https://web.archive.org/web/20191118033038/http://www.varesano.net/blog/fabio/drift-free-attitude-and-heading-estimation-new-freeimu-library-calibration-routine#comment-22437" class="active">other missing pkg</a></h3>
+    <div class="author">Submitted by legacy (not verified) on Wed, 2012-11-07 11:40.</div>
+  <div class="content"><p>it also seems to me that i need to install pyqtgraph<br>
+so<br>
+- python-2.7.2, <a href="https://web.archive.org/web/20191118033038/http://www.python.it/download/" title="http://www.python.it/download/" class="ext">http://www.python.it/download/</a><span class="ext"></span><br>
+- pyqt, <a href="https://web.archive.org/web/20191118033038/http://www.riverbankcomputing.co.uk/software/pyqt/download" title="http://www.riverbankcomputing.co.uk/software/pyqt/download" class="ext">http://www.riverbankcomputing.co.uk/software/pyqt/download</a><span class="ext"></span><br>
+- pyqtgraph, <a href="https://web.archive.org/web/20191118033038/http://luke.campagnola.me/code/pyqtgraph/" title="http://luke.campagnola.me/code/pyqtgraph/" class="ext">http://luke.campagnola.me/code/pyqtgraph/</a><span class="ext"></span></p>
+</div>
+    <div class="links"><ul class="links"><li class="comment_forbidden first last"><span><a href="https://web.archive.org/web/20191118033038/http://www.varesano.net/user/login?destination=node%2F272%23comment-form">Login</a> to post comments</span></li>
+</ul></div>
+</div>
+<div class="indented"><a id="comment-22442"></a>
+<div class="comment  ">
+
+  <h3 class="title"><a href="https://web.archive.org/web/20191118033038/http://www.varesano.net/blog/fabio/drift-free-attitude-and-heading-estimation-new-freeimu-library-calibration-routine#comment-22442" class="active">other packages are required</a></h3>
+    <div class="author">Submitted by legacy (not verified) on Wed, 2012-11-07 15:34.</div>
+  <div class="content"><p>they should be</p>
+<p>- numpy<br>
+- scipy<br>
+- pyopenGL<br>
+- pyserial</p>
+<p>OpenGL is a pain in the ass for old Windows XP Machines, your app is requiring OpenGL 2.2 while my T23 laptop has no video driver with nothing more updated than openGL 1.1, so so driver no party =(</p>
+<p>my first laptop is an Apple Air with MacOSX lion, i have bought a T23 pentium3 laptop because on Apple VirtualBOX suxs a lot about usb virtualization, and also because i need Labview and Matlab running on a native hw instead of running inside a virtual machine</p>
+<p>btw your App needs pyOpenGL which needs openGL v2.2 in driver support, i am only able to run your App inside the virtualmachine, which is working good with OpenGL but which has no success about USB-serial virtualization, so i can't connect my IMU board =(</p>
+</div>
+    <div class="links"><ul class="links"><li class="comment_forbidden first last"><span><a href="https://web.archive.org/web/20191118033038/http://www.varesano.net/user/login?destination=node%2F272%23comment-form">Login</a> to post comments</span></li>
+</ul></div>
+</div>
+<div class="indented"><a id="comment-22443"></a>
+<div class="comment  ">
+
+  <h3 class="title"><a href="https://web.archive.org/web/20191118033038/http://www.varesano.net/blog/fabio/drift-free-attitude-and-heading-estimation-new-freeimu-library-calibration-routine#comment-22443" class="active">is To build PyOpenGL on Win32</a></h3>
+    <div class="author">Submitted by <a href="https://web.archive.org/web/20191118033038/http://example.com/directory" rel="nofollow" class="ext">legacy</a><span class="ext"></span> (not verified) on Wed, 2012-11-07 17:19.</div>
+  <div class="content"><p>is To build PyOpenGL on Win32 linked against the Mesa DLLs</p>
+<p>building the Mesa package as instructed in the Mesa documentation, then</p>
+<p>copy the .lib files to a location on your LIB path<br>
+copy the .dll files to your system directory</p>
+<p>no time to test it, a lot of trouble with macOSX, too =(</p>
+</div>
+    <div class="links"><ul class="links"><li class="comment_forbidden first last"><span><a href="https://web.archive.org/web/20191118033038/http://www.varesano.net/user/login?destination=node%2F272%23comment-form">Login</a> to post comments</span></li>
+</ul></div>
+</div>
+<div class="indented"><a id="comment-22444"></a>
+<div class="comment  ">
+
+  <h3 class="title"><a href="https://web.archive.org/web/20191118033038/http://www.varesano.net/blog/fabio/drift-free-attitude-and-heading-estimation-new-freeimu-library-calibration-routine#comment-22444" class="active">the precise error i got</a></h3>
+    <div class="author">Submitted by <a href="https://web.archive.org/web/20191118033038/http://example.com/directory" rel="nofollow" class="ext">legacy</a><span class="ext"></span> (not verified) on Wed, 2012-11-07 17:50.</div>
+  <div class="content"><p>Traceback (most recent call last):<br>
+  File "FreeIMU_GUI\cal_gui.py", line 356, in<br>
+    window = FreeIMUCal()<br>
+  File "FreeIMU_GUI\cal_gui.py", line 96, in __init__<br>
+    self.acc3D.addItem(self.sp)<br>
+  File "D:\idp\gnu\python.v27\lib\site-packages\pyqtgraph\opengl\GLViewWidget.py", line 42, in addItem<br>
+    self.checkOpenGLVersion('Error while adding item %s to GLViewWidget.' % str(item))<br>
+  File "D:\idp\gnu\python.v27\lib\site-packages\pyqtgraph\opengl\GLViewWidget.py", line 266, in checkOpenGLVersion<br>
+    raise Exception(msg + " The original exception is printed above; however, pyqtgraph requires OpenGL version 2.0 or greater for many of its 3D features and your OpenGL version is %s. Installing updated display drivers may resolve this issue." % ver)<br>
+Exception: Error while adding item  to GLViewWidget. The original exception is printed above; however, pyqtgraph requires OpenGL version 2.0 or greater for many of its 3D features and your OpenGL version is 1.1. Installing updated display drivers may resolve this issue.</p>
+<p>-----------------</p>
+<p>pyqtgraph requires OpenGL version 2.0 or greater for many of its 3D features and your OpenGL version is 1.1. Installing updated display drivers may resolve this issue.</p>
+<p>-----------------</p>
+<p>has this blog a way to edit text ? in the previous post it has lost the title, which was "the only solution is", a forum should be nicer</p>
+</div>
+    <div class="links"><ul class="links"><li class="comment_forbidden first last"><span><a href="https://web.archive.org/web/20191118033038/http://www.varesano.net/user/login?destination=node%2F272%23comment-form">Login</a> to post comments</span></li>
+</ul></div>
+</div>
+<div class="indented"><a id="comment-22554"></a>
+<div class="comment  owner">
+
+  <h3 class="title"><a href="https://web.archive.org/web/20191118033038/http://www.varesano.net/blog/fabio/drift-free-attitude-and-heading-estimation-new-freeimu-library-calibration-routine#comment-22554" class="active">FreeIMU Community website</a></h3>
+    <div class="author">Submitted by fabio on Wed, 2012-11-21 10:27.</div>
+  <div class="content"><p>FreeIMU Community website online at <a href="https://web.archive.org/web/20191118033038/http://freeimu.varesano.net/" title="http://freeimu.varesano.net/">http://freeimu.varesano.net/</a><br>
+Hope to see you there.</p>
+</div>
+    <div class="links"><ul class="links"><li class="comment_forbidden first last"><span><a href="https://web.archive.org/web/20191118033038/http://www.varesano.net/user/login?destination=node%2F272%23comment-form">Login</a> to post comments</span></li>
+</ul></div>
+</div>
+</div></div></div></div></div></div></div></div></div></div></div><a id="comment-22413"></a>
+<div class="comment  ">
+
+  <h3 class="title"><a href="https://web.archive.org/web/20191118033038/http://www.varesano.net/blog/fabio/drift-free-attitude-and-heading-estimation-new-freeimu-library-calibration-routine#comment-22413" class="active">have you seen this arm-IMU project ?</a></h3>
+    <div class="author">Submitted by legacy (not verified) on Fri, 2012-11-02 10:05.</div>
+  <div class="content"><p>@fabio, have you seen this project ?</p>
+<p>it's an IMU with arm MPU and comes with factory-calibrated to remove soft and hard iron distortions present in the enclosure. When integrated into the end-user system, additional calibration may be necessary to correct other magnetic field distortions. Magnetometer calibration can be performed using the CH Robotics Serial Interface software.</p>
+<p><a href="https://web.archive.org/web/20191118033038/http://www.pololu.com/catalog/product/1255" title="http://www.pololu.com/catalog/product/1255" class="ext">http://www.pololu.com/catalog/product/1255</a><span class="ext"></span></p>
+</div>
+    <div class="links"><ul class="links"><li class="comment_forbidden first last"><span><a href="https://web.archive.org/web/20191118033038/http://www.varesano.net/user/login?destination=node%2F272%23comment-form">Login</a> to post comments</span></li>
+</ul></div>
+</div>
+<a id="comment-22412"></a>
+<div class="comment  ">
+
+  <h3 class="title"><a href="https://web.archive.org/web/20191118033038/http://www.varesano.net/blog/fabio/drift-free-attitude-and-heading-estimation-new-freeimu-library-calibration-routine#comment-22412" class="active">@matteo
+well, typical IMU</a></h3>
+    <div class="author">Submitted by legacy (not verified) on Fri, 2012-11-02 09:55.</div>
+  <div class="content"><p>@matteo</p>
+<p>well, typical IMU applications are</p>
+<p>- UAV navigation<br>
+- Odometry<br>
+- Motion tracking<br>
+- General motion sensing<br>
+- Platform stabilization<br>
+- Image stabilization<br>
+- Enhanced GPS navigation</p>
+</div>
+    <div class="links"><ul class="links"><li class="comment_forbidden first last"><span><a href="https://web.archive.org/web/20191118033038/http://www.varesano.net/user/login?destination=node%2F272%23comment-form">Login</a> to post comments</span></li>
+</ul></div>
+</div>
+<a id="comment-22317"></a>
+<div class="comment  ">
+
+  <h3 class="title"><a href="https://web.archive.org/web/20191118033038/http://www.varesano.net/blog/fabio/drift-free-attitude-and-heading-estimation-new-freeimu-library-calibration-routine#comment-22317" class="active">Where is the Calibration Procedure</a></h3>
+    <div class="author">Submitted by Al Testani (not verified) on Thu, 2012-10-18 02:19.</div>
+  <div class="content"><p>I have installed Octave on my Windows XP machine but cannot find the  the calibration procedure.  May I have the link, please?</p>
+<p>Thanks</p>
+</div>
+    <div class="links"><ul class="links"><li class="comment_forbidden first last"><span><a href="https://web.archive.org/web/20191118033038/http://www.varesano.net/user/login?destination=node%2F272%23comment-form">Login</a> to post comments</span></li>
+</ul></div>
+</div>
+<div class="indented"><a id="comment-22318"></a>
+<div class="comment  owner">
+
+  <h3 class="title"><a href="https://web.archive.org/web/20191118033038/http://www.varesano.net/blog/fabio/drift-free-attitude-and-heading-estimation-new-freeimu-library-calibration-routine#comment-22318" class="active">The current code is available</a></h3>
+    <div class="author">Submitted by fabio on Thu, 2012-10-18 10:24.</div>
+  <div class="content"><p>The current code is available on the FreeIMU repository in libraries/FreeIMU/calibration/ .. there is a file called calibrate.py which you will need to run with Python. This is not really a user friendly procedure.. a better program is being developed right now.</p>
+</div>
+    <div class="links"><ul class="links"><li class="comment_forbidden first last"><span><a href="https://web.archive.org/web/20191118033038/http://www.varesano.net/user/login?destination=node%2F272%23comment-form">Login</a> to post comments</span></li>
+</ul></div>
+</div>
+<div class="indented"><a id="comment-22320"></a>
+<div class="comment  ">
+
+  <h3 class="title"><a href="https://web.archive.org/web/20191118033038/http://www.varesano.net/blog/fabio/drift-free-attitude-and-heading-estimation-new-freeimu-library-calibration-routine#comment-22320" class="active">Code won't run correctly on Windows</a></h3>
+    <div class="author">Submitted by Al Testani (not verified) on Thu, 2012-10-18 18:57.</div>
+  <div class="content"><p>I have been trying to derive a calibration file (on Windows XP) for the last 4 hours and cannot.  </p>
+<p>I tried Ned's suggestions and files below with no success.  I can get the accn.txt and magn.txt files created but the Python script bombs out calling Octave.  I have been unsuccessful running the AccMagnCalib.m file directly in the Octave shell as it complains of undefined variables even though they are actually part of the arg-list of functions.  </p>
+<p>Initially the errors were in SpherePlot so I commented out (same as Ned did) and eventually deleted the definition and calls to that function. Then Octave complained that the variable data was undefined where it is referenced in Ellipsoid_to_Sphere.  Thinking this may be some conflict with the data = dlmread(... calls I changed the prototype and body of Ellipsoid_to_Sphere to use xdata, restarted Octave, and the error now said xdata was undefined! </p>
+<p>I never heard of Octave until this week and am surely not fluent in writing code for it BUT these errors seem to defy normal programming standards.   </p>
+<p>Any advice on what I am doing wrong? </p>
+<p>Thanks</p>
+<p>Al</p>
+</div>
+    <div class="links"><ul class="links"><li class="comment_forbidden first last"><span><a href="https://web.archive.org/web/20191118033038/http://www.varesano.net/user/login?destination=node%2F272%23comment-form">Login</a> to post comments</span></li>
+</ul></div>
+</div>
+<div class="indented"><a id="comment-22511"></a>
+<div class="comment  ">
+
+  <h3 class="title"><a href="https://web.archive.org/web/20191118033038/http://www.varesano.net/blog/fabio/drift-free-attitude-and-heading-estimation-new-freeimu-library-calibration-routine#comment-22511" class="active">me, too, octave script is not</a></h3>
+    <div class="author">Submitted by Anonymous (not verified) on Thu, 2012-11-15 14:37.</div>
+  <div class="content"><p>me, too, octave script is not working at all, please fix !!!</p>
+</div>
+    <div class="links"><ul class="links"><li class="comment_forbidden first last"><span><a href="https://web.archive.org/web/20191118033038/http://www.varesano.net/user/login?destination=node%2F272%23comment-form">Login</a> to post comments</span></li>
+</ul></div>
+</div>
+<div class="indented"><a id="comment-22512"></a>
+<div class="comment  ">
+
+  <h3 class="title"><a href="https://web.archive.org/web/20191118033038/http://www.varesano.net/blog/fabio/drift-free-attitude-and-heading-estimation-new-freeimu-library-calibration-routine#comment-22512" class="active">script issue with octave on mac, too</a></h3>
+    <div class="author">Submitted by Anonymous (not verified) on Thu, 2012-11-15 14:41.</div>
+  <div class="content"><p>yep i have emerged octave on mac-ports and the octane script is now working, too</p>
+</div>
+    <div class="links"><ul class="links"><li class="comment_forbidden first last"><span><a href="https://web.archive.org/web/20191118033038/http://www.varesano.net/user/login?destination=node%2F272%23comment-form">Login</a> to post comments</span></li>
+</ul></div>
+</div>
+</div></div></div></div><a id="comment-22226"></a>
+<div class="comment  ">
+
+  <h3 class="title"><a href="https://web.archive.org/web/20191118033038/http://www.varesano.net/blog/fabio/drift-free-attitude-and-heading-estimation-new-freeimu-library-calibration-routine#comment-22226" class="active">PROBLEM CALIBRATING ACCELEROMETER need help plz</a></h3>
+    <div class="author">Submitted by Anonymous (not verified) on Mon, 2012-10-01 18:23.</div>
+  <div class="content"><p>Hello,<br>
+i don't understand how you calibrated the Accelerometer .<br>
+this is the link to the ST AN3192<br>
+<a href="https://web.archive.org/web/20191118033038/http://www.pololu.com/file/download/LSM303DLH-compass-app-note.pdf?file_id=0J434" title="http://www.pololu.com/file/download/LSM303DLH-compass-app-note.pdf?file_id=0J434" class="ext">http://www.pololu.com/file/download/LSM303DLH-compass-app-note.pdf?file_...</a><span class="ext"></span><br>
+They used in the end a least square method<br>
+here is my script with Matlab and my data<br>
+<a href="https://web.archive.org/web/20191118033038/http://www.mediafire.com/?58uuybyddewn2s4" title="http://www.mediafire.com/?58uuybyddewn2s4" class="ext">http://www.mediafire.com/?58uuybyddewn2s4</a><span class="ext"></span></p>
+<p>I always get this from matlab<br>
+Warning: Matrix is singular, close to singular or badly scaled.<br>
+         Results may be inaccurate. RCOND = NaN.<br>
+w matrix produce NAN<br>
+PLZ HELP ME<br>
+THX</p>
+</div>
+    <div class="links"><ul class="links"><li class="comment_forbidden first last"><span><a href="https://web.archive.org/web/20191118033038/http://www.varesano.net/user/login?destination=node%2F272%23comment-form">Login</a> to post comments</span></li>
+</ul></div>
+</div>
+<div class="indented"><a id="comment-22558"></a>
+<div class="comment  ">
+
+  <h3 class="title"><a href="https://web.archive.org/web/20191118033038/http://www.varesano.net/blog/fabio/drift-free-attitude-and-heading-estimation-new-freeimu-library-calibration-routine#comment-22558" class="active">More Resources for Calibration</a></h3>
+    <div class="author">Submitted by <a href="https://web.archive.org/web/20191118033038/http://www.chrobotics.com/shop/orientation-sensor-um6" rel="nofollow" class="ext">Michael</a><span class="ext"></span> (not verified) on Wed, 2012-11-21 23:49.</div>
+  <div class="content"><p>Glad you found a solution. If you ever need more help or documentation the CH Robotics site is full of helpful resources like<br>
+UM6 Datasheet</p>
+<p>AN1002 – Reprogramming the Firmware on the UM6<br>
+AN1003 – Getting Started with the UM6 Orientation Sensor<br>
+AN1005 – Understanding Euler Angles<br>
+AN1006 – Understanding Quaternions<br>
+AN1007 – Estimating Position and Velocity Using Accelerometers<br>
+AN1008 – Sensors used for Orientation Estimation</p>
+<p><a href="https://web.archive.org/web/20191118033038/http://www.chrobotics.com/shop/orientation-sensor-um6" title="http://www.chrobotics.com/shop/orientation-sensor-um6" class="ext">http://www.chrobotics.com/shop/orientation-sensor-um6</a><span class="ext"></span></p>
+<p>Happy Building!</p>
+</div>
+    <div class="links"><ul class="links"><li class="comment_forbidden first last"><span><a href="https://web.archive.org/web/20191118033038/http://www.varesano.net/user/login?destination=node%2F272%23comment-form">Login</a> to post comments</span></li>
+</ul></div>
+</div>
+<a id="comment-22228"></a>
+<div class="comment  ">
+
+  <h3 class="title"><a href="https://web.archive.org/web/20191118033038/http://www.varesano.net/blog/fabio/drift-free-attitude-and-heading-estimation-new-freeimu-library-calibration-routine#comment-22228" class="active">i founded NAN in the DATA</a></h3>
+    <div class="author">Submitted by Anonymous (not verified) on Mon, 2012-10-01 18:43.</div>
+  <div class="content"><p>i founded NAN in the DATA that is the Problem</p>
+</div>
+    <div class="links"><ul class="links"><li class="comment_forbidden first last"><span><a href="https://web.archive.org/web/20191118033038/http://www.varesano.net/user/login?destination=node%2F272%23comment-form">Login</a> to post comments</span></li>
+</ul></div>
+</div>
+<a id="comment-22227"></a>
+<div class="comment  owner">
+
+  <h3 class="title"><a href="https://web.archive.org/web/20191118033038/http://www.varesano.net/blog/fabio/drift-free-attitude-and-heading-estimation-new-freeimu-library-calibration-routine#comment-22227" class="active">Use AccMagnCalib.m to</a></h3>
+    <div class="author">Submitted by fabio on Mon, 2012-10-01 18:42.</div>
+  <div class="content"><p>Use AccMagnCalib.m to calibrate both the accelerometer and magnetometer. Make circles over the three planes. </p>
+<p>Current procedure is not the best.. I'm looking into alternatives..</p>
+</div>
+    <div class="links"><ul class="links"><li class="comment_forbidden first last"><span><a href="https://web.archive.org/web/20191118033038/http://www.varesano.net/user/login?destination=node%2F272%23comment-form">Login</a> to post comments</span></li>
+</ul></div>
+</div>
+<div class="indented"><a id="comment-22229"></a>
+<div class="comment  ">
+
+  <h3 class="title"><a href="https://web.archive.org/web/20191118033038/http://www.varesano.net/blog/fabio/drift-free-attitude-and-heading-estimation-new-freeimu-library-calibration-routine#comment-22229" class="active">AccMagnCalib.m
+I dont</a></h3>
+    <div class="author">Submitted by Anonymous (not verified) on Mon, 2012-10-01 18:45.</div>
+  <div class="content"><p>AccMagnCalib.m<br>
+I dont understand it for the Accelerometer Part<br>
+you are using the method of calibration of the magnetometer on the accelerometer DATA ???!!!</p>
+</div>
+    <div class="links"><ul class="links"><li class="comment_forbidden first last"><span><a href="https://web.archive.org/web/20191118033038/http://www.varesano.net/user/login?destination=node%2F272%23comment-form">Login</a> to post comments</span></li>
+</ul></div>
+</div>
+<div class="indented"><a id="comment-22230"></a>
+<div class="comment  owner">
+
+  <h3 class="title"><a href="https://web.archive.org/web/20191118033038/http://www.varesano.net/blog/fabio/drift-free-attitude-and-heading-estimation-new-freeimu-library-calibration-routine#comment-22230" class="active">Yes, I use the ellipsoid to</a></h3>
+    <div class="author">Submitted by fabio on Mon, 2012-10-01 22:44.</div>
+  <div class="content"><p>Yes, I use the ellipsoid to sphere calibration both for the magnetometer and the accelerometer. The accelerometer calibration as explained in the ST document is very prone to errors: placing the acc in the 6 known position was a pain in the ass for me in most of my prototypes moreover it means more heavy math for translating raw into calibrated data.. so, I'm going with the same approach for both. Works pretty fine here.</p>
+</div>
+    <div class="links"><ul class="links"><li class="comment_forbidden first last"><span><a href="https://web.archive.org/web/20191118033038/http://www.varesano.net/user/login?destination=node%2F272%23comment-form">Login</a> to post comments</span></li>
+</ul></div>
+</div>
+</div></div></div><a id="comment-22071"></a>
+<div class="comment  ">
+
+  <h3 class="title"><a href="https://web.archive.org/web/20191118033038/http://www.varesano.net/blog/fabio/drift-free-attitude-and-heading-estimation-new-freeimu-library-calibration-routine#comment-22071" class="active">can't run Serial example</a></h3>
+    <div class="author">Submitted by Anonymous (not verified) on Sun, 2012-09-23 20:11.</div>
+  <div class="content"><p>Hello, I've been trying to run the calibration routine and I'm requested to run the serial example, but it won't compile. The problem is in the sprintf line, as DEVElOPER, FREQ, LIB VERSION and LIB, don't seem to exist (are not declared), below the conflicting part of the code:</p>
+<p>    if(cmd=='v') {<br>
+      sprintf(str, "FreeIMU library by %s, FREQ:%s, LIB_VERSION: %s, IMU: %s", FREEIMU_DEVELOPER, FREEIMU_FREQ, FREEIMU_LIB_VERSION, FREEIMU_ID);<br>
+      Serial.print(str);<br>
+      Serial.print('\n');<br>
+    }</p>
+<p>i've tried comenting the sprintf line, but then the calibration routine stops working. Has anyone had this problem before? Am I doing something wrong?<br>
+Thanks</p>
+</div>
+    <div class="links"><ul class="links"><li class="comment_forbidden first last"><span><a href="https://web.archive.org/web/20191118033038/http://www.varesano.net/user/login?destination=node%2F272%23comment-form">Login</a> to post comments</span></li>
+</ul></div>
+</div>
+<div class="indented"><a id="comment-22072"></a>
+<div class="comment  owner">
+
+  <h3 class="title"><a href="https://web.archive.org/web/20191118033038/http://www.varesano.net/blog/fabio/drift-free-attitude-and-heading-estimation-new-freeimu-library-calibration-routine#comment-22072" class="active">You are probably not using an</a></h3>
+    <div class="author">Submitted by fabio on Sun, 2012-09-23 23:33.</div>
+  <div class="content"><p>You are probably not using an updated FreeIMU library code. You have to run the calibration routine with the FreeIMU library version that you find on the repository, not an older one you have around.</p>
+<p>Hope this helps, let us know how it goes.</p>
+</div>
+    <div class="links"><ul class="links"><li class="comment_forbidden first last"><span><a href="https://web.archive.org/web/20191118033038/http://www.varesano.net/user/login?destination=node%2F272%23comment-form">Login</a> to post comments</span></li>
+</ul></div>
+</div>
+<div class="indented"><a id="comment-22198"></a>
+<div class="comment  ">
+
+  <h3 class="title"><a href="https://web.archive.org/web/20191118033038/http://www.varesano.net/blog/fabio/drift-free-attitude-and-heading-estimation-new-freeimu-library-calibration-routine#comment-22198" class="active">Thanks!</a></h3>
+    <div class="author">Submitted by Anonymous (not verified) on Fri, 2012-09-28 20:09.</div>
+  <div class="content"><p>The Serial example now compiles and it has been succesfully uploaded to the Arduino. The problem now, is that when I run calibration.py it gets stuck at "FreeIMU library version informations:"<br>
+Do you know what is happening?<br>
+thanks in advance</p>
+</div>
+    <div class="links"><ul class="links"><li class="comment_forbidden first last"><span><a href="https://web.archive.org/web/20191118033038/http://www.varesano.net/user/login?destination=node%2F272%23comment-form">Login</a> to post comments</span></li>
+</ul></div>
+</div>
+<div class="indented"><a id="comment-22199"></a>
+<div class="comment  owner">
+
+  <h3 class="title"><a href="https://web.archive.org/web/20191118033038/http://www.varesano.net/blog/fabio/drift-free-attitude-and-heading-estimation-new-freeimu-library-calibration-routine#comment-22199" class="active">See the comments below..</a></h3>
+    <div class="author">Submitted by fabio on Fri, 2012-09-28 22:55.</div>
+  <div class="content"><p>See the comments below.. people have reported that some delay is needed in the code.. there are some examples below..</p>
+</div>
+    <div class="links"><ul class="links"><li class="comment_forbidden first last"><span><a href="https://web.archive.org/web/20191118033038/http://www.varesano.net/user/login?destination=node%2F272%23comment-form">Login</a> to post comments</span></li>
+</ul></div>
+</div>
+<div class="indented"><a id="comment-22216"></a>
+<div class="comment  ">
+
+  <h3 class="title"><a href="https://web.archive.org/web/20191118033038/http://www.varesano.net/blog/fabio/drift-free-attitude-and-heading-estimation-new-freeimu-library-calibration-routine#comment-22216" class="active">I can't find any of them</a></h3>
+    <div class="author">Submitted by Anonymous (not verified) on Mon, 2012-10-01 06:10.</div>
+  <div class="content"><p>I'm sorry, but I've been cheking the comments and I still can't find anyone with my same issue. If there is, could you please tell me so I can read it?<br>
+Else, could you tell me about that issue?<br>
+Thanks in advance</p>
+</div>
+    <div class="links"><ul class="links"><li class="comment_forbidden first last"><span><a href="https://web.archive.org/web/20191118033038/http://www.varesano.net/user/login?destination=node%2F272%23comment-form">Login</a> to post comments</span></li>
+</ul></div>
+</div>
+<div class="indented"><a id="comment-22225"></a>
+<div class="comment  owner">
+
+  <h3 class="title"><a href="https://web.archive.org/web/20191118033038/http://www.varesano.net/blog/fabio/drift-free-attitude-and-heading-estimation-new-freeimu-library-calibration-routine#comment-22225" class="active">See Ned comment below.</a></h3>
+    <div class="author">Submitted by fabio on Mon, 2012-10-01 14:44.</div>
+  <div class="content"><p>See Ned comment below.</p>
+</div>
+    <div class="links"><ul class="links"><li class="comment_forbidden first last"><span><a href="https://web.archive.org/web/20191118033038/http://www.varesano.net/user/login?destination=node%2F272%23comment-form">Login</a> to post comments</span></li>
+</ul></div>
+</div>
+</div></div></div></div></div><a id="comment-22038"></a>
+<div class="comment  ">
+
+  <h3 class="title"><a href="https://web.archive.org/web/20191118033038/http://www.varesano.net/blog/fabio/drift-free-attitude-and-heading-estimation-new-freeimu-library-calibration-routine#comment-22038" class="active">Calibration Question</a></h3>
+    <div class="author">Submitted by Ned (not verified) on Sat, 2012-09-15 19:10.</div>
+  <div class="content"><p>The calibration instructions say to rotate the board to define a complete sphere. Does this mean rotate the board about a fixed point on say one of the chips, or slide the board around the surface of a large sphere? Did you use something to hold the board steady while rotating it, or just do all this by hand? Sorry if these are obvious answers, but I don't understand what goes on mathematically to calibrate the board. </p>
+<p>Also, just to let you know, I got the entire calibration procedure working on windows. I only had to mess with octave environment variables, disable the sphere plot (which was for some reason crashing octave), and insert a delay in the python script before reading the version number.</p>
+</div>
+    <div class="links"><ul class="links"><li class="comment_forbidden first last"><span><a href="https://web.archive.org/web/20191118033038/http://www.varesano.net/user/login?destination=node%2F272%23comment-form">Login</a> to post comments</span></li>
+</ul></div>
+</div>
+<div class="indented"><a id="comment-22043"></a>
+<div class="comment  owner">
+
+  <h3 class="title"><a href="https://web.archive.org/web/20191118033038/http://www.varesano.net/blog/fabio/drift-free-attitude-and-heading-estimation-new-freeimu-library-calibration-routine#comment-22043" class="active">Hello Ned, the sphere has to</a></h3>
+    <div class="author">Submitted by fabio on Sun, 2012-09-16 07:55.</div>
+  <div class="content"><p>Hello Ned, the sphere has to be made using the IMU as center of rotation. I don't use anything to hold the IMU, just my hands.. if you are careful enough and move very slowly, you should get good results.</p>
+<p>I'm happy to see success also using Windows.. I don't use Windows at all so I hoped to see someone testing this on Win. I'd like to get the modified scripts you use on windows so I can incorporate the changes in next versions of the library. Can you share them?</p>
+</div>
+    <div class="links"><ul class="links"><li class="comment_forbidden first last"><span><a href="https://web.archive.org/web/20191118033038/http://www.varesano.net/user/login?destination=node%2F272%23comment-form">Login</a> to post comments</span></li>
+</ul></div>
+</div>
+<div class="indented"><a id="comment-22044"></a>
+<div class="comment  ">
+
+  <h3 class="title"><a href="https://web.archive.org/web/20191118033038/http://www.varesano.net/blog/fabio/drift-free-attitude-and-heading-estimation-new-freeimu-library-calibration-routine#comment-22044" class="active">Here is the zipped</a></h3>
+    <div class="author">Submitted by Ned (not verified) on Mon, 2012-09-17 05:38.</div>
+  <div class="content"><p>Here is the zipped Calibrations folder with my changes:<br>
+<a href="https://web.archive.org/web/20191118033038/http://www.mediafire.com/?7j880r5t711zmpw" title="http://www.mediafire.com/?7j880r5t711zmpw" class="ext">http://www.mediafire.com/?7j880r5t711zmpw</a><span class="ext"></span><br>
+In Calibrate.pyw, I added time.sleep(2) before reading the serial data. Before that, the python script would just stop there.<br>
+In AccMagnCalib.m, I just had to comment out the SpherePlot. For some reason, it was crashing octave. The edits were sort of minimal because I have only a rough idea of what I am doing, heh. I also had to add a windows environment variable for octave to get it working correctly. Aside from those changes though, I think everything else is still the same. </p>
+<p>I'm still trying to figure out a few other things. Is FreeIMU_calibrated the only sketch that accounts for the new calibration? I'm trying to get the processing cube rendering working with the calibrated code (as you did in your video), but the FreeIMU_Calibrated serial output looks like it's x,y,z values for the acceleration, magnetometer, and gyro, which (I think) is not what the processing sketch expects as input. Is there a way to get pitch roll and yaw output using the calibrated code? I'm not very experienced with arduino sketches or python, but I'm trying to figure it out. Thanks a lot for the help!</p>
+</div>
+    <div class="links"><ul class="links"><li class="comment_forbidden first last"><span><a href="https://web.archive.org/web/20191118033038/http://www.varesano.net/user/login?destination=node%2F272%23comment-form">Login</a> to post comments</span></li>
+</ul></div>
+</div>
+<div class="indented"><a id="comment-22053"></a>
+<div class="comment  owner">
+
+  <h3 class="title"><a href="https://web.archive.org/web/20191118033038/http://www.varesano.net/blog/fabio/drift-free-attitude-and-heading-estimation-new-freeimu-library-calibration-routine#comment-22053" class="active">Once the calibration</a></h3>
+    <div class="author">Submitted by fabio on Tue, 2012-09-18 10:27.</div>
+  <div class="content"><p>Once the calibration procedure is complete, the library will use calibrated readings for anything (quaternion, yawpitchroll, etc..) except for the raw outputs.</p>
+</div>
+    <div class="links"><ul class="links"><li class="comment_forbidden first last"><span><a href="https://web.archive.org/web/20191118033038/http://www.varesano.net/user/login?destination=node%2F272%23comment-form">Login</a> to post comments</span></li>
+</ul></div>
+</div>
+<a id="comment-22052"></a>
+<div class="comment  ">
+
+  <h3 class="title"><a href="https://web.archive.org/web/20191118033038/http://www.varesano.net/blog/fabio/drift-free-attitude-and-heading-estimation-new-freeimu-library-calibration-routine#comment-22052" class="active">To my understanding</a></h3>
+    <div class="author">Submitted by Not Fabio (not verified) on Tue, 2012-09-18 04:23.</div>
+  <div class="content"><p>You simply compile the regular examples(Quaternion for the processing cube), FreeIMU.h contains,<br>
+#include "calibration/calibration.h"<br>
+so you don't need to do anything special, just compile Quaternion as you usually would.</p>
+<p>PS<br>
+This may sound as a silly request, but could anyone upload a video of how they're making a sphere with the board? I'm pretty sure I'm doing something wrong.<br>
+When I put it on a table, the Z axis should point up or down?</p>
+</div>
+    <div class="links"><ul class="links"><li class="comment_forbidden first last"><span><a href="https://web.archive.org/web/20191118033038/http://www.varesano.net/user/login?destination=node%2F272%23comment-form">Login</a> to post comments</span></li>
+</ul></div>
+</div>
+</div></div></div><a id="comment-21960"></a>
+<div class="comment  ">
+
+  <h3 class="title"><a href="https://web.archive.org/web/20191118033038/http://www.varesano.net/blog/fabio/drift-free-attitude-and-heading-estimation-new-freeimu-library-calibration-routine#comment-21960" class="active">A calibration routine using numpy</a></h3>
+    <div class="author">Submitted by <a href="https://web.archive.org/web/20191118033038/http://eclecti.cc/" rel="nofollow" class="ext">nrp</a><span class="ext"></span> (not verified) on Sat, 2012-09-01 19:31.</div>
+  <div class="content"><p>For an IMU project that I'm working on, I wrote a similar magnetometer hard iron calibration script which uses numpy's linalg module instead of octave or Matlab.  It is set up to communicate with my module, but it is pretty simple to modify to communicate with other boards. <a href="https://web.archive.org/web/20191118033038/https://github.com/AdjacentReality/lufa-lib/blob/master/trunk/Projects/Tracker/scripts/magcalibration.py" class="ext">The source</a><span class="ext"></span>.</p>
+</div>
+    <div class="links"><ul class="links"><li class="comment_forbidden first last"><span><a href="https://web.archive.org/web/20191118033038/http://www.varesano.net/user/login?destination=node%2F272%23comment-form">Login</a> to post comments</span></li>
+</ul></div>
+</div>
+<div class="indented"><a id="comment-21982"></a>
+<div class="comment  owner">
+
+  <h3 class="title"><a href="https://web.archive.org/web/20191118033038/http://www.varesano.net/blog/fabio/drift-free-attitude-and-heading-estimation-new-freeimu-library-calibration-routine#comment-21982" class="active">Hello Nirav, thanks for</a></h3>
+    <div class="author">Submitted by fabio on Sat, 2012-09-08 22:55.</div>
+  <div class="content"><p>Hello Nirav, thanks for posting this and for sharing your code. Numpy was exactly the way I wanted to have the matlab code evolve.. would you mind if I use the code in future versions of my FreeIMU library? Properly credited of course.</p>
+<p>Btw, I'd be interested in hearing more about your IMU project.. are you using the new 9axis sensor by ST? Looks so to me by the pictures on your blog. If so, what do you think about it?</p>
+</div>
+    <div class="links"><ul class="links"><li class="comment_forbidden first last"><span><a href="https://web.archive.org/web/20191118033038/http://www.varesano.net/user/login?destination=node%2F272%23comment-form">Login</a> to post comments</span></li>
+</ul></div>
+</div>
+<div class="indented"><a id="comment-21983"></a>
+<div class="comment  ">
+
+  <h3 class="title"><a href="https://web.archive.org/web/20191118033038/http://www.varesano.net/blog/fabio/drift-free-attitude-and-heading-estimation-new-freeimu-library-calibration-routine#comment-21983" class="active">Feel free to use it.  The</a></h3>
+    <div class="author">Submitted by <a href="https://web.archive.org/web/20191118033038/http://eclecti.cc/" rel="nofollow" class="ext">nrp</a><span class="ext"></span> (not verified) on Sat, 2012-09-08 23:03.</div>
+  <div class="content"><p>Feel free to use it.  The license is BSD.</p>
+<p>I haven't been able to get the LSM333D out of ST yet.  I'm just using the LSM303DLHC and the L3GD20, but I do plan on switching to the LSM333D as soon as it is available.  Last I heard from ST, it does exist, but in extremely limited quantities.</p>
+</div>
+    <div class="links"><ul class="links"><li class="comment_forbidden first last"><span><a href="https://web.archive.org/web/20191118033038/http://www.varesano.net/user/login?destination=node%2F272%23comment-form">Login</a> to post comments</span></li>
+</ul></div>
+</div>
+<div class="indented"><a id="comment-21984"></a>
+<div class="comment  owner">
+
+  <h3 class="title"><a href="https://web.archive.org/web/20191118033038/http://www.varesano.net/blog/fabio/drift-free-attitude-and-heading-estimation-new-freeimu-library-calibration-routine#comment-21984" class="active">Yeah.. I know people already</a></h3>
+    <div class="author">Submitted by fabio on Sat, 2012-09-08 23:10.</div>
+  <div class="content"><p>Yeah.. I know people already using it.. but under NDAs or something..</p>
+<p>Meanwhile, MPU9150 easily available in China..</p>
+</div>
+    <div class="links"><ul class="links"><li class="comment_forbidden first last"><span><a href="https://web.archive.org/web/20191118033038/http://www.varesano.net/user/login?destination=node%2F272%23comment-form">Login</a> to post comments</span></li>
+</ul></div>
+</div>
+</div></div></div><a id="comment-21955"></a>
+<div class="comment  ">
+
+  <h3 class="title"><a href="https://web.archive.org/web/20191118033038/http://www.varesano.net/blog/fabio/drift-free-attitude-and-heading-estimation-new-freeimu-library-calibration-routine#comment-21955" class="active">It took me a while to get</a></h3>
+    <div class="author">Submitted by <a href="https://web.archive.org/web/20191118033038/http://www.jpattillo.net/" rel="nofollow" class="ext">John Pattillo</a><span class="ext"></span> (not verified) on Thu, 2012-08-30 19:32.</div>
+  <div class="content"><p>It took me a while to get octave installed on my macbook, but I finally got this all working.  My smart skeleton IMUs are much more stable now.  I had to modify the serial sketch to use the acc library since I'm using ADLX345's on most of my IMUs.  I've posted that part of the code below.  I see from calibrate.py that the gyro values are not needed, but I went ahead and called the gyro library so that I wouldn't have to make any changes to the array structure.  Thanks again - John</p>
+</div>
+    <div class="links"><ul class="links"><li class="comment_forbidden first last"><span><a href="https://web.archive.org/web/20191118033038/http://www.varesano.net/user/login?destination=node%2F272%23comment-form">Login</a> to post comments</span></li>
+</ul></div>
+</div>
+<div class="indented"><a id="comment-21956"></a>
+<div class="comment  ">
+
+  <h3 class="title"><a href="https://web.archive.org/web/20191118033038/http://www.varesano.net/blog/fabio/drift-free-attitude-and-heading-estimation-new-freeimu-library-calibration-routine#comment-21956" class="active">Whoops! here's the code</a></h3>
+    <div class="author">Submitted by <a href="https://web.archive.org/web/20191118033038/http://www.jpattillo.net/" rel="nofollow" class="ext">John Pattillo</a><span class="ext"></span> (not verified) on Thu, 2012-08-30 19:43.</div>
+  <div class="content"><pre>else if(cmd=='b') {
+      uint8_t count = serial_busy_wait();
+      for(uint8_t i=0; i&lt;count; i++) {
+        my3IMU.acc.readAccel(&amp;raw_values[0], &amp;raw_values[1], &amp;raw_values[2]);
+        writeArr(raw_values, 3, sizeof(int)); // writes accelerometer values
+        my3IMU.gyro.readGyroRaw(&amp;raw_values[0], &amp;raw_values[1], &amp;raw_values[2]);
+        writeArr(raw_values, 3, sizeof(int)); //writes gyro values
+        my3IMU.magn.getValues(&amp;raw_values[0], &amp;raw_values[1], &amp;raw_values[2]);
+        writeArr(raw_values, 3, sizeof(int));
+        Serial.println();
+      }
+    }
+</pre></div>
+    <div class="links"><ul class="links"><li class="comment_forbidden first last"><span><a href="https://web.archive.org/web/20191118033038/http://www.varesano.net/user/login?destination=node%2F272%23comment-form">Login</a> to post comments</span></li>
+</ul></div>
+</div>
+</div><a id="comment-21931"></a>
+<div class="comment  ">
+
+  <h3 class="title"><a href="https://web.archive.org/web/20191118033038/http://www.varesano.net/blog/fabio/drift-free-attitude-and-heading-estimation-new-freeimu-library-calibration-routine#comment-21931" class="active">Hello, Fabio! Did you see</a></h3>
+    <div class="author">Submitted by Ivan (not verified) on Sat, 2012-08-18 08:31.</div>
+  <div class="content"><p>Hello, Fabio! Did you see that: <a href="https://web.archive.org/web/20191118033038/http://www.vectornav.com/purchase" title="http://www.vectornav.com/purchase" class="ext">http://www.vectornav.com/purchase</a><span class="ext"></span><br>
+1300$ !!!!<br>
+May be you know, why its so expressive...However, this AHRS sensor looks very good, stable and its data look very clear...</p>
+</div>
+    <div class="links"><ul class="links"><li class="comment_forbidden first last"><span><a href="https://web.archive.org/web/20191118033038/http://www.varesano.net/user/login?destination=node%2F272%23comment-form">Login</a> to post comments</span></li>
+</ul></div>
+</div>
+<a id="comment-21909"></a>
+<div class="comment  ">
+
+  <h3 class="title"><a href="https://web.archive.org/web/20191118033038/http://www.varesano.net/blog/fabio/drift-free-attitude-and-heading-estimation-new-freeimu-library-calibration-routine#comment-21909" class="active">Nice work
+I have been waiting</a></h3>
+    <div class="author">Submitted by arto (not verified) on Mon, 2012-08-13 22:37.</div>
+  <div class="content"><p>Nice work</p>
+<p>I have been waiting for this. Do you have any estimate when the next version of the FreeIMU library will be published?</p>
+</div>
+    <div class="links"><ul class="links"><li class="comment_forbidden first last"><span><a href="https://web.archive.org/web/20191118033038/http://www.varesano.net/user/login?destination=node%2F272%23comment-form">Login</a> to post comments</span></li>
+</ul></div>
+</div>
+<div class="indented"><a id="comment-21910"></a>
+<div class="comment  owner">
+
+  <h3 class="title"><a href="https://web.archive.org/web/20191118033038/http://www.varesano.net/blog/fabio/drift-free-attitude-and-heading-estimation-new-freeimu-library-calibration-routine#comment-21910" class="active">You can already try it from</a></h3>
+    <div class="author">Submitted by fabio on Tue, 2012-08-14 00:44.</div>
+  <div class="content"><p>You can already try it from the repository above... probably it will be released somewhere at the end of September.</p>
+</div>
+    <div class="links"><ul class="links"><li class="comment_forbidden first last"><span><a href="https://web.archive.org/web/20191118033038/http://www.varesano.net/user/login?destination=node%2F272%23comment-form">Login</a> to post comments</span></li>
+</ul></div>
+</div>
+</div><a id="comment-21893"></a>
+<div class="comment  ">
+
+  <h3 class="title"><a href="https://web.archive.org/web/20191118033038/http://www.varesano.net/blog/fabio/drift-free-attitude-and-heading-estimation-new-freeimu-library-calibration-routine#comment-21893" class="active">Library</a></h3>
+    <div class="author">Submitted by Anonymous (not verified) on Fri, 2012-08-10 14:29.</div>
+  <div class="content"><p>congratulations, those are really good readings.<br>
+I'm asking to my self if I can use the new stuff, I mean replacing the old library with the new one (i.e. is the new calibration routine built in in a new version of the library?).<br>
+Thanks in advance.</p>
+</div>
+    <div class="links"><ul class="links"><li class="comment_forbidden first last"><span><a href="https://web.archive.org/web/20191118033038/http://www.varesano.net/user/login?destination=node%2F272%23comment-form">Login</a> to post comments</span></li>
+</ul></div>
+</div>
+<div class="indented"><a id="comment-21894"></a>
+<div class="comment  owner">
+
+  <h3 class="title"><a href="https://web.archive.org/web/20191118033038/http://www.varesano.net/blog/fabio/drift-free-attitude-and-heading-estimation-new-freeimu-library-calibration-routine#comment-21894" class="active">Of course you can.. you just</a></h3>
+    <div class="author">Submitted by fabio on Fri, 2012-08-10 18:31.</div>
+  <div class="content"><p>Of course you can.. you just have to get it from the repository.. Then you'll have to run the calibration for your board and you'll be ready to go.</p>
+</div>
+    <div class="links"><ul class="links"><li class="comment_forbidden first last"><span><a href="https://web.archive.org/web/20191118033038/http://www.varesano.net/user/login?destination=node%2F272%23comment-form">Login</a> to post comments</span></li>
+</ul></div>
+</div>
+<div class="indented"><a id="comment-21911"></a>
+<div class="comment  ">
+
+  <h3 class="title"><a href="https://web.archive.org/web/20191118033038/http://www.varesano.net/blog/fabio/drift-free-attitude-and-heading-estimation-new-freeimu-library-calibration-routine#comment-21911" class="active">How do I calibrate the board?</a></h3>
+    <div class="author">Submitted by Anonymous (not verified) on Tue, 2012-08-14 04:58.</div>
+  <div class="content"><p>I'm not familiar with launchpad and I couldn't find any instruction, only managed to get the latest files.</p>
+<p>How do I calibrate the board? Do I need to do anything special?<br>
+I noticed the FreeIMU_calibrated example but couldn't really understand what to do with it.<br>
+I tried just running quaternion with the processing 3D cube and I think I'm getting better results but there is still some drift(mainly yaw of course).</p>
+<p>Thank you.</p>
+</div>
+    <div class="links"><ul class="links"><li class="comment_forbidden first last"><span><a href="https://web.archive.org/web/20191118033038/http://www.varesano.net/user/login?destination=node%2F272%23comment-form">Login</a> to post comments</span></li>
+</ul></div>
+</div>
+</div></div><div class="item-list"><ul class="pager"><li class="pager-current first">1</li>
+<li class="pager-item"><a href="https://web.archive.org/web/20191118033038/http://www.varesano.net/blog/fabio/drift-free-attitude-and-heading-estimation-new-freeimu-library-calibration-routine?page=1" title="Go to page 2" class="active">2</a></li>
+<li class="pager-next"><a href="https://web.archive.org/web/20191118033038/http://www.varesano.net/blog/fabio/drift-free-attitude-and-heading-estimation-new-freeimu-library-calibration-routine?page=1" title="Go to next page" class="active">next ›</a></li>
+<li class="pager-last last"><a href="https://web.archive.org/web/20191118033038/http://www.varesano.net/blog/fabio/drift-free-attitude-and-heading-estimation-new-freeimu-library-calibration-routine?page=1" title="Go to last page" class="active">last »</a></li>
+</ul></div></div>
+      <!-- end main content -->
+
+    </div> <!-- content -->
+
+    <div id="sidebar">
+      <div class="block block-search" id="block-search-0">
+<h2 class="title"><span>Search</span></h2>
+<div class="content"><form action="https://web.archive.org/web/20191118033038/http://www.varesano.net/blog/fabio/drift-free-attitude-and-heading-estimation-new-freeimu-library-calibration-routine" accept-charset="UTF-8" method="post" id="search-block-form">
+<div><div class="container-inline">
+  <div class="form-item" id="edit-search-block-form-1-wrapper">
+ <label for="edit-search-block-form-1">Search this site: </label>
+ <input type="text" maxlength="128" name="search_block_form" id="edit-search-block-form-1" size="15" value="" title="Enter the terms you wish to search for." class="form-text">
+</div>
+<input type="submit" name="op" id="edit-submit" value="Search" class="form-submit">
+<input type="hidden" name="form_build_id" id="form-190303d2477b5c09bf4e03e740f37cee" value="form-190303d2477b5c09bf4e03e740f37cee">
+<input type="hidden" name="form_id" id="edit-search-block-form" value="search_block_form">
+</div>
+
+</div></form>
+</div>
+</div><div class="block block-block" id="block-block-5">
+<h2 class="title"><span></span></h2>
+<div class="content"><p>
+<script type="text/javascript"><!--
+google_ad_client = "pub-5076461169528953";
+/* varesano.net quadrato */
+google_ad_slot = "4592875465";
+google_ad_width = 250;
+google_ad_height = 250;
+//-->
+</script>
+<script type="text/javascript" src="./Drift-free attitude and heading estimation with the new FreeIMU library calibration routine _ Varesano.net_files/f(2).txt">
+</script><ins id="aswift_0_expand" style="display:inline-table;border:none;height:250px;margin:0;padding:0;position:relative;visibility:visible;width:210px;background-color:transparent;" data-ad-slot="4592875465" data-overlap-observer-io="false"><ins id="aswift_0_anchor" style="display:block;border:none;height:250px;margin:0;padding:0;position:relative;visibility:visible;width:210px;background-color:transparent;"><iframe width="210" height="250" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allowfullscreen="true" onload="var i=this.id,s=window.google_iframe_oncopy,H=s&amp;&amp;s.handlers,h=H&amp;&amp;H[i],w=this.contentWindow,d;try{d=w.document}catch(e){}if(h&amp;&amp;d&amp;&amp;(!d.body||!d.body.firstChild)){if(h.call){setTimeout(h,0)}else if(h.match){try{h=s.upd(h,i)}catch(e){}w.location.replace(h)}}" id="aswift_0" name="aswift_0" style="left:0;position:absolute;top:0;border:0px;width:210px;height:250px;" data-ruffle-polyfilled="" src="./Drift-free attitude and heading estimation with the new FreeIMU library calibration routine _ Varesano.net_files/saved_resource.html"></iframe></ins></ins>
+</p>
+</div>
+</div><div class="block block-block" id="block-block-1">
+<h2 class="title"><span>Stickers</span></h2>
+<div class="content"><a href="https://web.archive.org/web/20191118033038/http://www.fsf.org/register_form?referrer=10206" title="I&#39;m an associate member of the Free Software Foundation"><img src="./Drift-free attitude and heading estimation with the new FreeIMU library calibration routine _ Varesano.net_files/fsf-10206.png" alt="FSF Associate Member"></a>
+<a href="https://web.archive.org/web/20191118033038/http://drupal.org/" title="I&#39;m a member of the Drupal Association"><img src="./Drift-free attitude and heading estimation with the new FreeIMU library calibration routine _ Varesano.net_files/DA-individual-120.png" width="120" height="120" style="border: 0px" alt="View Fabio Varesano&#39;s profile on LinkedIn"></a>
+<br>
+<a href="https://web.archive.org/web/20191118033038/http://www.linkedin.com/in/fabiovaresano"><img src="./Drift-free attitude and heading estimation with the new FreeIMU library calibration routine _ Varesano.net_files/btn_linkedin_120x30.gif" width="120" height="30" style="border: 0px" alt="View Fabio Varesano&#39;s profile on LinkedIn"></a>
+<br>
+
+<form action="https://web.archive.org/web/20191118033038/https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+<input type="hidden" name="cmd" value="_s-xclick">
+<input type="hidden" name="hosted_button_id" value="CFMS6LD3CPHGQ">
+<input type="image" src="./Drift-free attitude and heading estimation with the new FreeIMU library calibration routine _ Varesano.net_files/btn_donate_LG.gif" border="0" name="submit" alt="PayPal - Il metodo rapido, affidabile e innovativo per pagare e farsi pagare.">
+<img alt="" border="0" src="./Drift-free attitude and heading estimation with the new FreeIMU library calibration routine _ Varesano.net_files/pixel.gif" width="1" height="1">
+</form>
+
+<a href="https://web.archive.org/web/20191118033038/https://www.amazon.com/gp/registry/wishlist/1NR54SLECGHY2/ref=wl_web/"><img src="./Drift-free attitude and heading estimation with the new FreeIMU library calibration routine _ Varesano.net_files/wl-btn-74-b.gif" width="74" alt="My Amazon.com Wish List" height="42" style="border: 0;"></a>
+<br>
+<a href="https://web.archive.org/web/20191118033038/http://www.site5.com/in.php?id=10396-6"><img alt="Hosted By Site5.com" src="./Drift-free attitude and heading estimation with the new FreeIMU library calibration routine _ Varesano.net_files/badge.gif"></a>
+</div>
+</div><div class="block block-statistics" id="block-statistics-0">
+<h2 class="title"><span>Popular content</span></h2>
+<div class="content"><div class="item-list"><h3>All time:</h3><ul><li class="first"><a href="https://web.archive.org/web/20191118033038/http://www.varesano.net/blog/fabio/installing%20flash%20player%20plugin%20firefox%20without%20having%20administrator%20access%20or%20premissions">Installing Flash Player Plugin on Firefox without having Administrator Access or Premissions</a></li>
+<li><a href="https://web.archive.org/web/20191118033038/http://www.varesano.net/projects/hardware/FreeIMU">FreeIMU: an Open Hardware Framework for Orientation and Motion Sensing</a></li>
+<li><a href="https://web.archive.org/web/20191118033038/http://www.varesano.net/blog/fabio/disable%20related%20videos%20embedded%20youtube%20player">Disable related videos on a embedded Youtube player</a></li>
+<li><a href="https://web.archive.org/web/20191118033038/http://www.varesano.net/blog/fabio/h264%20videos%20flash%20cool%20example">h264 videos on Flash: cool example</a></li>
+<li><a href="https://web.archive.org/web/20191118033038/http://www.varesano.net/blog/fabio/serial%20rs232%20connections%20python">Serial RS232 connections in Python</a></li>
+<li><a href="https://web.archive.org/web/20191118033038/http://www.varesano.net/blog/fabio/serial-communication-arduino-and-processing-simple-examples-and-arduino-based-gamepad-int">Serial communication with Arduino and Processing: simple examples and an Arduino based gamepad interfacing with Processing</a></li>
+<li><a href="https://web.archive.org/web/20191118033038/http://www.varesano.net/blog/fabio/my-first-6-dof-imu-sensors-fusion-implementation-adxl345-itg3200-arduino-and-processing">My first 6 DOF IMU Sensors Fusion Implementation: ADXL345, ITG3200, Arduino and Processing</a></li>
+<li><a href="https://web.archive.org/web/20191118033038/http://www.varesano.net/blog/fabio/multiple%20forums%20organic%20groups%20my%20patch%20committed">Multiple forums for Organic Groups: my patch committed</a></li>
+<li><a href="https://web.archive.org/web/20191118033038/http://www.varesano.net/blog/fabio/homebrew-diy-breakout-board-itg3200-gyroscope-tested-arduino-and-processing">An homebrew DIY breakout board for the ITG3200 gyroscope: tested with Arduino and Processing</a></li>
+<li class="last"><a href="https://web.archive.org/web/20191118033038/http://www.varesano.net/projects/hardware/Femtoduino">Femtoduino: an ultrasmall (20.7x15.2 mm) libre Arduino compatible board</a></li>
+</ul></div></div>
+</div><div class="block block-comment" id="block-comment-0">
+<h2 class="title"><span>Recent comments</span></h2>
+<div class="content"><div class="item-list"><ul><li class="first"><a href="https://web.archive.org/web/20191118033038/http://www.varesano.net/blog/fabio/ms5611-01ba-arduino-library-first-developments-results#comment-24046">prom read address 0</a><br>4 years 16 weeks ago</li>
+<li><a href="https://web.archive.org/web/20191118033038/http://www.varesano.net/blog/fabio/potentiometers%20what%20they%20are%20how%20they%20work%20and%20how%20use%20them%20arduino#comment-24043">Sorry if this sounds stupid,</a><br>4 years 16 weeks ago</li>
+<li><a href="https://web.archive.org/web/20191118033038/http://www.varesano.net/blog/fabio/ms5611-01ba-arduino-library-first-developments-results#comment-24039">Starting with MS5611</a><br>4 years 16 weeks ago</li>
+<li><a href="https://web.archive.org/web/20191118033038/http://www.varesano.net/blog/fabio/freeimu-magnetometer-and-accelerometer-calibration-gui-alpha-version-out#comment-24036">problems in calibration mag data</a><br>4 years 17 weeks ago</li>
+<li><a href="https://web.archive.org/web/20191118033038/http://www.varesano.net/projects/hardware/FreeIMU#comment-24013">Code to test IMU (The cube form) </a><br>4 years 21 weeks ago</li>
+<li><a href="https://web.archive.org/web/20191118033038/http://www.varesano.net/blog/fabio/new-homebrew-diy-breakout-board-pcb-adxl345-accelerometer#comment-24005">error while compiling</a><br>4 years 23 weeks ago</li>
+<li><a href="https://web.archive.org/web/20191118033038/http://www.varesano.net/blog/fabio/diodes-transistors-and-optocouplers-what-they-are-some-theory-and-simple-usages-examples-#comment-24004">Re: Hi I have read that in</a><br>4 years 23 weeks ago</li>
+<li><a href="https://web.archive.org/web/20191118033038/http://www.varesano.net/blog/fabio/ermannofalcocom-photographer-portfolio-website-built-drupal#comment-23999">wonderful! </a><br>4 years 24 weeks ago</li>
+<li><a href="https://web.archive.org/web/20191118033038/http://www.varesano.net/blog/fabio/freeimu-magnetometer-and-accelerometer-calibration-gui-alpha-version-out#comment-23993">You may want to test if the</a><br>4 years 25 weeks ago</li>
+<li class="last"><a href="https://web.archive.org/web/20191118033038/http://www.varesano.net/blog/fabio/how-disable-internal-arduino-atmega-pullups-sda-and-scl-i2c-bus#comment-23992">Hello,
+Doing this in the</a><br>4 years 25 weeks ago</li>
+</ul></div></div>
+</div><div class="block block-block" id="block-block-2">
+<h2 class="title"><span>Advertising</span></h2>
+<div class="content"><p>
+<script type="text/javascript"><!--
+google_ad_client = "pub-5076461169528953";
+/* varesano.net verticale */
+google_ad_slot = "1985705964";
+google_ad_width = 160;
+google_ad_height = 600;
+//-->
+</script>
+<script type="text/javascript" src="./Drift-free attitude and heading estimation with the new FreeIMU library calibration routine _ Varesano.net_files/f(2).txt">
+</script><ins id="aswift_1_expand" style="display:inline-table;border:none;height:600px;margin:0;padding:0;position:relative;visibility:visible;width:160px;background-color:transparent;" data-ad-slot="1985705964"><ins id="aswift_1_anchor" style="display:block;border:none;height:600px;margin:0;padding:0;position:relative;visibility:visible;width:160px;background-color:transparent;"><iframe width="160" height="600" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allowfullscreen="true" onload="var i=this.id,s=window.google_iframe_oncopy,H=s&amp;&amp;s.handlers,h=H&amp;&amp;H[i],w=this.contentWindow,d;try{d=w.document}catch(e){}if(h&amp;&amp;d&amp;&amp;(!d.body||!d.body.firstChild)){if(h.call){setTimeout(h,0)}else if(h.match){try{h=s.upd(h,i)}catch(e){}w.location.replace(h)}}" id="aswift_1" name="aswift_1" style="left:0;position:absolute;top:0;border:0px;width:160px;height:600px;" data-ruffle-polyfilled="" src="./Drift-free attitude and heading estimation with the new FreeIMU library calibration routine _ Varesano.net_files/saved_resource(1).html"></iframe></ins></ins>
+</p></div>
+</div>          </div> <!-- sidebar -->
+
+    <div id="footer" class="footer">
+              <p>Copyright © 2007-2013 Fabio Varesano - <a title="This work is licensed under a Creative Commons Attribution-Share Alike 2.5 Italy License" rel="license" href="https://web.archive.org/web/20191118033038/http://creativecommons.org/licenses/by-sa/2.5/it/deed.en" class="ext">Some rights reserved</a><span class="ext"></span>.<br>
+<a href="https://web.archive.org/web/20191118033038/http://www.varesano.net/privacy-policy">Privacy Policy</a></p>
+            <script type="text/javascript" src="./Drift-free attitude and heading estimation with the new FreeIMU library calibration routine _ Varesano.net_files/eu_cookie_compliance.js.download"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+jQuery.extend(Drupal.settings, { "eu_cookie_compliance": { "popup_enabled": 1, "popup_agreed_enabled": 0, "popup_hide_agreed": 0, "popup_clicking_confirmation": 1, "popup_html_info": "\n\x3cdiv\x3e\n  \x3cdiv class =\"popup-content info\"\x3e\n    \x3cdiv id=\"popup-text\"\x3e\n      \x3ch2\x3eQuesto sito fa uso di cookies.\x3c/h2\x3e\n\x3cp\x3eCliccando un qualunque link accetti al loro utilizzo.\x3c/p\x3e\n    \x3c/div\x3e\n    \x3cdiv id=\"popup-buttons\"\x3e\n      \x3cbutton type=\"button\" class=\"agree-button\"\x3eOK\x3c/button\x3e\n    \x3cbutton type=\"button\" class=\"find-more-button\"\x3eNo\x3c/button\x3e\n    \x3c/div\x3e\n  \x3c/div\x3e\n\x3c/div\x3e\n", "popup_html_agreed": "\n\x3cdiv\x3e\n  \x3cdiv class =\"popup-content agreed\"\x3e\n    \x3cdiv id=\"popup-text\"\x3e\n      \x3ch2\x3eThank you for accepting cookies\x3c/h2\x3e\n\x3cp\x3eYou can now hide this message or find out more about cookies.\x3c/p\x3e\n    \x3c/div\x3e\n    \x3cdiv id=\"popup-buttons\"\x3e\n      \x3cbutton type=\"button\" class=\"hide-popup-button\"\x3eHide \x3c/button\x3e\n    \x3cbutton type=\"button\" class=\"find-more-button\" \x3eMore info\x3c/button\x3e\n    \x3c/div\x3e\n  \x3c/div\x3e\n\x3c/div\x3e\n", "popup_height": "auto", "popup_width": "100%", "popup_delay": 1000, "popup_link": "https://web.archive.org/web/20191118033038/http://www.varesano.net/privacy-policy", "popup_position": 1, "popup_language": "en" } });
+//--><!]]>
+</script>
+    </div>
+  </div> <!-- container -->
+
+<script src="./Drift-free attitude and heading estimation with the new FreeIMU library calibration routine _ Varesano.net_files/urchin.js.download" type="text/javascript">
+</script>
+<script type="text/javascript">
+_uacct = "UA-484919-5";
+urchinTracker();
+</script>
+
+
+
+
+<iframe id="google_osd_static_frame_3708033264746" name="google_osd_static_frame" style="display: none; width: 0px; height: 0px;" allow="autoplay &#39;self&#39;; fullscreen &#39;self&#39;" src="./Drift-free attitude and heading estimation with the new FreeIMU library calibration routine _ Varesano.net_files/saved_resource(2).html"></iframe></body><iframe id="google_esf" name="google_esf" src="./Drift-free attitude and heading estimation with the new FreeIMU library calibration routine _ Varesano.net_files/zrt_lookup.html" data-ad-client="ca-pub-5076461169528953" style="display: none;" allow="autoplay &#39;self&#39;; fullscreen &#39;self&#39;" data-ruffle-polyfilled=""></iframe></html>

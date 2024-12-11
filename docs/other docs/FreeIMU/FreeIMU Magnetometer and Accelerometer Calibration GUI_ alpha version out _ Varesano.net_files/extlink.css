@@ -1,0 +1,37 @@
+span.ext {
+  background: url(/web/20190505074706im_/http://www.varesano.net/sites/all/modules/extlink/extlink.png) right center no-repeat;
+  padding-right: 12px;
+}
+span.mailto {
+  background: url(/web/20190505074706im_/http://www.varesano.net/sites/all/modules/extlink/mailto.png) right center no-repeat;
+  padding-right: 12px;
+}
+
+/* Hide the extra spans when printing. */
+@media print {
+  span.ext, span.mailto {
+    display: none;
+    padding: 0;
+  }
+}
+
+/*
+     FILE ARCHIVED ON 07:47:06 May 05, 2019 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 12:20:35 Sep 16, 2024.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 1.063
+  exclusion.robots: 0.018
+  exclusion.robots.policy: 0.008
+  esindex: 0.01
+  cdx.remote: 27.706
+  LoadShardBlock: 118.112 (3)
+  PetaboxLoader3.datanode: 71.656 (4)
+  PetaboxLoader3.resolve: 112.479 (2)
+  load_resource: 77.172
+*/

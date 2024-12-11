@@ -1,0 +1,14 @@
+(function () {
+    const carousel = document.querySelector(`dk-carousel.related-products`);
+    carousel && carousel.setOptions({
+        slidesPerView: 1.1,
+        breakpoints: {
+            1250: {
+                slidesPerView: 3.2
+            },
+            1000: {
+                slidesPerView: 2.1
+            }
+        }
+      });
+})();

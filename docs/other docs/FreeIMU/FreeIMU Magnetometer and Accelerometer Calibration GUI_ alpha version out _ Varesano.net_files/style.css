@@ -1,0 +1,220 @@
+/* Main style for varesano.net - May 2010 © Fabio Varesano <fvaresano at yahoo dot it> */
+
+/* Starting general rules */
+
+html, body {
+margin: 0;
+padding: 0;
+text-align: center;
+font-family: Helvetica, Arial, Sans-Serif;
+font-size: .99em;
+line-height:1.7em;
+color: #191919;
+}
+
+div#container {
+width: 960px;
+margin: 0 auto;
+text-align: left;
+padding: 0  0 2% 0;
+}
+
+div#content {
+clear: left;
+width: 65%;
+padding: 0 4% 2% 0;
+float: left;
+}
+
+div#sidebar {
+width: 30%;
+padding: 2% 0 2% 1%;
+float: right;
+}
+
+div#footer {
+clear: both;
+text-align: center;
+font-size: 0.8em;
+border-top: 1px solid gray;
+}
+
+/* header and navigation rules */
+
+#header {
+position: relative;
+border-bottom: 1px solid gray;
+height: 70px;
+}
+
+#header h2 {
+width: 40%;
+float: left;
+}
+
+#navigation {
+  float: right;
+  margin: 1em 0;
+  padding: 0;
+  text-align: right;
+}
+
+#navigation li {
+  display: inline;
+  margin: 0 0 0 1.5em;
+  padding: 0;
+}
+
+/*
+#navigation a.active, #navigation a:hover {
+
+}*/
+
+/* colors */
+
+#content a, #header a {
+color: #000;
+}
+
+.node .content a, ul.pager a, #sidebar a, #footer a {
+/* a[href], ul.pager a { */
+color: #3D72A4 !important;
+}
+
+.node .content a:visited, ul.pager a:visited, #sidebar a:visited, #footer a:visited {
+color: #8B8B8B !important;
+}
+
+.node .content a:hover, ul.pager a:hover, #sidebar a:hover {
+color: #E18A07 !important;
+}
+
+h2.title a {
+text-decoration: none;
+}
+
+h2.title a:hover {
+text-decoration: underline;
+color: #E18A07 !important;
+}
+
+/* Misc */
+
+h1, h2 {
+line-height: 1.3em;
+}
+
+.node .content h2, .block h2 {
+margin: 1em 0 1em 0;
+border-bottom: 1px solid #D2D2D2;
+}
+
+.node .title {
+/*   margin: 0; */
+}
+
+.node .meta {
+border-top: 1px solid #ECECEC;
+margin: 2em 0 2em 0;
+}
+
+span#nav {
+display: none;
+}
+
+.node .content, .block .content, #comments {
+  font-size: .97em;
+}
+
+.info, .author {
+font-size: .9em;
+color: #7A7A7A;
+margin: -0.5em 0 1.5em 0;
+}
+
+.indented .owner {
+margin-left: -15px;
+padding-left: 9px;
+border-left: 1px solid #E18A07;
+}
+
+/* Disable comment indentaion when there are more than 6 indented comments */
+.indented .indented .indented .indented .indented .indented {
+  margin-left: 0;
+}
+
+
+table {
+margin: 1em 0;
+width: 100%;
+}
+
+td, th {
+padding: .3em .5em;
+}
+
+pre, code
+{
+padding: 1em;
+border: 1px dashed gray;
+color: black;
+background-color: #f9f9f9;
+line-height: 1.1em;
+font-size: 1.1em;
+display: block;
+}
+
+html>body pre,  html>body code{
+  overflow: auto;
+}
+
+img.inline {
+margin: 0 auto;
+display: block;
+}
+
+.node .links li, .comment .links li {
+  padding: 0 1em 0 0;
+}
+
+.hide, .links .blog_usernames_blog {
+  display: none !important;
+}
+
+#block-search-0 h2, #block-search-0 label {
+  display: none;
+}
+
+ul.pager {
+margin: 2em 0;
+}
+
+.fl-right {
+  float: right;
+  margin-left: 1.5em;
+}
+
+.fl-left {
+  float: left;
+  margin-right: 1.5em;
+}
+/*
+     FILE ARCHIVED ON 07:47:11 May 05, 2019 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 12:20:35 Sep 16, 2024.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 0.588
+  exclusion.robots: 0.024
+  exclusion.robots.policy: 0.015
+  esindex: 0.012
+  cdx.remote: 11.246
+  LoadShardBlock: 83.707 (3)
+  PetaboxLoader3.datanode: 71.976 (4)
+  load_resource: 35.327
+  PetaboxLoader3.resolve: 29.925
+*/

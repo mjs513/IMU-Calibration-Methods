@@ -1,0 +1,24 @@
+document.addEventListener('DOMContentLoaded', function(){
+    const makerElement = document.querySelectorAll('[data-maker-click]');
+    for (const element of makerElement) {
+        element.addEventListener('click', function (e) {
+            e.preventDefault();
+            var href = e.target.getAttribute('href');
+            if (!href)
+            {
+                href = e.target.closest('a').getAttribute('href');
+            }
+            TagMakerHeader();   
+            window.location.href = href
+        });
+    };
+
+    function TagMakerHeader() {
+        if (dataLayer) {
+            dataLayer.push({ 'ecommerce': null });
+            dataLayer.push({
+                'event': 'maker_click'
+            });
+        }
+    }
+});

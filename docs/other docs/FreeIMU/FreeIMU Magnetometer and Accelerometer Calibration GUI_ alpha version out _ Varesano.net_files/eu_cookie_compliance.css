@@ -1,0 +1,115 @@
+#sliding-popup {
+  display: block;
+  margin: 0;
+  padding: 0px;
+  right: 0;
+  text-align: center;
+  width: 100%;
+  z-index: 99999;
+}
+.sliding-popup-bottom {
+  background: url('/web/20190505074710im_/http://www.varesano.net/modules/eu-cookie-compliance/images/gradient.png') center center scroll repeat-y transparent;
+  position: fixed;
+}
+
+.sliding-popup-top {
+  background-color: #000;
+  position: relative;
+}
+
+#sliding-popup .popup-content {
+  background-color: transparent;
+  border: 0 none;
+  display: inline-block;
+  margin: 0 auto;
+  padding: 0;
+  width: 1076px;
+}
+
+#sliding-popup .popup-content #popup-buttons {
+  float: right;
+  margin: 10px 30px 10px 0;
+}
+
+#sliding-popup .popup-content #popup-buttons button {
+  cursor: pointer;
+  display: inline;
+  margin-right: 5px;
+  vertical-align: middle;
+  overflow: visible;
+  width: auto;
+
+  -moz-box-shadow:inset 0px 1px 0px 0px #ffffff;
+  -webkit-box-shadow:inset 0px 1px 0px 0px #ffffff;
+  box-shadow:inset 0px 1px 0px 0px #ffffff;
+  background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #ededed), color-stop(1, #dfdfdf) );
+  background:-moz-linear-gradient( center top, #ededed 5%, #dfdfdf 100% );
+  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ededed', endColorstr='#dfdfdf');
+  background-color:#ededed;
+  -moz-border-radius:6px;
+  -webkit-border-radius:6px;
+  border-radius:6px;
+  border:1px solid #dcdcdc;
+  display:inline-block;
+  color:#000;
+  font-family:arial;
+  font-weight:bold;
+  padding:4px 8px;
+  text-decoration:none;
+  text-shadow:1px 1px 0px #ffffff;
+}
+
+#sliding-popup .popup-content #popup-buttons button:hover {
+  background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #dfdfdf), color-stop(1, #ededed) );
+  background:-moz-linear-gradient( center top, #dfdfdf 5%, #ededed 100% );
+  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#dfdfdf', endColorstr='#ededed');
+  background-color:#dfdfdf;
+}
+
+#sliding-popup .popup-content #popup-buttons button:active {
+  position:relative;
+  top:1px;
+}
+
+#sliding-popup .popup-content #popup-text {
+  color: #fff;
+  float: left;
+  font-weight: bold;
+  margin: 5px 0 5px 50px;
+  text-align: left;
+  width: 600px;
+}
+
+#sliding-popup .popup-content #popup-text h2,
+#sliding-popup .popup-content #popup-text p {
+  color: #fff;
+  display: block;
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0 0 5px 0;
+}
+
+#sliding-popup .popup-content #popup-text p {
+  font-size: 12px;
+}
+
+/*
+     FILE ARCHIVED ON 07:47:10 May 05, 2019 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 12:20:35 Sep 16, 2024.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 0.756
+  exclusion.robots: 0.029
+  exclusion.robots.policy: 0.013
+  esindex: 0.016
+  cdx.remote: 62.138
+  LoadShardBlock: 325.437 (3)
+  PetaboxLoader3.datanode: 35.754 (4)
+  PetaboxLoader3.resolve: 321.187 (2)
+  load_resource: 36.353
+*/

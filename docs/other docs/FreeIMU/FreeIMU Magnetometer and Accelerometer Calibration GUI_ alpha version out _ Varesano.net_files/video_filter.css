@@ -1,0 +1,40 @@
+/**
+ * Default alignment styles
+ */
+.video-left {
+  float: left;
+}
+
+.video-right {
+  float: right;
+}
+
+.video-center {
+  display: block;
+  margin: 0 auto;
+}
+
+body#video_filter {
+  padding: 2em;
+}
+
+/*
+     FILE ARCHIVED ON 07:47:05 May 05, 2019 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 12:20:35 Sep 16, 2024.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 0.489
+  exclusion.robots: 0.017
+  exclusion.robots.policy: 0.008
+  esindex: 0.008
+  cdx.remote: 10.946
+  LoadShardBlock: 75.011 (3)
+  PetaboxLoader3.datanode: 83.009 (4)
+  load_resource: 60.447
+  PetaboxLoader3.resolve: 49.248
+*/

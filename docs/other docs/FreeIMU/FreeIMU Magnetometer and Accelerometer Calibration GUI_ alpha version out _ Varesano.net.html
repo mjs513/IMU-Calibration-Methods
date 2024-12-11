@@ -1,0 +1,985 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- saved from url=(0150)https://web.archive.org/web/20190424064216/http://www.varesano.net/blog/fabio/freeimu-magnetometer-and-accelerometer-calibration-gui-alpha-version-out -->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr" class="js"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><script src="./FreeIMU Magnetometer and Accelerometer Calibration GUI_ alpha version out _ Varesano.net_files/osd.js.download"></script><script src="./FreeIMU Magnetometer and Accelerometer Calibration GUI_ alpha version out _ Varesano.net_files/ca-pub-5076461169528953.js.download"></script><script src="./FreeIMU Magnetometer and Accelerometer Calibration GUI_ alpha version out _ Varesano.net_files/athena.js.download" type="text/javascript"></script>
+<script type="text/javascript">window.addEventListener('DOMContentLoaded',function(){var v=archive_analytics.values;v.service='wb';v.server_name='wwwb-app223.us.archive.org';v.server_ms=353;archive_analytics.send_pageview({});});</script>
+<script type="text/javascript" src="./FreeIMU Magnetometer and Accelerometer Calibration GUI_ alpha version out _ Varesano.net_files/bundle-playback.js.download" charset="utf-8"></script>
+<script type="text/javascript" src="./FreeIMU Magnetometer and Accelerometer Calibration GUI_ alpha version out _ Varesano.net_files/wombat.js.download" charset="utf-8"></script>
+<script>window.RufflePlayer=window.RufflePlayer||{};window.RufflePlayer.config={"autoplay":"on","unmuteOverlay":"hidden"};</script>
+<script type="text/javascript" src="./FreeIMU Magnetometer and Accelerometer Calibration GUI_ alpha version out _ Varesano.net_files/ruffle.js.download"></script>
+<script type="text/javascript">
+    __wm.init("https://web.archive.org/web");
+  __wm.wombat("http://www.varesano.net:80/blog/fabio/freeimu-magnetometer-and-accelerometer-calibration-gui-alpha-version-out","20190424064216","https://web.archive.org/","web","https://web-static.archive.org/_static/",
+	      "1556088136");
+</script>
+<link rel="stylesheet" type="text/css" href="./FreeIMU Magnetometer and Accelerometer Calibration GUI_ alpha version out _ Varesano.net_files/banner-styles.css">
+<link rel="stylesheet" type="text/css" href="./FreeIMU Magnetometer and Accelerometer Calibration GUI_ alpha version out _ Varesano.net_files/iconochive.css">
+<!-- End Wayback Rewrite JS Include -->
+
+
+
+<link rel="canonical" href="https://web.archive.org/web/20190424064216/http://www.varesano.net/blog/fabio/freeimu-magnetometer-and-accelerometer-calibration-gui-alpha-version-out">
+<link rel="shortcut icon" href="https://web.archive.org/web/20190424064216im_/http://www.varesano.net/misc/favicon.ico" type="image/x-icon">
+<meta name="description" content="I&#39;m happy to finally publish a first working version of the FreeIMU Magnetometer and Accelerometer Calibration GUI. Currently, it should allow you to visually calibrate your accelerometer and magnetometer after you connected your IMU to a microcontroller running the FreeIMU_serial example in the FreeIMU library.">
+<link rel="canonical" href="https://web.archive.org/web/20190424064216/http://www.varesano.net/blog/fabio/freeimu-magnetometer-and-accelerometer-calibration-gui-alpha-version-out">
+<meta name="revisit-after" content="1 day">
+<title>FreeIMU Magnetometer and Accelerometer Calibration GUI: alpha version out | Varesano.net</title>
+<meta http-equiv="Content-Style-Type" content="text/css">
+<link type="text/css" rel="stylesheet" media="all" href="./FreeIMU Magnetometer and Accelerometer Calibration GUI_ alpha version out _ Varesano.net_files/eu_cookie_compliance.css">
+<link type="text/css" rel="stylesheet" media="all" href="./FreeIMU Magnetometer and Accelerometer Calibration GUI_ alpha version out _ Varesano.net_files/node.css">
+<link type="text/css" rel="stylesheet" media="all" href="./FreeIMU Magnetometer and Accelerometer Calibration GUI_ alpha version out _ Varesano.net_files/defaults.css">
+<link type="text/css" rel="stylesheet" media="all" href="./FreeIMU Magnetometer and Accelerometer Calibration GUI_ alpha version out _ Varesano.net_files/system.css">
+<link type="text/css" rel="stylesheet" media="all" href="./FreeIMU Magnetometer and Accelerometer Calibration GUI_ alpha version out _ Varesano.net_files/system-menus.css">
+<link type="text/css" rel="stylesheet" media="all" href="./FreeIMU Magnetometer and Accelerometer Calibration GUI_ alpha version out _ Varesano.net_files/user.css">
+<link type="text/css" rel="stylesheet" media="all" href="./FreeIMU Magnetometer and Accelerometer Calibration GUI_ alpha version out _ Varesano.net_files/img_assist.css">
+<link type="text/css" rel="stylesheet" media="all" href="./FreeIMU Magnetometer and Accelerometer Calibration GUI_ alpha version out _ Varesano.net_files/mollom.css">
+<link type="text/css" rel="stylesheet" media="all" href="./FreeIMU Magnetometer and Accelerometer Calibration GUI_ alpha version out _ Varesano.net_files/tagadelic.css">
+<link type="text/css" rel="stylesheet" media="all" href="./FreeIMU Magnetometer and Accelerometer Calibration GUI_ alpha version out _ Varesano.net_files/video_filter.css">
+<link type="text/css" rel="stylesheet" media="all" href="./FreeIMU Magnetometer and Accelerometer Calibration GUI_ alpha version out _ Varesano.net_files/extlink.css">
+<link type="text/css" rel="stylesheet" media="all" href="./FreeIMU Magnetometer and Accelerometer Calibration GUI_ alpha version out _ Varesano.net_files/views.css">
+<link type="text/css" rel="stylesheet" media="all" href="./FreeIMU Magnetometer and Accelerometer Calibration GUI_ alpha version out _ Varesano.net_files/comment.css">
+<link type="text/css" rel="stylesheet" media="all" href="./FreeIMU Magnetometer and Accelerometer Calibration GUI_ alpha version out _ Varesano.net_files/style.css">
+<script type="text/javascript" src="./FreeIMU Magnetometer and Accelerometer Calibration GUI_ alpha version out _ Varesano.net_files/jquery.js.download"></script>
+<script type="text/javascript" src="./FreeIMU Magnetometer and Accelerometer Calibration GUI_ alpha version out _ Varesano.net_files/drupal.js.download"></script>
+<script type="text/javascript" src="./FreeIMU Magnetometer and Accelerometer Calibration GUI_ alpha version out _ Varesano.net_files/img_assist.js.download"></script>
+<script type="text/javascript" src="./FreeIMU Magnetometer and Accelerometer Calibration GUI_ alpha version out _ Varesano.net_files/mollom.js.download"></script>
+<script type="text/javascript" src="./FreeIMU Magnetometer and Accelerometer Calibration GUI_ alpha version out _ Varesano.net_files/spamspan.compressed.js.download"></script>
+<script type="text/javascript" src="./FreeIMU Magnetometer and Accelerometer Calibration GUI_ alpha version out _ Varesano.net_files/extlink.js.download"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+jQuery.extend(Drupal.settings, { "basePath": "/", "spamspan": { "m": "spamspan", "u": "u", "d": "d", "h": "h", "t": "t" }, "extlink": { "extTarget": 0, "extClass": "ext", "extSubdomains": 1, "extExclude": "", "extInclude": "", "extAlert": 0, "extAlertText": "This link will take you to an external web site. We are not responsible for their content.", "mailtoClass": "mailto" } });
+//--><!]]>
+</script>
+<!--[if lte IE 7]>
+<style type="text/css" media="all">@import "/sites/all/themes/varesano_net/fix-ie.css";</style>
+<![endif]-->
+<link rel="preload" href="https://web.archive.org/web/20190424064216mp_/https://adservice.google.com/adsid/integrator.js?domain=web.archive.org" as="script"><script type="text/javascript" src="./FreeIMU Magnetometer and Accelerometer Calibration GUI_ alpha version out _ Varesano.net_files/f.txt"></script><link rel="preload" href="https://web.archive.org/web/20190424064216mp_/https://pagead2.googlesyndication.com/pagead/js/r20190417/r20190131/show_ads_impl.js" as="script"></head>
+
+<body class="sliding-popup-processed"><!-- BEGIN WAYBACK TOOLBAR INSERT -->
+<script>__wm.rw(0);</script>
+<div id="wm-ipp-base" lang="en" style="display: block; direction: ltr;"><template shadowrootmode="closed"><div id="wm-ipp" style="position:fixed;left:0;top:0;right:0;">
+<div id="donato" style="position:relative;width:100%;">
+  <div id="donato-base">
+    <iframe id="donato-if" src="https://archive.org/includes/donate.php?as_page=1&amp;platform=wb&amp;referer=https%3A//web.archive.org/web/20190424064216/http%3A//www.varesano.net/blog/fabio/freeimu-magnetometer-and-accelerometer-calibration-gui-alpha-version-out" scrolling="no" frameborder="0" style="width:100%; height:100%">
+    </iframe>
+  </div>
+</div><div id="wm-ipp-inside">
+  <div id="wm-toolbar" style="position:relative;display:flex;flex-flow:row nowrap;justify-content:space-between;">
+    <div id="wm-logo" style="/*width:110px;*/padding-top:12px;">
+      <a href="https://web.archive.org/web/" title="Wayback Machine home page"><img src="https://web-static.archive.org/_static/images/toolbar/wayback-toolbar-logo-200.png" srcset="https://web-static.archive.org/_static/images/toolbar/wayback-toolbar-logo-100.png, https://web-static.archive.org/_static/images/toolbar/wayback-toolbar-logo-150.png 1.5x, https://web-static.archive.org/_static/images/toolbar/wayback-toolbar-logo-200.png 2x" alt="Wayback Machine" style="width:100px" border="0"></a>
+    </div>
+    <div class="c" style="display:flex;flex-flow:column nowrap;justify-content:space-between;flex:1;">
+      <form class="u" style="display:flex;flex-direction:row;flex-wrap:nowrap;" target="_top" method="get" action="https://web.archive.org/web/submit" name="wmtb" id="wmtb"><input type="text" name="url" id="wmtbURL" value="http://www.varesano.net/blog/fabio/freeimu-magnetometer-and-accelerometer-calibration-gui-alpha-version-out" onfocus="this.focus();this.select();" style="flex:1;" autocomplete="off"><input type="hidden" name="type" value="replay"><input type="hidden" name="date" value="20190424064216"><input type="submit" value="Go">
+      </form>
+      <div style="display:flex;flex-flow:row nowrap;align-items:flex-end;">
+                <div class="s" id="wm-nav-captures" style="flex:1;"><a class="t" href="https://web.archive.org/web/*/http://www.varesano.net/blog/fabio/freeimu-magnetometer-and-accelerometer-calibration-gui-alpha-version-out" title="See a list of every capture for this URL">98 captures</a><div class="r" title="Timespan for captures of this URL">4 Nov 2012 - 26 Nov 2022</div></div>
+        <div class="k">
+          <a href="https://web.archive.org/web/20190424064216/http://www.varesano.net/blog/fabio/freeimu-magnetometer-and-accelerometer-calibration-gui-alpha-version-out" id="wm-graph-anchor">
+            <div id="wm-ipp-sparkline" title="Explore captures for this URL" style="position: relative">
+              <canvas id="wm-sparkline-canvas" width="725" height="27" border="0"></canvas>
+            <div class="yt" style="display: none; width: 25px; height: 27px;"></div><div class="mt" style="display: none; width: 2px; height: 27px;"></div></div>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="n">
+      <table>
+        <tbody>
+          <!-- NEXT/PREV MONTH NAV AND MONTH INDICATOR -->
+          <tr class="m">
+            <td class="b" nowrap="nowrap"><a href="https://web.archive.org/web/20190221123521/http://www.varesano.net:80/blog/fabio/freeimu-magnetometer-and-accelerometer-calibration-gui-alpha-version-out" title="21 Feb 2019"><strong>Feb</strong></a></td>
+            <td class="c" id="displayMonthEl" title="You are here: 06:42:16 Apr 24, 2019">APR</td>
+            <td class="f" nowrap="nowrap"><a href="https://web.archive.org/web/20190525060145/http://www.varesano.net:80/blog/fabio/freeimu-magnetometer-and-accelerometer-calibration-gui-alpha-version-out" title="25 May 2019"><strong>May</strong></a></td>
+          </tr>
+          <!-- NEXT/PREV CAPTURE NAV AND DAY OF MONTH INDICATOR -->
+          <tr class="d">
+            <td class="b" nowrap="nowrap"><a href="https://web.archive.org/web/20190324134450/http://www.varesano.net:80/blog/fabio/freeimu-magnetometer-and-accelerometer-calibration-gui-alpha-version-out" title="13:44:50 Mar 24, 2019"><img src="https://web-static.archive.org/_static/images/toolbar/wm_tb_prv_on.png" alt="Previous capture" width="14" height="16" border="0"></a></td>
+            <td class="c" id="displayDayEl" style="width:34px;font-size:22px;white-space:nowrap;" title="You are here: 06:42:16 Apr 24, 2019">24</td>
+            <td class="f" nowrap="nowrap"><a href="https://web.archive.org/web/20190525060145/http://www.varesano.net:80/blog/fabio/freeimu-magnetometer-and-accelerometer-calibration-gui-alpha-version-out" title="06:01:45 May 25, 2019"><img src="https://web-static.archive.org/_static/images/toolbar/wm_tb_nxt_on.png" alt="Next capture" width="14" height="16" border="0"></a></td>
+          </tr>
+          <!-- NEXT/PREV YEAR NAV AND YEAR INDICATOR -->
+          <tr class="y">
+            <td class="b" nowrap="nowrap"><a href="https://web.archive.org/web/20180418031840/http://www.varesano.net:80/blog/fabio/freeimu-magnetometer-and-accelerometer-calibration-gui-alpha-version-out" title="18 Apr 2018"><strong>2018</strong></a></td>
+            <td class="c" id="displayYearEl" title="You are here: 06:42:16 Apr 24, 2019">2019</td>
+            <td class="f" nowrap="nowrap"><a href="https://web.archive.org/web/20200628155538/http://www.varesano.net:80/blog/fabio/freeimu-magnetometer-and-accelerometer-calibration-gui-alpha-version-out" title="28 Jun 2020"><strong>2020</strong></a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="r" style="display:flex;flex-flow:column nowrap;align-items:flex-end;justify-content:space-between;">
+      <div id="wm-btns" style="text-align:right;height:23px;">
+                <span class="xxs">
+          <div id="wm-save-snapshot-success">success</div>
+          <div id="wm-save-snapshot-fail">fail</div>
+          <a id="wm-save-snapshot-open" href="https://web.archive.org/web/20190424064216/http://www.varesano.net/blog/fabio/freeimu-magnetometer-and-accelerometer-calibration-gui-alpha-version-out#" title="Share via My Web Archive" style="display: none;">
+            <span class="iconochive-web"></span>
+          </a>
+          <a href="https://archive.org/account/login.php" title="Sign In" id="wm-sign-in" style="display: inline-block;">
+            <span class="iconochive-person"></span>
+          </a>
+          <span id="wm-save-snapshot-in-progress" class="iconochive-web" style="display: none;"></span>
+        </span>
+                <a class="xxs" href="http://faq.web.archive.org/" title="Get some help using the Wayback Machine" style="top:-6px;"><span class="iconochive-question" style="color:rgb(87,186,244);font-size:160%;"></span></a>
+        <a id="wm-tb-close" href="https://web.archive.org/web/20190424064216/http://www.varesano.net/blog/fabio/freeimu-magnetometer-and-accelerometer-calibration-gui-alpha-version-out#close" style="top:-2px;" title="Close the toolbar"><span class="iconochive-remove-circle" style="color:#888888;font-size:240%;"></span></a>
+      </div>
+      <div id="wm-share" class="xxs">
+        <a href="https://web.archive.org/web/20190424064216/http://web.archive.org/screenshot/http://www.varesano.net/blog/fabio/freeimu-magnetometer-and-accelerometer-calibration-gui-alpha-version-out" id="wm-screenshot" title="screenshot" style="visibility: hidden;">
+          <span class="wm-icon-screen-shot"></span>
+        </a>
+        <a href="https://web.archive.org/web/20190424064216/http://www.varesano.net/blog/fabio/freeimu-magnetometer-and-accelerometer-calibration-gui-alpha-version-out#" id="wm-video" title="video">
+          <span class="iconochive-movies"></span>
+        </a>
+        <a id="wm-share-facebook" href="https://web.archive.org/web/20190424064216/http://www.varesano.net/blog/fabio/freeimu-magnetometer-and-accelerometer-calibration-gui-alpha-version-out#" data-url="https://web.archive.org/web/20190424064216/http://www.varesano.net:80/blog/fabio/freeimu-magnetometer-and-accelerometer-calibration-gui-alpha-version-out" title="Share on Facebook" style="margin-right:5px;" target="_blank"><span class="iconochive-facebook" style="color:#3b5998;font-size:160%;"></span></a>
+        <a id="wm-share-twitter" href="https://web.archive.org/web/20190424064216/http://www.varesano.net/blog/fabio/freeimu-magnetometer-and-accelerometer-calibration-gui-alpha-version-out#" data-url="https://web.archive.org/web/20190424064216/http://www.varesano.net:80/blog/fabio/freeimu-magnetometer-and-accelerometer-calibration-gui-alpha-version-out" title="Share on Twitter" style="margin-right:5px;" target="_blank"><span class="iconochive-twitter" style="color:#1dcaff;font-size:160%;"></span></a>
+      </div>
+      <div style="padding-right:2px;text-align:right;white-space:nowrap;">
+        <a id="wm-expand" class="wm-btn wm-closed" href="https://web.archive.org/web/20190424064216/http://www.varesano.net/blog/fabio/freeimu-magnetometer-and-accelerometer-calibration-gui-alpha-version-out#expand"><span id="wm-expand-icon" class="iconochive-down-solid"></span> <span class="xxs" style="font-size:80%;">About this capture</span></a>
+      </div>
+    </div>
+  </div>
+    <div id="wm-capinfo" style="border-top:1px solid #777;display:none; overflow: hidden">
+        <div id="wm-capinfo-notice" source="api"></div>
+                <div id="wm-capinfo-collected-by">
+    <div style="background-color:#666;color:#fff;font-weight:bold;text-align:center">COLLECTED BY</div>
+    <div style="padding:3px;position:relative" id="wm-collected-by-content">
+            <div style="display:inline-block;vertical-align:top;width:50%;">
+			<span class="c-logo" style="background-image:url(https://archive.org/services/img/alexacrawls);"></span>
+		Organization: <a style="color:#33f;" href="https://archive.org/details/alexacrawls" target="_new"><span class="wm-title">Alexa Crawls</span></a>
+		<div style="max-height:75px;overflow:hidden;position:relative;">
+	  <div style="position:absolute;top:0;left:0;width:100%;height:75px;background:linear-gradient(to bottom,rgba(255,255,255,0) 0%,rgba(255,255,255,0) 90%,rgba(255,255,255,255) 100%);"></div>
+	  Starting in 1996, <a href="http://www.alexa.com/">Alexa Internet</a> has been donating their crawl data to the Internet Archive.  Flowing in every day, these data are added to the <a href="http://web.archive.org/">Wayback Machine</a> after an embargo period.
+	</div>
+	      </div>
+      <div style="display:inline-block;vertical-align:top;width:49%;">
+			<span class="c-logo" style="background-image:url(https://archive.org/services/img/alexacrawls)"></span>
+		<div>Collection: <a style="color:#33f;" href="https://archive.org/details/alexacrawls" target="_new"><span class="wm-title">Alexa Crawls</span></a></div>
+		<div style="max-height:75px;overflow:hidden;position:relative;">
+	  <div style="position:absolute;top:0;left:0;width:100%;height:75px;background:linear-gradient(to bottom,rgba(255,255,255,0) 0%,rgba(255,255,255,0) 90%,rgba(255,255,255,255) 100%);"></div>
+	  Starting in 1996, <a href="http://www.alexa.com/">Alexa Internet</a> has been donating their crawl data to the Internet Archive.  Flowing in every day, these data are added to the <a href="http://web.archive.org/">Wayback Machine</a> after an embargo period.
+	</div>
+	      </div>
+    </div>
+    </div>
+    <div id="wm-capinfo-timestamps">
+    <div style="background-color:#666;color:#fff;font-weight:bold;text-align:center" title="Timestamps for the elements of this page">TIMESTAMPS</div>
+    <div>
+      <div id="wm-capresources" style="margin:0 5px 5px 5px;max-height:250px;overflow-y:scroll !important"></div>
+      <div id="wm-capresources-loading" style="text-align:left;margin:0 20px 5px 5px;display:none"><img src="https://web-static.archive.org/_static/images/loading.gif" alt="loading"></div>
+    </div>
+    </div>
+  </div></div></div><link rel="stylesheet" type="text/css" href="./FreeIMU Magnetometer and Accelerometer Calibration GUI_ alpha version out _ Varesano.net_files/banner-styles.css"><link rel="stylesheet" type="text/css" href="./FreeIMU Magnetometer and Accelerometer Calibration GUI_ alpha version out _ Varesano.net_files/iconochive.css"><div class="wb-autocomplete-suggestions "></div></template>
+</div><div id="wm-ipp-print">The Wayback Machine - https://web.archive.org/web/20190424064216/http://www.varesano.net:80/blog/fabio/freeimu-magnetometer-and-accelerometer-calibration-gui-alpha-version-out</div>
+<script type="text/javascript">//<![CDATA[
+__wm.bt(725,27,25,2,"web","http://www.varesano.net/blog/fabio/freeimu-magnetometer-and-accelerometer-calibration-gui-alpha-version-out","20190424064216",1996,"https://web-static.archive.org/_static/",["https://web-static.archive.org/_static/css/banner-styles.css?v=S1zqJCYt","https://web-static.archive.org/_static/css/iconochive.css?v=qtvMKcIJ"], false);
+  __wm.rw(1);
+//]]></script>
+<!-- END WAYBACK TOOLBAR INSERT -->
+ 
+  <div id="container">
+    <div id="header">
+      <h2><a href="https://web.archive.org/web/20190424064216/http://www.varesano.net/" title="Varesano.net "><span>Varesano.net</span></a></h2>
+                  <span id="nav">Navigation</span>
+        <ul id="navigation"><li class="menu-43 first"><a href="https://web.archive.org/web/20190424064216/http://www.varesano.net/" title="Go back to this website homepage">Home</a></li>
+<li class="menu-46"><a href="https://web.archive.org/web/20190424064216/http://www.varesano.net/about" title="Informations about Fabio Varesano">About</a></li>
+<li class="menu-68"><a href="https://web.archive.org/web/20190424064216/http://www.varesano.net/topic" title="A list of all Topics / Tags available on this website">Topics</a></li>
+<li class="menu-76"><a href="https://web.archive.org/web/20190424064216/http://www.varesano.net/contents/projects" title="Some of the projects I work on">Projects</a></li>
+<li class="menu-87"><a href="https://web.archive.org/web/20190424064216/http://www.varesano.net/socialize" title="Follow me on Social Networks and Communities online">Socialize</a></li>
+<li class="menu-45 last"><a href="https://web.archive.org/web/20190424064216/http://www.varesano.net/contact" title="Contact Fabio Varesano">Contact</a></li>
+</ul>       <!-- primary links  -->
+
+    </div> <!-- header -->
+
+    <div id="content">
+                        <div id="breadcrumbs">
+            <div class="breadcrumb"><a href="https://web.archive.org/web/20190424064216/http://www.varesano.net/">Home</a> » <a href="https://web.archive.org/web/20190424064216/http://www.varesano.net/blog">Blogs</a> » <a href="https://web.archive.org/web/20190424064216/http://www.varesano.net/blog/fabio">fabio's blog</a></div>          </div>
+              
+      
+              <h1 id="title">FreeIMU Magnetometer and Accelerometer Calibration GUI: alpha version out</h1>
+      
+      
+      
+      
+      <!-- start main content -->
+      <div class="node node-page" id="node-280">
+
+  <div class="info">Last updated on Fri, 2012-11-23 12:07. Originally submitted by fabio on 2012-10-30 16:02.</div>
+
+  <div class="content">
+    <p>I'm happy to finally publish a first working version of the FreeIMU Magnetometer and Accelerometer Calibration GUI. Currently, it should allow you to visually calibrate your accelerometer and magnetometer after you connected your IMU to a microcontroller running the FreeIMU_serial example in the FreeIMU library. <strong>NOTE:</strong> You have to use the FreeIMU_library available on the <a href="https://web.archive.org/web/20190424064216/https://code.launchpad.net/~fabio-varesano/freeimu/trunk" class="ext">repository</a><span class="ext"></span>, not the one on the project webpage.</p>
+<p>The program is written in Python, using PyQT4 as GUI library, using PySerial to communicate with Arduino, pyqtgraph for the graphs generation and PyOpenGL as backend for graph generation. Numpy and Scipi are instead used in the <a href="https://web.archive.org/web/20190424064216/http://www.varesano.net/blog/fabio/ellipsoid-sphere-optimization-using-numpy-and-linalg">calibration algorithm</a>.</p>
+<p>Right now only 2D graphs and saving to calibration.h features work. 3D graphs and save to microcontroller EEPROM are being developed right now. Still, what's already available should be enough for starting properly calibrating your IMUs.</p>
+<p>The software has been designed with flexibility in mind.. Ideally in the future it will evolve and let you test different calibration algorithms and various serial protocols will be implemented to use it with your favorite firmwares (eg: MultiWii, FreeIMU, etc..)</p>
+<p>Please consider this release as very alpha software. Bugged and bad, but still nice to have a look. Any suggestion and comments welcome. I'm currently looking for a MacOS tester to try help me package it for Mac as well.</p>
+<ul>
+<li>Windows version: <a href="https://web.archive.org/web/20190424064216/http://www.di.unito.it/~varesano/temp/FreeIMU_GUI-0.2-win32.zip" class="ext">FreeIMU_GUI-0.2-win32-r23.zip</a><span class="ext"></span></li>
+<li>Linux users are encouraged to test the software directly from the Python sources available on the <a href="https://web.archive.org/web/20190424064216/https://code.launchpad.net/~fabio-varesano/freeimu/trunk" class="ext">FreeIMU repository</a><span class="ext"></span>. </li>
+<li>Mac not supported at the moment. I don't have a Mac so I can't test it. Help needed.</li>
+</ul>
+<p>Here are a couple of pictures of the GUI..</p>
+<p><a href="https://web.archive.org/web/20190424064216/http://www.varesano.net/files/cal_gui1.png" class="inline-image-link" title="View: cal_gui1.png"><img src="./FreeIMU Magnetometer and Accelerometer Calibration GUI_ alpha version out _ Varesano.net_files/cal_gui1.png" alt="cal_gui1.png" title="cal_gui1.png" width="500" height="440" class="inline"></a></p>
+<p><a href="https://web.archive.org/web/20190424064216/http://www.varesano.net/files/cal_gui2.png" class="inline-image-link" title="View: cal_gui2.png"><img src="./FreeIMU Magnetometer and Accelerometer Calibration GUI_ alpha version out _ Varesano.net_files/cal_gui2.png" alt="cal_gui2.png" title="cal_gui2.png" width="500" height="437" class="inline"></a></p>
+  </div>
+    <div class="meta"><ul class="links inline"><li class="blog_usernames_blog first"><a href="https://web.archive.org/web/20190424064216/http://www.varesano.net/blog/fabio" title="Read fabio&#39;s latest blog entries.">fabio's blog</a></li>
+<li class="comment_forbidden"><span><a href="https://web.archive.org/web/20190424064216/http://www.varesano.net/user/login?destination=node%2F280%23comment-form">Login</a> to post comments</span></li>
+<li class="statistics_counter last"><span>117059 reads</span></li>
+</ul>          <div class="terms">Posted in: <ul class="links inline"><li class="taxonomy_term_152 first last"><a href="https://web.archive.org/web/20190424064216/http://www.varesano.net/topic/freeimu" rel="tag" title="">FreeIMU</a></li>
+</ul></div>
+      </div>
+</div>
+
+
+<div id="comments">
+  <a id="comment-24036"></a>
+<div class="comment  ">
+
+  <h3 class="title"><a href="https://web.archive.org/web/20190424064216/http://www.varesano.net/blog/fabio/freeimu-magnetometer-and-accelerometer-calibration-gui-alpha-version-out#comment-24036" class="active">problems in calibration mag data</a></h3>
+    <div class="author">Submitted by khyale (not verified) on Mon, 2015-07-20 15:29.</div>
+  <div class="content"><p>Hi,</p>
+<p>I am using your program 'cal_lib.py' from FreeIMU to calibrate the measurements done with a HMC5883L magnetometer. I create a file 'magn.txt' and put the sensor's raw data in tree columns (mag_x. mag_y, mag_z). The output from this program give me 6 parameters (x,y,z offsets and x,y,z scales vales). So I corrected the values usign the formula: corrected_val = (val-offset)/scale, for each axis' data. I noted after processing the offset was corrected but not the shape (it still continues a ellips(2d) or ellipsiod(3d)). it seems the algoritm only normalize the curve and adjust offset. And the magnitude information of magnetic field was lost. Anybody can help me?</p>
+</div>
+    <div class="links"><ul class="links"><li class="comment_forbidden first last"><span><a href="https://web.archive.org/web/20190424064216/http://www.varesano.net/user/login?destination=node%2F280%23comment-form">Login</a> to post comments</span></li>
+</ul></div>
+</div>
+<a id="comment-23991"></a>
+<div class="comment  ">
+
+  <h3 class="title"><a href="https://web.archive.org/web/20190424064216/http://www.varesano.net/blog/fabio/freeimu-magnetometer-and-accelerometer-calibration-gui-alpha-version-out#comment-23991" class="active">What is the communication protocol</a></h3>
+    <div class="author">Submitted by CurrentZ (not verified) on Tue, 2015-05-19 21:11.</div>
+  <div class="content"><p>I tried the calibration tools that you provide and I did 3 dimension rotation but what I have on the graphs are not spherical stuffs but random lines. Could you help me with the process of doing the calibration?</p>
+</div>
+    <div class="links"><ul class="links"><li class="comment_forbidden first last"><span><a href="https://web.archive.org/web/20190424064216/http://www.varesano.net/user/login?destination=node%2F280%23comment-form">Login</a> to post comments</span></li>
+</ul></div>
+</div>
+<div class="indented"><a id="comment-23993"></a>
+<div class="comment  ">
+
+  <h3 class="title"><a href="https://web.archive.org/web/20190424064216/http://www.varesano.net/blog/fabio/freeimu-magnetometer-and-accelerometer-calibration-gui-alpha-version-out#comment-23993" class="active">You may want to test if the</a></h3>
+    <div class="author">Submitted by Andres (not verified) on Thu, 2015-05-21 18:24.</div>
+  <div class="content"><p>You may want to test if the communication between the device and the calibration utility is working properly. I would recommend to run the "free running" mode (communication starts and the device begins to send all the sensor readings until interrupted) and check that at least meaningful data is being transferred (you may use a serial terminal). Unfortunately I do not have the device near nor the software downloaded to test it again, but I remember having to tweak the free running mode a little bit (just a little bit) to get the output the calibration software needed. Of course, this may not be the (only) issue, but it is a starting point!</p>
+<p>Good luck!</p>
+</div>
+    <div class="links"><ul class="links"><li class="comment_forbidden first last"><span><a href="https://web.archive.org/web/20190424064216/http://www.varesano.net/user/login?destination=node%2F280%23comment-form">Login</a> to post comments</span></li>
+</ul></div>
+</div>
+</div><a id="comment-23736"></a>
+<div class="comment  ">
+
+  <h3 class="title"><a href="https://web.archive.org/web/20190424064216/http://www.varesano.net/blog/fabio/freeimu-magnetometer-and-accelerometer-calibration-gui-alpha-version-out#comment-23736" class="active">Free IMU GUI for windows hang upon connecting to com port</a></h3>
+    <div class="author">Submitted by Leo Chuah (not verified) on Sat, 2014-09-20 14:17.</div>
+  <div class="content"><p>as the title says, the program hangs upon connecting to the correct com port and it says python.exe isnt working. It also says at the bottom of the program that the connection to the arduino was successful and requested me to press the reset button. Following that instruction however had no effect. Do advise.</p>
+</div>
+    <div class="links"><ul class="links"><li class="comment_forbidden first last"><span><a href="https://web.archive.org/web/20190424064216/http://www.varesano.net/user/login?destination=node%2F280%23comment-form">Login</a> to post comments</span></li>
+</ul></div>
+</div>
+<a id="comment-23726"></a>
+<div class="comment  ">
+
+  <h3 class="title"><a href="https://web.archive.org/web/20190424064216/http://www.varesano.net/blog/fabio/freeimu-magnetometer-and-accelerometer-calibration-gui-alpha-version-out#comment-23726" class="active">Link between calibration offset and sensor offset</a></h3>
+    <div class="author">Submitted by Florian_Bo (not verified) on Tue, 2014-09-09 17:48.</div>
+  <div class="content"><p>Hi anyone.<br>
+Thanks for the great library and tools you provided for the imu.<br>
+I am actually trying to calibrate a MPU6050 with an arduino and your calibration GUI.<br>
+Everything works fine and I manage to get the offset and scale values.<br>
+What I would like to do now, is to update the sensors' internal offset values (using the setXAccelOffset (int16_t offset) from the MPU6050 library).<br>
+If I get the original sensor offset, add the calibration offset and upload it to the sensor I get a less accurate sensor (when I try to calibrate it again).<br>
+Does anyone has any idea on what could be the relation between the calibration GUI offsets and the sensor internal offset?<br>
+Also, should I turn these sensor internal offset to zero before I calibrate it?</p>
+</div>
+    <div class="links"><ul class="links"><li class="comment_forbidden first last"><span><a href="https://web.archive.org/web/20190424064216/http://www.varesano.net/user/login?destination=node%2F280%23comment-form">Login</a> to post comments</span></li>
+</ul></div>
+</div>
+<a id="comment-23704"></a>
+<div class="comment  ">
+
+  <h3 class="title"><a href="https://web.archive.org/web/20190424064216/http://www.varesano.net/blog/fabio/freeimu-magnetometer-and-accelerometer-calibration-gui-alpha-version-out#comment-23704" class="active">How do I start the GUI</a></h3>
+    <div class="author">Submitted by Anonymous (not verified) on Fri, 2014-08-15 12:30.</div>
+  <div class="content"><p>I have installed Python but I'm not able to start the GUI on what file do I have to click? When I start the cal_gui.py nothings happens.</p>
+</div>
+    <div class="links"><ul class="links"><li class="comment_forbidden first last"><span><a href="https://web.archive.org/web/20190424064216/http://www.varesano.net/user/login?destination=node%2F280%23comment-form">Login</a> to post comments</span></li>
+</ul></div>
+</div>
+<div class="indented"><a id="comment-23782"></a>
+<div class="comment  ">
+
+  <h3 class="title"><a href="https://web.archive.org/web/20190424064216/http://www.varesano.net/blog/fabio/freeimu-magnetometer-and-accelerometer-calibration-gui-alpha-version-out#comment-23782" class="active">you have to run the .bat file</a></h3>
+    <div class="author">Submitted by Anonymous (not verified) on Thu, 2014-11-13 21:38.</div>
+  <div class="content"><p>you have to run the .bat file from the command prompt, and that should start up the gui</p>
+</div>
+    <div class="links"><ul class="links"><li class="comment_forbidden first last"><span><a href="https://web.archive.org/web/20190424064216/http://www.varesano.net/user/login?destination=node%2F280%23comment-form">Login</a> to post comments</span></li>
+</ul></div>
+</div>
+</div><a id="comment-23670"></a>
+<div class="comment  ">
+
+  <h3 class="title"><a href="https://web.archive.org/web/20190424064216/http://www.varesano.net/blog/fabio/freeimu-magnetometer-and-accelerometer-calibration-gui-alpha-version-out#comment-23670" class="active">Help calibrating Adafruit 9 DOF sensor</a></h3>
+    <div class="author">Submitted by Ashfaque (not verified) on Sat, 2014-06-28 03:08.</div>
+  <div class="content"><p>Hi I have the following adafruit 9 DOF sensor.<br>
+<a href="https://web.archive.org/web/20190424064216/https://learn.adafruit.com/adafruit-9-dof-imu-breakout" title="https://learn.adafruit.com/adafruit-9-dof-imu-breakout" class="ext">https://learn.adafruit.com/adafruit-9-dof-imu-breakout</a><span class="ext"></span><br>
+it uses an LSM303DLHC - a 3-axis accelerometer (up to +/-16g) and a 3-axis magnetometer (up to +/-8.1 gauss).</p>
+<p>Can you please tell me how to use your program to calibrate this sensor using the adafruit library?</p>
+<p>Thanks.</p>
+</div>
+    <div class="links"><ul class="links"><li class="comment_forbidden first last"><span><a href="https://web.archive.org/web/20190424064216/http://www.varesano.net/user/login?destination=node%2F280%23comment-form">Login</a> to post comments</span></li>
+</ul></div>
+</div>
+<div class="indented"><a id="comment-23676"></a>
+<div class="comment  ">
+
+  <h3 class="title"><a href="https://web.archive.org/web/20190424064216/http://www.varesano.net/blog/fabio/freeimu-magnetometer-and-accelerometer-calibration-gui-alpha-version-out#comment-23676" class="active">I have the same problem... 
+I</a></h3>
+    <div class="author">Submitted by Anonymous (not verified) on Thu, 2014-07-03 00:27.</div>
+  <div class="content"><p>I have the same problem... </p>
+<p>I am using the adafruit-10-dof-imu-breakout-lsm303-l3gd20-bmp180, they recomend calibrating using this software but its clear they havent done it.</p>
+<p>It wont work! I can't get the accel readings.... Has anyone been able to make it work with the adafruit sensor?????</p>
+</div>
+    <div class="links"><ul class="links"><li class="comment_forbidden first last"><span><a href="https://web.archive.org/web/20190424064216/http://www.varesano.net/user/login?destination=node%2F280%23comment-form">Login</a> to post comments</span></li>
+</ul></div>
+</div>
+</div><a id="comment-23648"></a>
+<div class="comment  ">
+
+  <h3 class="title"><a href="https://web.archive.org/web/20190424064216/http://www.varesano.net/blog/fabio/freeimu-magnetometer-and-accelerometer-calibration-gui-alpha-version-out#comment-23648" class="active">The calibrition</a></h3>
+    <div class="author">Submitted by Liam (not verified) on Sun, 2014-06-08 17:25.</div>
+  <div class="content"><p>hi,buddy, i have got the compile problem solved. then i have got the calibraiton data as follows:<br>
+const int acc_off_x = 192;<br>
+const int acc_off_y = 174;<br>
+const int acc_off_z = 457;<br>
+const float acc_scale_x = 16522.9867621;<br>
+const float acc_scale_y = 16743.3485921;<br>
+const float acc_scale_z = 6835.60540726;<br>
+i wonder is that right? and i can't paste a picture here. if you have time i can send you the picture to your email.<br>
+And i don't konw how to use the scale_x/y/z data. becaue the mpu6050 has only the register of int8_t type. obviously the number is too large? </p>
+<p>looking forward your reply!</p>
+<p>Thanks very much.</p>
+</div>
+    <div class="links"><ul class="links"><li class="comment_forbidden first last"><span><a href="https://web.archive.org/web/20190424064216/http://www.varesano.net/user/login?destination=node%2F280%23comment-form">Login</a> to post comments</span></li>
+</ul></div>
+</div>
+<a id="comment-23646"></a>
+<div class="comment  ">
+
+  <h3 class="title"><a href="https://web.archive.org/web/20190424064216/http://www.varesano.net/blog/fabio/freeimu-magnetometer-and-accelerometer-calibration-gui-alpha-version-out#comment-23646" class="active">MPU6050</a></h3>
+    <div class="author">Submitted by Liam (not verified) on Sat, 2014-06-07 17:46.</div>
+  <div class="content"><p>hi, i am doing the calibration work on the mpu6050, it really a tough work. So i found you have done a excellent job about it. i wonder how can i do it with the 6dof 6050. btw: the freeimu_serial cant be compiled successfully on my computer.</p>
+</div>
+    <div class="links"><ul class="links"><li class="comment_forbidden first last"><span><a href="https://web.archive.org/web/20190424064216/http://www.varesano.net/user/login?destination=node%2F280%23comment-form">Login</a> to post comments</span></li>
+</ul></div>
+</div>
+<div class="indented"><a id="comment-23647"></a>
+<div class="comment  ">
+
+  <h3 class="title"><a href="https://web.archive.org/web/20190424064216/http://www.varesano.net/blog/fabio/freeimu-magnetometer-and-accelerometer-calibration-gui-alpha-version-out#comment-23647" class="active">Hi Liam,
+you may want to add</a></h3>
+    <div class="author">Submitted by Andres (not verified) on Sat, 2014-06-07 20:49.</div>
+  <div class="content"><p>Hi Liam,<br>
+you may want to add some specific and detailed error/issue description in order to receive more precise suggestions. You should also provide information on compiler, OS and versions you are using.</p>
+<p>Not sure about what kind of problems are you having right now... if you are not able to run the serial communication, you won't be able to calibrate the sensors. Have you already achieved sensor data readings? Do they make sense (raw values around the specified in the datasheet)?</p>
+</div>
+    <div class="links"><ul class="links"><li class="comment_forbidden first last"><span><a href="https://web.archive.org/web/20190424064216/http://www.varesano.net/user/login?destination=node%2F280%23comment-form">Login</a> to post comments</span></li>
+</ul></div>
+</div>
+<div class="indented"><a id="comment-23649"></a>
+<div class="comment  ">
+
+  <h3 class="title"><a href="https://web.archive.org/web/20190424064216/http://www.varesano.net/blog/fabio/freeimu-magnetometer-and-accelerometer-calibration-gui-alpha-version-out#comment-23649" class="active">solved</a></h3>
+    <div class="author">Submitted by Liam (not verified) on Sun, 2014-06-08 17:28.</div>
+  <div class="content"><p>Thank u very much, and i got the lib file modified then the code compiled succeefully. my email is <a href="mailto:xllau%40126.com" class="spamspan mailto">xllau@126.com</a><span class="mailto"></span>. and i have come to a new problem.<br>
+as described above. call me liam. and i am very gratitude about your pationce.</p>
+</div>
+    <div class="links"><ul class="links"><li class="comment_forbidden first last"><span><a href="https://web.archive.org/web/20190424064216/http://www.varesano.net/user/login?destination=node%2F280%23comment-form">Login</a> to post comments</span></li>
+</ul></div>
+</div>
+</div></div><a id="comment-23635"></a>
+<div class="comment  ">
+
+  <h3 class="title"><a href="https://web.archive.org/web/20190424064216/http://www.varesano.net/blog/fabio/freeimu-magnetometer-and-accelerometer-calibration-gui-alpha-version-out#comment-23635" class="active">dont work under win7</a></h3>
+    <div class="author">Submitted by Liam (not verified) on Tue, 2014-05-27 08:21.</div>
+  <div class="content"><p>hi buddy, i got the files on my computer , but when i run the "freeimu.bat", the command window goes down. i don't know the cause. Or is there something wrong with my computer or my procedure?  thank you very much.</p>
+</div>
+    <div class="links"><ul class="links"><li class="comment_forbidden first last"><span><a href="https://web.archive.org/web/20190424064216/http://www.varesano.net/user/login?destination=node%2F280%23comment-form">Login</a> to post comments</span></li>
+</ul></div>
+</div>
+<div class="indented"><a id="comment-23636"></a>
+<div class="comment  ">
+
+  <h3 class="title"><a href="https://web.archive.org/web/20190424064216/http://www.varesano.net/blog/fabio/freeimu-magnetometer-and-accelerometer-calibration-gui-alpha-version-out#comment-23636" class="active">Have you tried to run it</a></h3>
+    <div class="author">Submitted by Andres (not verified) on Wed, 2014-05-28 16:04.</div>
+  <div class="content"><p>Have you tried to run it directly from the command line? It may show what kind of error you have. That would be, open a cmd window inside your "FreeIMU_GUI-0.2-win32" folder (or the corresponding version) and run freeimu.bat there.</p>
+<p>Regards!</p>
+</div>
+    <div class="links"><ul class="links"><li class="comment_forbidden first last"><span><a href="https://web.archive.org/web/20190424064216/http://www.varesano.net/user/login?destination=node%2F280%23comment-form">Login</a> to post comments</span></li>
+</ul></div>
+</div>
+<div class="indented"><a id="comment-23650"></a>
+<div class="comment  ">
+
+  <h3 class="title"><a href="https://web.archive.org/web/20190424064216/http://www.varesano.net/blog/fabio/freeimu-magnetometer-and-accelerometer-calibration-gui-alpha-version-out#comment-23650" class="active">i have got my graphic driver</a></h3>
+    <div class="author">Submitted by Liam (not verified) on Sun, 2014-06-08 17:30.</div>
+  <div class="content"><p>i have got my graphic driver upgraded. then the problem has been solved. that is so troublesome. thank you very much.</p>
+</div>
+    <div class="links"><ul class="links"><li class="comment_forbidden first last"><span><a href="https://web.archive.org/web/20190424064216/http://www.varesano.net/user/login?destination=node%2F280%23comment-form">Login</a> to post comments</span></li>
+</ul></div>
+</div>
+</div></div><a id="comment-23634"></a>
+<div class="comment  ">
+
+  <h3 class="title"><a href="https://web.archive.org/web/20190424064216/http://www.varesano.net/blog/fabio/freeimu-magnetometer-and-accelerometer-calibration-gui-alpha-version-out#comment-23634" class="active">dont work under win7</a></h3>
+    <div class="author">Submitted by Liam (not verified) on Tue, 2014-05-27 08:21.</div>
+  <div class="content"><p>hi buddy, i got the files on my computer , but when i run the "freeimu.bat", the command window goes down. i don't know the cause. Or is there something wrong with my computer or my procedure?  thank you very much.</p>
+</div>
+    <div class="links"><ul class="links"><li class="comment_forbidden first last"><span><a href="https://web.archive.org/web/20190424064216/http://www.varesano.net/user/login?destination=node%2F280%23comment-form">Login</a> to post comments</span></li>
+</ul></div>
+</div>
+<a id="comment-23466"></a>
+<div class="comment  ">
+
+  <h3 class="title"><a href="https://web.archive.org/web/20190424064216/http://www.varesano.net/blog/fabio/freeimu-magnetometer-and-accelerometer-calibration-gui-alpha-version-out#comment-23466" class="active">Running calibration in Ubuntu 13.10</a></h3>
+    <div class="author">Submitted by Andres (not verified) on Tue, 2014-01-07 03:08.</div>
+  <div class="content"><p>Hi folks,</p>
+<p>Just wanted to share my experience, after having been struggling with the calibration software in order to make it run under Ubuntu 13.10, and installing the needed packages (following dependency suggestions), the less obvious change was a downgrade for PyOpenGL, from version 3.1.0 to version 3.0.2, as indicated here:</p>
+<p><a href="https://web.archive.org/web/20190424064216/http://sourceforge.net/mailarchive/forum.php?set=custom&amp;viewmonth=&amp;viewday=&amp;forum_name=pyopengl-users&amp;style=nested&amp;max_rows=75&amp;submit=Change+View" title="http://sourceforge.net/mailarchive/forum.php?set=custom&amp;viewmonth=&amp;viewday=&amp;forum_name=pyopengl-users&amp;style=nested&amp;max_rows=75&amp;submit=Change+View" class="ext">http://sourceforge.net/mailarchive/forum.php?set=custom&amp;viewmonth=&amp;viewd...</a><span class="ext"></span></p>
+<p>Just in case someone is stuck with the same issue.</p>
+<p>Regards!</p>
+</div>
+    <div class="links"><ul class="links"><li class="comment_forbidden first last"><span><a href="https://web.archive.org/web/20190424064216/http://www.varesano.net/user/login?destination=node%2F280%23comment-form">Login</a> to post comments</span></li>
+</ul></div>
+</div>
+<a id="comment-23447"></a>
+<div class="comment  ">
+
+  <h3 class="title"><a href="https://web.archive.org/web/20190424064216/http://www.varesano.net/blog/fabio/freeimu-magnetometer-and-accelerometer-calibration-gui-alpha-version-out#comment-23447" class="active">What if i need to work with 2 MPU-6050 and i have one Arduino?</a></h3>
+    <div class="author">Submitted by An ony mouse (not verified) on Tue, 2013-12-10 21:39.</div>
+  <div class="content"><p>Hi. I have 2 MPU-6050 modules and i want to work with them but i only have 1 Arduino uno r3. can anybody help me in the solution of my question?</p>
+</div>
+    <div class="links"><ul class="links"><li class="comment_forbidden first last"><span><a href="https://web.archive.org/web/20190424064216/http://www.varesano.net/user/login?destination=node%2F280%23comment-form">Login</a> to post comments</span></li>
+</ul></div>
+</div>
+<div class="indented"><a id="comment-23459"></a>
+<div class="comment  ">
+
+  <h3 class="title"><a href="https://web.archive.org/web/20190424064216/http://www.varesano.net/blog/fabio/freeimu-magnetometer-and-accelerometer-calibration-gui-alpha-version-out#comment-23459" class="active">hello friend...
+u can connect</a></h3>
+    <div class="author">Submitted by Ravi (not verified) on Fri, 2013-12-27 04:40.</div>
+  <div class="content"><p>hello friend...</p>
+<p>u can connect two mpu6050 on one i2c bus... just put ado pin high in one and low in another... to change address of mpu6050 one 0x68 and one 0x69.. pass address as argument when initlize mpu6050 object ...</p>
+</div>
+    <div class="links"><ul class="links"><li class="comment_forbidden first last"><span><a href="https://web.archive.org/web/20190424064216/http://www.varesano.net/user/login?destination=node%2F280%23comment-form">Login</a> to post comments</span></li>
+</ul></div>
+</div>
+</div><a id="comment-22783"></a>
+<div class="comment  ">
+
+  <h3 class="title"><a href="https://web.archive.org/web/20190424064216/http://www.varesano.net/blog/fabio/freeimu-magnetometer-and-accelerometer-calibration-gui-alpha-version-out#comment-22783" class="active">Hi,
+Congratulation for the</a></h3>
+    <div class="author">Submitted by nejc (not verified) on Wed, 2013-04-10 12:03.</div>
+  <div class="content"><p>Hi,<br>
+Congratulation for the effort included in development of FreeImu.</p>
+<p>I have a question.<br>
+Where is the calibration algorithm derived from? I would like to implement a calibration algorithm in Matlab. But I would need a original algorithm. </p>
+<p>If I understand correctly, the result of algoritm is the file "calibration.h", which is then used in functions of the file FreeIMU.cpp?</p>
+<p>thank you</p>
+<p>regards,<br>
+bye</p>
+</div>
+    <div class="links"><ul class="links"><li class="comment_forbidden first last"><span><a href="https://web.archive.org/web/20190424064216/http://www.varesano.net/user/login?destination=node%2F280%23comment-form">Login</a> to post comments</span></li>
+</ul></div>
+</div>
+<a id="comment-22541"></a>
+<div class="comment  ">
+
+  <h3 class="title"><a href="https://web.archive.org/web/20190424064216/http://www.varesano.net/blog/fabio/freeimu-magnetometer-and-accelerometer-calibration-gui-alpha-version-out#comment-22541" class="active">Calibration data</a></h3>
+    <div class="author">Submitted by Bo (not verified) on Sat, 2012-11-17 18:40.</div>
+  <div class="content"><p>Dear All</p>
+<p>Thank you very much for the design and such a vibrant community. I recently have come into the possession of a second hand FreeIMU v43. Others have played with it before, so I am not entirely sure that it functions. Naturally, without calibration I get a lot of drift. But I recently tried the calibration program here. Things look okay from the yaw pitch roll program,only a little bit of yaw drift.</p>
+<p>But when I look at calibration.h, there are some big numbers. Is that okay? Do the numbers below look okay?</p>
+<p>Bo</p>
+<p>#define CALIBRATION_H</p>
+<p>const int acc_off_x = 1612;<br>
+const int acc_off_y = -430;<br>
+const int acc_off_z = -1808;<br>
+const float acc_scale_x = 12697.183876;<br>
+const float acc_scale_y = 16538.343853;<br>
+const float acc_scale_z = 17532.517665;</p>
+<p>const int magn_off_x = 143;<br>
+const int magn_off_y = 56;<br>
+const int magn_off_z = -86;<br>
+const float magn_scale_x = 455.298155;<br>
+const float magn_scale_y = 431.236634;<br>
+const float magn_scale_z = 393.430345;</p>
+</div>
+    <div class="links"><ul class="links"><li class="comment_forbidden first last"><span><a href="https://web.archive.org/web/20190424064216/http://www.varesano.net/user/login?destination=node%2F280%23comment-form">Login</a> to post comments</span></li>
+</ul></div>
+</div>
+<div class="indented"><a id="comment-22553"></a>
+<div class="comment  owner">
+
+  <h3 class="title"><a href="https://web.archive.org/web/20190424064216/http://www.varesano.net/blog/fabio/freeimu-magnetometer-and-accelerometer-calibration-gui-alpha-version-out#comment-22553" class="active">Yes, they look absolutely</a></h3>
+    <div class="author">Submitted by fabio on Wed, 2012-11-21 10:25.</div>
+  <div class="content"><p>Yes, they look absolutely fine.</p>
+</div>
+    <div class="links"><ul class="links"><li class="comment_forbidden first last"><span><a href="https://web.archive.org/web/20190424064216/http://www.varesano.net/user/login?destination=node%2F280%23comment-form">Login</a> to post comments</span></li>
+</ul></div>
+</div>
+</div><a id="comment-22479"></a>
+<div class="comment  ">
+
+  <h3 class="title"><a href="https://web.archive.org/web/20190424064216/http://www.varesano.net/blog/fabio/freeimu-magnetometer-and-accelerometer-calibration-gui-alpha-version-out#comment-22479" class="active">Failed to run the firmware</a></h3>
+    <div class="author">Submitted by Ivan (not verified) on Tue, 2012-11-13 18:15.</div>
+  <div class="content"><p>When i attempt to run the firmware with the calibration.h file generated from FreeIMU_GUI (or simple the cailbration.h file from calibration_old folder) i'm get the  Adruino IDE error 'class FreeIMU' has no member named 'calLoad'. Please help and show me where is the problem...</p>
+</div>
+    <div class="links"><ul class="links"><li class="comment_forbidden first last"><span><a href="https://web.archive.org/web/20190424064216/http://www.varesano.net/user/login?destination=node%2F280%23comment-form">Login</a> to post comments</span></li>
+</ul></div>
+</div>
+<div class="indented"><a id="comment-22480"></a>
+<div class="comment  owner">
+
+  <h3 class="title"><a href="https://web.archive.org/web/20190424064216/http://www.varesano.net/blog/fabio/freeimu-magnetometer-and-accelerometer-calibration-gui-alpha-version-out#comment-22480" class="active">That was a bug. Thanks for</a></h3>
+    <div class="author">Submitted by fabio on Tue, 2012-11-13 19:01.</div>
+  <div class="content"><p>That was a bug. Thanks for discovering it. Please see <a href="https://web.archive.org/web/20190424064216/http://bazaar.launchpad.net/~fabio-varesano/freeimu/trunk/view/head:/libraries/FreeIMU/examples/FreeIMU_serial/FreeIMU_serial.ino" class="ext">FreeIMU_serial program on revision 30</a><span class="ext"></span> and above for a fix.</p>
+</div>
+    <div class="links"><ul class="links"><li class="comment_forbidden first last"><span><a href="https://web.archive.org/web/20190424064216/http://www.varesano.net/user/login?destination=node%2F280%23comment-form">Login</a> to post comments</span></li>
+</ul></div>
+</div>
+<div class="indented"><a id="comment-22485"></a>
+<div class="comment  ">
+
+  <h3 class="title"><a href="https://web.archive.org/web/20190424064216/http://www.varesano.net/blog/fabio/freeimu-magnetometer-and-accelerometer-calibration-gui-alpha-version-out#comment-22485" class="active">Still not working</a></h3>
+    <div class="author">Submitted by Ivan (not verified) on Wed, 2012-11-14 08:16.</div>
+  <div class="content"><p>The calibrated values acc_off, acc_scale, magn_off, magn_scale are not override the default values. The 'C' command returns the next results: acc and magn_off (xyz) = 0; acc and magn_scale (xyz) = 1 (defined in FreeIMU.cpp   // initialize scale factors to neutral values)</p>
+</div>
+    <div class="links"><ul class="links"><li class="comment_forbidden first last"><span><a href="https://web.archive.org/web/20190424064216/http://www.varesano.net/user/login?destination=node%2F280%23comment-form">Login</a> to post comments</span></li>
+</ul></div>
+</div>
+<div class="indented"><a id="comment-22486"></a>
+<div class="comment  owner">
+
+  <h3 class="title"><a href="https://web.archive.org/web/20190424064216/http://www.varesano.net/blog/fabio/freeimu-magnetometer-and-accelerometer-calibration-gui-alpha-version-out#comment-22486" class="active">Ops. Should work now. See</a></h3>
+    <div class="author">Submitted by fabio on Wed, 2012-11-14 12:35.</div>
+  <div class="content"><p>Ops. Should work now. See changes in FreeIMU.cpp in commit 31.<br>
+Sorry for the trouble.</p>
+</div>
+    <div class="links"><ul class="links"><li class="comment_forbidden first last"><span><a href="https://web.archive.org/web/20190424064216/http://www.varesano.net/user/login?destination=node%2F280%23comment-form">Login</a> to post comments</span></li>
+</ul></div>
+</div>
+<div class="indented"><a id="comment-22487"></a>
+<div class="comment  ">
+
+  <h3 class="title"><a href="https://web.archive.org/web/20190424064216/http://www.varesano.net/blog/fabio/freeimu-magnetometer-and-accelerometer-calibration-gui-alpha-version-out#comment-22487" class="active">Thanks!</a></h3>
+    <div class="author">Submitted by Ivan (not verified) on Wed, 2012-11-14 15:14.</div>
+  <div class="content"><p>Great, now its work good.<br>
+I calibrated my IMU sensor (Sparkfun SEN-10724). Now the drift is much smaller but still present. Is suspected to blame the effect of temperature on the sensor calibration. This is unfortunate, because my job requires a fairly stable values​​. Perhaps, without complex adaptive filtering algorithms, such as Kalman filtering, to achieve stable results possible. Or not? In any case, thank you for an amazing job! By the way, the German colleagues have published a firmware for sensor SEN-10724 with calibration via GUI. The results are good, it should be noted:<br>
+<a href="https://web.archive.org/web/20190424064216/https://dev.qu.tu-berlin.de/projects/sf-razor-9dof-ahrs/news" title="https://dev.qu.tu-berlin.de/projects/sf-razor-9dof-ahrs/news" class="ext">https://dev.qu.tu-berlin.de/projects/sf-razor-9dof-ahrs/news</a><span class="ext"></span></p>
+</div>
+    <div class="links"><ul class="links"><li class="comment_forbidden first last"><span><a href="https://web.archive.org/web/20190424064216/http://www.varesano.net/user/login?destination=node%2F280%23comment-form">Login</a> to post comments</span></li>
+</ul></div>
+</div>
+<div class="indented"><a id="comment-22540"></a>
+<div class="comment  ">
+
+  <h3 class="title"><a href="https://web.archive.org/web/20190424064216/http://www.varesano.net/blog/fabio/freeimu-magnetometer-and-accelerometer-calibration-gui-alpha-version-out#comment-22540" class="active">Another calibration video</a></h3>
+    <div class="author">Submitted by Ivan (not verified) on Sat, 2012-11-17 10:31.</div>
+  <div class="content"><p>Here is my video where I caliber my sensor (Sparkfun-10724)<br>
+Drift is still present, but much less than without calibration.<br>
+<iframe src="./FreeIMU Magnetometer and Accelerometer Calibration GUI_ alpha version out _ Varesano.net_files/H-EnRPKe34U.html" width="600" height="363" class="video-filter video-youtube vf-henrpke34u" frameborder="0" data-ruffle-polyfilled=""></iframe></p>
+</div>
+    <div class="links"><ul class="links"><li class="comment_forbidden first last"><span><a href="https://web.archive.org/web/20190424064216/http://www.varesano.net/user/login?destination=node%2F280%23comment-form">Login</a> to post comments</span></li>
+</ul></div>
+</div>
+<a id="comment-22499"></a>
+<div class="comment  ">
+
+  <h3 class="title"><a href="https://web.archive.org/web/20190424064216/http://www.varesano.net/blog/fabio/freeimu-magnetometer-and-accelerometer-calibration-gui-alpha-version-out#comment-22499" class="active">Constant temperature oven</a></h3>
+    <div class="author">Submitted by John (not verified) on Wed, 2012-11-14 19:21.</div>
+  <div class="content"><p>If you require stable perfromance, you may consider putting the small sensor inside a constant temperature oven of about 40 degree centigrade. Oven is a time proven practice for high accuracy telecommunication radio frequency oscillator. Oven can be constructed by, may be 1 to 4 watts, resistor serving as heater, off the shelf industrial PID temperature controller and a small foam heat insulating box to hold the sensor board and resistor. Good quality industrial PID temperature controller is stable to about 0.1 degree centigrade.</p>
+</div>
+    <div class="links"><ul class="links"><li class="comment_forbidden first last"><span><a href="https://web.archive.org/web/20190424064216/http://www.varesano.net/user/login?destination=node%2F280%23comment-form">Login</a> to post comments</span></li>
+</ul></div>
+</div>
+<div class="indented"><a id="comment-22500"></a>
+<div class="comment  ">
+
+  <h3 class="title"><a href="https://web.archive.org/web/20190424064216/http://www.varesano.net/blog/fabio/freeimu-magnetometer-and-accelerometer-calibration-gui-alpha-version-out#comment-22500" class="active">Another aproach</a></h3>
+    <div class="author">Submitted by Manu Guisado (not verified) on Wed, 2012-11-14 20:29.</div>
+  <div class="content"><p>Maybe it would be a good idea to have a set of calibration data indexed by temperatures.</p>
+</div>
+    <div class="links"><ul class="links"><li class="comment_forbidden first last"><span><a href="https://web.archive.org/web/20190424064216/http://www.varesano.net/user/login?destination=node%2F280%23comment-form">Login</a> to post comments</span></li>
+</ul></div>
+</div>
+</div></div></div></div></div></div><a id="comment-22472"></a>
+<div class="comment  ">
+
+  <h3 class="title"><a href="https://web.archive.org/web/20190424064216/http://www.varesano.net/blog/fabio/freeimu-magnetometer-and-accelerometer-calibration-gui-alpha-version-out#comment-22472" class="active">Instruction for using the calibration software</a></h3>
+    <div class="author">Submitted by John (not verified) on Mon, 2012-11-12 14:32.</div>
+  <div class="content"><p>Grateful for kindly pointers to instructions on how to use the FreeIMU_GUI-0.1-win32 calibration software</p>
+<p>Many thanks in advance</p>
+<p>John</p>
+</div>
+    <div class="links"><ul class="links"><li class="comment_forbidden first last"><span><a href="https://web.archive.org/web/20190424064216/http://www.varesano.net/user/login?destination=node%2F280%23comment-form">Login</a> to post comments</span></li>
+</ul></div>
+</div>
+<a id="comment-22463"></a>
+<div class="comment  ">
+
+  <h3 class="title"><a href="https://web.archive.org/web/20190424064216/http://www.varesano.net/blog/fabio/freeimu-magnetometer-and-accelerometer-calibration-gui-alpha-version-out#comment-22463" class="active">Values always peak</a></h3>
+    <div class="author">Submitted by cin0s (not verified) on Sun, 2012-11-11 17:10.</div>
+  <div class="content"><p>Hi Guys,<br>
+I've got a little problem with my sensores. I don't think this issue is caused by Fabios software, but I think it's caused by the sensore I use. Well. I use the 9DOF Sensore Stick (SEN-10724) and 2 of the 3 axis peak always at a certain angle. Here is a screenshot of the calibration tool:</p>
+<p>I also get a similar output if I read the acc sensore values "manually". So it's not Fabios fault, but it is a really anoying issue...</p>
+<p>Btw: this is the output I get with this kind of sensore data:<br>
+const int acc_off_x = -38;<br>
+const int acc_off_y = 52;<br>
+const int acc_off_z = 423;<br>
+const float acc_scale_x = 186.456572;<br>
+const float acc_scale_y = 331.873171;<br>
+const float acc_scale_z = 112.734495;</p>
+<p>const int magn_off_x = 39;<br>
+const int magn_off_y = -128;<br>
+const int magn_off_z = 4;<br>
+const float magn_scale_x = 387.551331;<br>
+const float magn_scale_y = 436.820877;<br>
+const float magn_scale_z = 381.809318;</p>
+<p>So do you have got any idea how to solve this? I don't have much expirience with such sensores, but i think the sensores is somehow to sensitive. So that the 9.81 m/s² let the sensore peak. Is that possible?</p>
+<p>cin0s</p>
+<p>Ps: I accedently posted this comment here: <a href="https://web.archive.org/web/20190424064216/http://www.varesano.net/blog/fabio/ellipsoid-sphere-optimization-using-numpy-and-linalg" title="http://www.varesano.net/blog/fabio/ellipsoid-sphere-optimization-using-numpy-and-linalg">http://www.varesano.net/blog/fabio/ellipsoid-sphere-optimization-using-n...</a> a few seconds ago. It was a mistake by myselfe (yeah. I'm kind of dumb -.-). Sorry Fabio!</p>
+</div>
+    <div class="links"><ul class="links"><li class="comment_forbidden first last"><span><a href="https://web.archive.org/web/20190424064216/http://www.varesano.net/user/login?destination=node%2F280%23comment-form">Login</a> to post comments</span></li>
+</ul></div>
+</div>
+<a id="comment-22448"></a>
+<div class="comment  ">
+
+  <h3 class="title"><a href="https://web.archive.org/web/20190424064216/http://www.varesano.net/blog/fabio/freeimu-magnetometer-and-accelerometer-calibration-gui-alpha-version-out#comment-22448" class="active">gentoo is running calibration sw !</a></h3>
+    <div class="author">Submitted by <a href="https://web.archive.org/web/20190424064216/http://example.com/directory" rel="nofollow" class="ext">legacy</a><span class="ext"></span> (not verified) on Fri, 2012-11-09 12:57.</div>
+  <div class="content"><p>i am still working on macOSX port<br>
+but gentoo is now running the py-calibration sw !</p>
+</div>
+    <div class="links"><ul class="links"><li class="comment_forbidden first last"><span><a href="https://web.archive.org/web/20190424064216/http://www.varesano.net/user/login?destination=node%2F280%23comment-form">Login</a> to post comments</span></li>
+</ul></div>
+</div>
+<a id="comment-22428"></a>
+<div class="comment  ">
+
+  <h3 class="title"><a href="https://web.archive.org/web/20190424064216/http://www.varesano.net/blog/fabio/freeimu-magnetometer-and-accelerometer-calibration-gui-alpha-version-out#comment-22428" class="active">python: can't open file './Cura/cura.py'</a></h3>
+    <div class="author">Submitted by Manu Guisado (not verified) on Tue, 2012-11-06 18:53.</div>
+  <div class="content"><p>Hi Fabio,</p>
+<p>I'm trying to test the software directly from the Python sources available on the FreeIMU repository as you have recommended.</p>
+<p>These are the command that I have executed:</p>
+<p>&gt; bzr branch lp:freeimu<br>
+&gt; cd freeimu/FreeIMU_GUI<br>
+&gt; ./package.sh linux<br>
+&gt; cd dist/FreeIMU_GUI-0.1-linux<br>
+&gt; ./freeimu_gui.sh<br>
+python: can't open file './Cura/cura.py': [Errno 2] No such file or directory</p>
+<p>I have searched that file but I have not been able to find it.</p>
+<p>Could you help me?</p>
+</div>
+    <div class="links"><ul class="links"><li class="comment_forbidden first last"><span><a href="https://web.archive.org/web/20190424064216/http://www.varesano.net/user/login?destination=node%2F280%23comment-form">Login</a> to post comments</span></li>
+</ul></div>
+</div>
+<div class="indented"><a id="comment-22429"></a>
+<div class="comment  ">
+
+  <h3 class="title"><a href="https://web.archive.org/web/20190424064216/http://www.varesano.net/blog/fabio/freeimu-magnetometer-and-accelerometer-calibration-gui-alpha-version-out#comment-22429" class="active">More data ...</a></h3>
+    <div class="author">Submitted by Manu Guisado (not verified) on Tue, 2012-11-06 18:57.</div>
+  <div class="content"><p>I forgot to comment that I'm working with an Ubuntu 12.10.</p>
+<p>Best regards and thank you.</p>
+</div>
+    <div class="links"><ul class="links"><li class="comment_forbidden first last"><span><a href="https://web.archive.org/web/20190424064216/http://www.varesano.net/user/login?destination=node%2F280%23comment-form">Login</a> to post comments</span></li>
+</ul></div>
+</div>
+<div class="indented"><a id="comment-22446"></a>
+<div class="comment  owner">
+
+  <h3 class="title"><a href="https://web.archive.org/web/20190424064216/http://www.varesano.net/blog/fabio/freeimu-magnetometer-and-accelerometer-calibration-gui-alpha-version-out#comment-22446" class="active">The package.sh script is only</a></h3>
+    <div class="author">Submitted by fabio on Thu, 2012-11-08 02:20.</div>
+  <div class="content"><p>The package.sh script is only for windows at the moment. Proceed this way:</p>
+<p>&gt; bzr branch lp:freeimu<br>
+&gt; cd freeimu/FreeIMU_GUI/FreeIMU_GUI<br>
+&gt; make<br>
+&gt; make run</p>
+<p>That's likely that you will have to install some dependencies, python will complain about missing packages, just google for them and install using apt-get or similar.</p>
+</div>
+    <div class="links"><ul class="links"><li class="comment_forbidden first last"><span><a href="https://web.archive.org/web/20190424064216/http://www.varesano.net/user/login?destination=node%2F280%23comment-form">Login</a> to post comments</span></li>
+</ul></div>
+</div>
+</div></div><a id="comment-22424"></a>
+<div class="comment  ">
+
+  <h3 class="title"><a href="https://web.archive.org/web/20190424064216/http://www.varesano.net/blog/fabio/freeimu-magnetometer-and-accelerometer-calibration-gui-alpha-version-out#comment-22424" class="active">why don't you use git ? it</a></h3>
+    <div class="author">Submitted by legacy (not verified) on Tue, 2012-11-06 14:19.</div>
+  <div class="content"><p>why don't you use git ? it much more friendly</p>
+</div>
+    <div class="links"><ul class="links"><li class="comment_forbidden first last"><span><a href="https://web.archive.org/web/20190424064216/http://www.varesano.net/user/login?destination=node%2F280%23comment-form">Login</a> to post comments</span></li>
+</ul></div>
+</div>
+<div class="indented"><a id="comment-22426"></a>
+<div class="comment  owner">
+
+  <h3 class="title"><a href="https://web.archive.org/web/20190424064216/http://www.varesano.net/blog/fabio/freeimu-magnetometer-and-accelerometer-calibration-gui-alpha-version-out#comment-22426" class="active">I don't know if you are</a></h3>
+    <div class="author">Submitted by fabio on Tue, 2012-11-06 14:33.</div>
+  <div class="content"><p>I don't know if you are talking about some kind of GUI frontend to git or bzr but, I'm using those programs from command line and I really don't see much difference.</p>
+<p>Please elaborate.</p>
+</div>
+    <div class="links"><ul class="links"><li class="comment_forbidden first last"><span><a href="https://web.archive.org/web/20190424064216/http://www.varesano.net/user/login?destination=node%2F280%23comment-form">Login</a> to post comments</span></li>
+</ul></div>
+</div>
+<div class="indented"><a id="comment-22440"></a>
+<div class="comment  ">
+
+  <h3 class="title"><a href="https://web.archive.org/web/20190424064216/http://www.varesano.net/blog/fabio/freeimu-magnetometer-and-accelerometer-calibration-gui-alpha-version-out#comment-22440" class="active">git</a></h3>
+    <div class="author">Submitted by legacy (not verified) on Wed, 2012-11-07 15:24.</div>
+  <div class="content"><p>git is too difficult to put on gentoo machines, i had a lot of troubles in order to emerge it on arm machines, for example, also nobody is using git except you, people are usually to use</p>
+<p>1) svn<br>
+2) git<br>
+3) mercurial</p>
+<p>all of them are supported by all the distro</p>
+<p>also there are a lot of service around the world which provide you git repo online for free with the possibility to browse the code and to analysis on it.</p>
+</div>
+    <div class="links"><ul class="links"><li class="comment_forbidden first last"><span><a href="https://web.archive.org/web/20190424064216/http://www.varesano.net/user/login?destination=node%2F280%23comment-form">Login</a> to post comments</span></li>
+</ul></div>
+</div>
+<div class="indented"><a id="comment-22450"></a>
+<div class="comment  ">
+
+  <h3 class="title"><a href="https://web.archive.org/web/20190424064216/http://www.varesano.net/blog/fabio/freeimu-magnetometer-and-accelerometer-calibration-gui-alpha-version-out#comment-22450" class="active">i typed wrong</a></h3>
+    <div class="author">Submitted by <a href="https://web.archive.org/web/20190424064216/http://example.com/directory" rel="nofollow" class="ext">legacy</a><span class="ext"></span> (not verified) on Fri, 2012-11-09 13:03.</div>
+  <div class="content"><p>"bzr is too difficult to be port" ... i was talking about bzr<br>
+git it easy to be port on gentoo machine, on mac, on win, etc, and people is using git much more than bzr, also a lot of web services like GIT-HUB<br>
+<a href="https://web.archive.org/web/20190424064216/https://github.com/" title="https://github.com" class="ext">https://github.com</a><span class="ext"></span></p>
+<p>btw, it is your choice, personally i do not like bzr</p>
+</div>
+    <div class="links"><ul class="links"><li class="comment_forbidden first last"><span><a href="https://web.archive.org/web/20190424064216/http://www.varesano.net/user/login?destination=node%2F280%23comment-form">Login</a> to post comments</span></li>
+</ul></div>
+</div>
+</div></div></div><a id="comment-22407"></a>
+<div class="comment  ">
+
+  <h3 class="title"><a href="https://web.archive.org/web/20190424064216/http://www.varesano.net/blog/fabio/freeimu-magnetometer-and-accelerometer-calibration-gui-alpha-version-out#comment-22407" class="active">Still not stable</a></h3>
+    <div class="author">Submitted by Arend (not verified) on Thu, 2012-11-01 15:27.</div>
+  <div class="content"><p>Hi Fabio,</p>
+<p>I callibrated my sensorboard using you callibration prog.<br>
+Still no stable behaviour.</p>
+<p><a href="https://web.archive.org/web/20190424064216/http://www.youtube.com/watch?v=N1Jgdmk5RiE" title="http://www.youtube.com/watch?v=N1Jgdmk5RiE" class="ext">http://www.youtube.com/watch?v=N1Jgdmk5RiE</a><span class="ext"></span></p>
+<p>I think I must be doing something awfully qrong, but can't figure out what.</p>
+<p>Here is the callibration.h:</p>
+<p>/**<br>
+ * FreeIMU calibration header. Automatically generated by octave AccMagnCalib.m.<br>
+ * Do not edit manually unless you know what you are doing.<br>
+*/</p>
+<p>#define CALIBRATION_H</p>
+<p>const int acc_off_x = 550;<br>
+const int acc_off_y = 13107;<br>
+const int acc_off_z = -888;<br>
+const float acc_scale_x = 11146.480275;<br>
+const float acc_scale_y = 31762.766817;<br>
+const float acc_scale_z = 22324.487139;</p>
+<p>const int magn_off_x = -546;<br>
+const int magn_off_y = 12;<br>
+const int magn_off_z = 65;<br>
+const float magn_scale_x = 360.789483;<br>
+const float magn_scale_y = 578.284233;<br>
+const float magn_scale_z = 747.336750;</p>
+</div>
+    <div class="links"><ul class="links"><li class="comment_forbidden first last"><span><a href="https://web.archive.org/web/20190424064216/http://www.varesano.net/user/login?destination=node%2F280%23comment-form">Login</a> to post comments</span></li>
+</ul></div>
+</div>
+<div class="indented"><a id="comment-22408"></a>
+<div class="comment  owner">
+
+  <h3 class="title"><a href="https://web.archive.org/web/20190424064216/http://www.varesano.net/blog/fabio/freeimu-magnetometer-and-accelerometer-calibration-gui-alpha-version-out#comment-22408" class="active">Yeah, those calibration</a></h3>
+    <div class="author">Submitted by fabio on Thu, 2012-11-01 15:46.</div>
+  <div class="content"><p>Yeah, those calibration parameters looks pretty wrong, especially the accelerometer scale factors. That's pretty unlikely to have so different values on the scales.</p>
+<p>When doing the calibration, concentrate on drawing circles on the XY, YZ, ZX graphs for both the accelerometer and magnetometer. Before hitting the "Calibrate" button you need to have something like <a href="https://web.archive.org/web/20190424064216/http://www.varesano.net/files/cal_gui1.png">this</a> on your graphs. See the various circles.</p>
+<p>I'll be making a calibration how-to video in the next week.</p>
+</div>
+    <div class="links"><ul class="links"><li class="comment_forbidden first last"><span><a href="https://web.archive.org/web/20190424064216/http://www.varesano.net/user/login?destination=node%2F280%23comment-form">Login</a> to post comments</span></li>
+</ul></div>
+</div>
+<div class="indented"><a id="comment-22409"></a>
+<div class="comment  ">
+
+  <h3 class="title"><a href="https://web.archive.org/web/20190424064216/http://www.varesano.net/blog/fabio/freeimu-magnetometer-and-accelerometer-calibration-gui-alpha-version-out#comment-22409" class="active">Got it</a></h3>
+    <div class="author">Submitted by Arend (not verified) on Thu, 2012-11-01 22:39.</div>
+  <div class="content"><p>Got the hang of the callibration movement.<br>
+Output is much more stable now!</p>
+</div>
+    <div class="links"><ul class="links"><li class="comment_forbidden first last"><span><a href="https://web.archive.org/web/20190424064216/http://www.varesano.net/user/login?destination=node%2F280%23comment-form">Login</a> to post comments</span></li>
+</ul></div>
+</div>
+</div></div><a id="comment-22401"></a>
+<div class="comment  ">
+
+  <h3 class="title"><a href="https://web.archive.org/web/20190424064216/http://www.varesano.net/blog/fabio/freeimu-magnetometer-and-accelerometer-calibration-gui-alpha-version-out#comment-22401" class="active">Fantastic Job</a></h3>
+    <div class="author">Submitted by Arend (not verified) on Wed, 2012-10-31 13:32.</div>
+  <div class="content"><p>Hello Fabio,</p>
+<p>Fantastic job you have performed here.<br>
+Perhaps a little instruction on how to best callibrate?</p>
+</div>
+    <div class="links"><ul class="links"><li class="comment_forbidden first last"><span><a href="https://web.archive.org/web/20190424064216/http://www.varesano.net/user/login?destination=node%2F280%23comment-form">Login</a> to post comments</span></li>
+</ul></div>
+</div>
+<div class="indented"><a id="comment-22404"></a>
+<div class="comment  owner">
+
+  <h3 class="title"><a href="https://web.archive.org/web/20190424064216/http://www.varesano.net/blog/fabio/freeimu-magnetometer-and-accelerometer-calibration-gui-alpha-version-out#comment-22404" class="active">I'll do an instruction videos</a></h3>
+    <div class="author">Submitted by fabio on Wed, 2012-10-31 17:08.</div>
+  <div class="content"><p>I'll do an instruction videos once the software is more stable. For now, you just have to describe a sphere as accurate as you can be.</p>
+</div>
+    <div class="links"><ul class="links"><li class="comment_forbidden first last"><span><a href="https://web.archive.org/web/20190424064216/http://www.varesano.net/user/login?destination=node%2F280%23comment-form">Login</a> to post comments</span></li>
+</ul></div>
+</div>
+</div><a id="comment-22400"></a>
+<div class="comment  ">
+
+  <h3 class="title"><a href="https://web.archive.org/web/20190424064216/http://www.varesano.net/blog/fabio/freeimu-magnetometer-and-accelerometer-calibration-gui-alpha-version-out#comment-22400" class="active">i've got macOSX 10.7.5</a></h3>
+    <div class="author">Submitted by legacy (not verified) on Wed, 2012-10-31 12:59.</div>
+  <div class="content"><p>i've got macOSX 10.7.5 machine<br>
+i could test it for adruIMU running freeIMU<br>
+also it may be i will put your freeIMU to an arduino</p>
+</div>
+    <div class="links"><ul class="links"><li class="comment_forbidden first last"><span><a href="https://web.archive.org/web/20190424064216/http://www.varesano.net/user/login?destination=node%2F280%23comment-form">Login</a> to post comments</span></li>
+</ul></div>
+</div>
+<div class="indented"><a id="comment-22441"></a>
+<div class="comment  ">
+
+  <h3 class="title"><a href="https://web.archive.org/web/20190424064216/http://www.varesano.net/blog/fabio/freeimu-magnetometer-and-accelerometer-calibration-gui-alpha-version-out#comment-22441" class="active">i need the list of all the python package you are using</a></h3>
+    <div class="author">Submitted by legacy (not verified) on Wed, 2012-11-07 15:25.</div>
+  <div class="content"><p>yeah, mac-port wants to know what he has to emerge, if you provide the list of python packages your app is using i could try to arrange something on macOSX/x86 using mac-ports</p>
+</div>
+    <div class="links"><ul class="links"><li class="comment_forbidden first last"><span><a href="https://web.archive.org/web/20190424064216/http://www.varesano.net/user/login?destination=node%2F280%23comment-form">Login</a> to post comments</span></li>
+</ul></div>
+</div>
+<div class="indented"><a id="comment-22449"></a>
+<div class="comment  ">
+
+  <h3 class="title"><a href="https://web.archive.org/web/20190424064216/http://www.varesano.net/blog/fabio/freeimu-magnetometer-and-accelerometer-calibration-gui-alpha-version-out#comment-22449" class="active">ok, 90% done with mac-ports</a></h3>
+    <div class="author">Submitted by <a href="https://web.archive.org/web/20190424064216/http://example.com/directory" rel="nofollow" class="ext">legacy</a><span class="ext"></span> (not verified) on Fri, 2012-11-09 12:59.</div>
+  <div class="content"><p>the only missing one is QT-OpenGL<br>
+which is too hard to be compiled on mac<br>
+i think i will use a pre-build from<br>
+<a href="https://web.archive.org/web/20190424064216/http://qt-project.org/downloads" title="http://qt-project.org/downloads" class="ext">http://qt-project.org/downloads</a><span class="ext"></span></p>
+</div>
+    <div class="links"><ul class="links"><li class="comment_forbidden first last"><span><a href="https://web.archive.org/web/20190424064216/http://www.varesano.net/user/login?destination=node%2F280%23comment-form">Login</a> to post comments</span></li>
+</ul></div>
+</div>
+</div></div></div>
+      <!-- end main content -->
+
+    </div> <!-- content -->
+
+    <div id="sidebar">
+      <div class="block block-search" id="block-search-0">
+<h2 class="title"><span>Search</span></h2>
+<div class="content"><form action="https://web.archive.org/web/20190424064216/http://www.varesano.net/blog/fabio/freeimu-magnetometer-and-accelerometer-calibration-gui-alpha-version-out" accept-charset="UTF-8" method="post" id="search-block-form">
+<div><div class="container-inline">
+  <div class="form-item" id="edit-search-block-form-1-wrapper">
+ <label for="edit-search-block-form-1">Search this site: </label>
+ <input type="text" maxlength="128" name="search_block_form" id="edit-search-block-form-1" size="15" value="" title="Enter the terms you wish to search for." class="form-text">
+</div>
+<input type="submit" name="op" id="edit-submit" value="Search" class="form-submit">
+<input type="hidden" name="form_build_id" id="form-6382b0d148560df59bc4c3ec2008ab03" value="form-6382b0d148560df59bc4c3ec2008ab03">
+<input type="hidden" name="form_id" id="edit-search-block-form" value="search_block_form">
+</div>
+
+</div></form>
+</div>
+</div><div class="block block-block" id="block-block-5">
+<h2 class="title"><span></span></h2>
+<div class="content"><p>
+<script type="text/javascript"><!--
+google_ad_client = "pub-5076461169528953";
+/* varesano.net quadrato */
+google_ad_slot = "4592875465";
+google_ad_width = 250;
+google_ad_height = 250;
+//-->
+</script>
+<script type="text/javascript" src="./FreeIMU Magnetometer and Accelerometer Calibration GUI_ alpha version out _ Varesano.net_files/f(1).txt">
+</script><ins id="aswift_0_expand" style="display:inline-table;border:none;height:250px;margin:0;padding:0;position:relative;visibility:visible;width:210px;background-color:transparent;" data-ad-slot="4592875465"><ins id="aswift_0_anchor" style="display:block;border:none;height:250px;margin:0;padding:0;position:relative;visibility:visible;width:210px;background-color:transparent;"><iframe width="210" height="250" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allowfullscreen="true" onload="var i=this.id,s=window.google_iframe_oncopy,H=s&amp;&amp;s.handlers,h=H&amp;&amp;H[i],w=this.contentWindow,d;try{d=w.document}catch(e){}if(h&amp;&amp;d&amp;&amp;(!d.body||!d.body.firstChild)){if(h.call){setTimeout(h,0)}else if(h.match){try{h=s.upd(h,i)}catch(e){}w.location.replace(h)}}" id="aswift_0" name="aswift_0" style="left:0;position:absolute;top:0;border:0px;width:210px;height:250px;" data-ruffle-polyfilled="" src="./FreeIMU Magnetometer and Accelerometer Calibration GUI_ alpha version out _ Varesano.net_files/saved_resource.html"></iframe></ins></ins>
+</p>
+</div>
+</div><div class="block block-block" id="block-block-1">
+<h2 class="title"><span>Stickers</span></h2>
+<div class="content"><a href="https://web.archive.org/web/20190424064216/http://www.fsf.org/register_form?referrer=10206" title="I&#39;m an associate member of the Free Software Foundation"><img src="./FreeIMU Magnetometer and Accelerometer Calibration GUI_ alpha version out _ Varesano.net_files/fsf-10206.png" alt="FSF Associate Member"></a>
+<a href="https://web.archive.org/web/20190424064216/http://drupal.org/" title="I&#39;m a member of the Drupal Association"><img src="./FreeIMU Magnetometer and Accelerometer Calibration GUI_ alpha version out _ Varesano.net_files/DA-individual-120.png" width="120" height="120" style="border: 0px" alt="View Fabio Varesano&#39;s profile on LinkedIn"></a>
+<br>
+<a href="https://web.archive.org/web/20190424064216/http://www.linkedin.com/in/fabiovaresano"><img src="./FreeIMU Magnetometer and Accelerometer Calibration GUI_ alpha version out _ Varesano.net_files/btn_linkedin_120x30.gif" width="120" height="30" style="border: 0px" alt="View Fabio Varesano&#39;s profile on LinkedIn"></a>
+<br>
+
+<form action="https://web.archive.org/web/20190424064216/https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+<input type="hidden" name="cmd" value="_s-xclick">
+<input type="hidden" name="hosted_button_id" value="CFMS6LD3CPHGQ">
+<input type="image" src="./FreeIMU Magnetometer and Accelerometer Calibration GUI_ alpha version out _ Varesano.net_files/btn_donate_LG.gif" border="0" name="submit" alt="PayPal - Il metodo rapido, affidabile e innovativo per pagare e farsi pagare.">
+<img alt="" border="0" src="./FreeIMU Magnetometer and Accelerometer Calibration GUI_ alpha version out _ Varesano.net_files/pixel.gif" width="1" height="1">
+</form>
+
+<a href="https://web.archive.org/web/20190424064216/https://www.amazon.com/gp/registry/wishlist/1NR54SLECGHY2/ref=wl_web/"><img src="./FreeIMU Magnetometer and Accelerometer Calibration GUI_ alpha version out _ Varesano.net_files/wl-btn-74-b.gif" width="74" alt="My Amazon.com Wish List" height="42" style="border: 0;"></a>
+<br>
+<a href="https://web.archive.org/web/20190424064216/http://www.site5.com/in.php?id=10396-6"><img alt="Hosted By Site5.com" src="./FreeIMU Magnetometer and Accelerometer Calibration GUI_ alpha version out _ Varesano.net_files/badge.gif"></a>
+</div>
+</div><div class="block block-statistics" id="block-statistics-0">
+<h2 class="title"><span>Popular content</span></h2>
+<div class="content"><div class="item-list"><h3>All time:</h3><ul><li class="first"><a href="https://web.archive.org/web/20190424064216/http://www.varesano.net/blog/fabio/installing%20flash%20player%20plugin%20firefox%20without%20having%20administrator%20access%20or%20premissions">Installing Flash Player Plugin on Firefox without having Administrator Access or Premissions</a></li>
+<li><a href="https://web.archive.org/web/20190424064216/http://www.varesano.net/projects/hardware/FreeIMU">FreeIMU: an Open Hardware Framework for Orientation and Motion Sensing</a></li>
+<li><a href="https://web.archive.org/web/20190424064216/http://www.varesano.net/blog/fabio/disable%20related%20videos%20embedded%20youtube%20player">Disable related videos on a embedded Youtube player</a></li>
+<li><a href="https://web.archive.org/web/20190424064216/http://www.varesano.net/blog/fabio/h264%20videos%20flash%20cool%20example">h264 videos on Flash: cool example</a></li>
+<li><a href="https://web.archive.org/web/20190424064216/http://www.varesano.net/blog/fabio/serial%20rs232%20connections%20python">Serial RS232 connections in Python</a></li>
+<li><a href="https://web.archive.org/web/20190424064216/http://www.varesano.net/blog/fabio/serial-communication-arduino-and-processing-simple-examples-and-arduino-based-gamepad-int">Serial communication with Arduino and Processing: simple examples and an Arduino based gamepad interfacing with Processing</a></li>
+<li><a href="https://web.archive.org/web/20190424064216/http://www.varesano.net/blog/fabio/my-first-6-dof-imu-sensors-fusion-implementation-adxl345-itg3200-arduino-and-processing">My first 6 DOF IMU Sensors Fusion Implementation: ADXL345, ITG3200, Arduino and Processing</a></li>
+<li><a href="https://web.archive.org/web/20190424064216/http://www.varesano.net/blog/fabio/multiple%20forums%20organic%20groups%20my%20patch%20committed">Multiple forums for Organic Groups: my patch committed</a></li>
+<li><a href="https://web.archive.org/web/20190424064216/http://www.varesano.net/blog/fabio/homebrew-diy-breakout-board-itg3200-gyroscope-tested-arduino-and-processing">An homebrew DIY breakout board for the ITG3200 gyroscope: tested with Arduino and Processing</a></li>
+<li class="last"><a href="https://web.archive.org/web/20190424064216/http://www.varesano.net/projects/hardware/Femtoduino">Femtoduino: an ultrasmall (20.7x15.2 mm) libre Arduino compatible board</a></li>
+</ul></div></div>
+</div><div class="block block-comment" id="block-comment-0">
+<h2 class="title"><span>Recent comments</span></h2>
+<div class="content"><div class="item-list"><ul><li class="first"><a href="https://web.archive.org/web/20190424064216/http://www.varesano.net/blog/fabio/ms5611-01ba-arduino-library-first-developments-results#comment-24046">prom read address 0</a><br>3 years 38 weeks ago</li>
+<li><a href="https://web.archive.org/web/20190424064216/http://www.varesano.net/blog/fabio/potentiometers%20what%20they%20are%20how%20they%20work%20and%20how%20use%20them%20arduino#comment-24043">Sorry if this sounds stupid,</a><br>3 years 38 weeks ago</li>
+<li><a href="https://web.archive.org/web/20190424064216/http://www.varesano.net/blog/fabio/ms5611-01ba-arduino-library-first-developments-results#comment-24039">Starting with MS5611</a><br>3 years 39 weeks ago</li>
+<li><a href="https://web.archive.org/web/20190424064216/http://www.varesano.net/blog/fabio/freeimu-magnetometer-and-accelerometer-calibration-gui-alpha-version-out#comment-24036" class="active">problems in calibration mag data</a><br>3 years 39 weeks ago</li>
+<li><a href="https://web.archive.org/web/20190424064216/http://www.varesano.net/projects/hardware/FreeIMU#comment-24013">Code to test IMU (The cube form) </a><br>3 years 43 weeks ago</li>
+<li><a href="https://web.archive.org/web/20190424064216/http://www.varesano.net/blog/fabio/new-homebrew-diy-breakout-board-pcb-adxl345-accelerometer#comment-24005">error while compiling</a><br>3 years 45 weeks ago</li>
+<li><a href="https://web.archive.org/web/20190424064216/http://www.varesano.net/blog/fabio/diodes-transistors-and-optocouplers-what-they-are-some-theory-and-simple-usages-examples-#comment-24004">Re: Hi I have read that in</a><br>3 years 45 weeks ago</li>
+<li><a href="https://web.archive.org/web/20190424064216/http://www.varesano.net/blog/fabio/ermannofalcocom-photographer-portfolio-website-built-drupal#comment-23999">wonderful! </a><br>3 years 46 weeks ago</li>
+<li><a href="https://web.archive.org/web/20190424064216/http://www.varesano.net/blog/fabio/freeimu-magnetometer-and-accelerometer-calibration-gui-alpha-version-out#comment-23993" class="active">You may want to test if the</a><br>3 years 48 weeks ago</li>
+<li class="last"><a href="https://web.archive.org/web/20190424064216/http://www.varesano.net/blog/fabio/how-disable-internal-arduino-atmega-pullups-sda-and-scl-i2c-bus#comment-23992">Hello,
+Doing this in the</a><br>3 years 48 weeks ago</li>
+</ul></div></div>
+</div><div class="block block-block" id="block-block-2">
+<h2 class="title"><span>Advertising</span></h2>
+<div class="content"><p>
+<script type="text/javascript"><!--
+google_ad_client = "pub-5076461169528953";
+/* varesano.net verticale */
+google_ad_slot = "1985705964";
+google_ad_width = 160;
+google_ad_height = 600;
+//-->
+</script>
+<script type="text/javascript" src="./FreeIMU Magnetometer and Accelerometer Calibration GUI_ alpha version out _ Varesano.net_files/f(1).txt">
+</script><ins id="aswift_1_expand" style="display:inline-table;border:none;height:600px;margin:0;padding:0;position:relative;visibility:visible;width:160px;background-color:transparent;" data-ad-slot="1985705964"><ins id="aswift_1_anchor" style="display:block;border:none;height:600px;margin:0;padding:0;position:relative;visibility:visible;width:160px;background-color:transparent;"><iframe width="160" height="600" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allowfullscreen="true" onload="var i=this.id,s=window.google_iframe_oncopy,H=s&amp;&amp;s.handlers,h=H&amp;&amp;H[i],w=this.contentWindow,d;try{d=w.document}catch(e){}if(h&amp;&amp;d&amp;&amp;(!d.body||!d.body.firstChild)){if(h.call){setTimeout(h,0)}else if(h.match){try{h=s.upd(h,i)}catch(e){}w.location.replace(h)}}" id="aswift_1" name="aswift_1" style="left:0;position:absolute;top:0;border:0px;width:160px;height:600px;" data-ruffle-polyfilled="" src="./FreeIMU Magnetometer and Accelerometer Calibration GUI_ alpha version out _ Varesano.net_files/saved_resource(1).html"></iframe></ins></ins>
+</p></div>
+</div>          </div> <!-- sidebar -->
+
+    <div id="footer" class="footer">
+              <p>Copyright © 2007-2013 Fabio Varesano - <a title="This work is licensed under a Creative Commons Attribution-Share Alike 2.5 Italy License" rel="license" href="https://web.archive.org/web/20190424064216/http://creativecommons.org/licenses/by-sa/2.5/it/deed.en" class="ext">Some rights reserved</a><span class="ext"></span>.<br>
+<a href="https://web.archive.org/web/20190424064216/http://www.varesano.net/privacy-policy">Privacy Policy</a></p>
+            <script type="text/javascript" src="./FreeIMU Magnetometer and Accelerometer Calibration GUI_ alpha version out _ Varesano.net_files/eu_cookie_compliance.js.download"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+jQuery.extend(Drupal.settings, { "eu_cookie_compliance": { "popup_enabled": 1, "popup_agreed_enabled": 0, "popup_hide_agreed": 0, "popup_clicking_confirmation": 1, "popup_html_info": "\n\x3cdiv\x3e\n  \x3cdiv class =\"popup-content info\"\x3e\n    \x3cdiv id=\"popup-text\"\x3e\n      \x3ch2\x3eQuesto sito fa uso di cookies.\x3c/h2\x3e\n\x3cp\x3eCliccando un qualunque link accetti al loro utilizzo.\x3c/p\x3e\n    \x3c/div\x3e\n    \x3cdiv id=\"popup-buttons\"\x3e\n      \x3cbutton type=\"button\" class=\"agree-button\"\x3eOK\x3c/button\x3e\n    \x3cbutton type=\"button\" class=\"find-more-button\"\x3eNo\x3c/button\x3e\n    \x3c/div\x3e\n  \x3c/div\x3e\n\x3c/div\x3e\n", "popup_html_agreed": "\n\x3cdiv\x3e\n  \x3cdiv class =\"popup-content agreed\"\x3e\n    \x3cdiv id=\"popup-text\"\x3e\n      \x3ch2\x3eThank you for accepting cookies\x3c/h2\x3e\n\x3cp\x3eYou can now hide this message or find out more about cookies.\x3c/p\x3e\n    \x3c/div\x3e\n    \x3cdiv id=\"popup-buttons\"\x3e\n      \x3cbutton type=\"button\" class=\"hide-popup-button\"\x3eHide \x3c/button\x3e\n    \x3cbutton type=\"button\" class=\"find-more-button\" \x3eMore info\x3c/button\x3e\n    \x3c/div\x3e\n  \x3c/div\x3e\n\x3c/div\x3e\n", "popup_height": "auto", "popup_width": "100%", "popup_delay": 1000, "popup_link": "https://web.archive.org/web/20190424064216/http://www.varesano.net/privacy-policy", "popup_position": 1, "popup_language": "en" } });
+//--><!]]>
+</script>
+    </div>
+  </div><iframe id="google_osd_static_frame_274391289437" name="google_osd_static_frame" style="display: none; width: 0px; height: 0px;" allow="autoplay &#39;self&#39;; fullscreen &#39;self&#39;" data-ruffle-polyfilled="" src="./FreeIMU Magnetometer and Accelerometer Calibration GUI_ alpha version out _ Varesano.net_files/saved_resource(2).html"></iframe> <!-- container -->
+
+<script src="./FreeIMU Magnetometer and Accelerometer Calibration GUI_ alpha version out _ Varesano.net_files/urchin.js.download" type="text/javascript">
+</script>
+<script type="text/javascript">
+_uacct = "UA-484919-5";
+urchinTracker();
+</script>
+
+
+
+
+</body><iframe id="google_shimpl" style="display: none;" allow="autoplay &#39;self&#39;; fullscreen &#39;self&#39;" data-ruffle-polyfilled="" src="./FreeIMU Magnetometer and Accelerometer Calibration GUI_ alpha version out _ Varesano.net_files/saved_resource(3).html"></iframe><iframe id="google_esf" name="google_esf" src="./FreeIMU Magnetometer and Accelerometer Calibration GUI_ alpha version out _ Varesano.net_files/zrt_lookup.html" data-ad-client="ca-pub-5076461169528953" style="display: none;" allow="autoplay &#39;self&#39;; fullscreen &#39;self&#39;" data-ruffle-polyfilled=""></iframe></html>

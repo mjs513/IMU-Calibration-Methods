@@ -1,0 +1,1005 @@
+<!DOCTYPE html>
+<!-- saved from url=(0055)https://avionicsduino.com/index.php/en/digital-compass/ -->
+<html dir="ltr" lang="en-US" prefix="og: https://ogp.me/ns#" class="js"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="profile" href="https://gmpg.org/xfn/11">
+		<link rel="pingback" href="https://avionicsduino.com/xmlrpc.php">
+		<script>(function(html){html.className = html.className.replace(/\bno-js\b/,'js')})(document.documentElement);</script>
+<title>Digital compass – Open source software and hardware avionics</title>
+
+		<!-- All in One SEO 4.7.0 - aioseo.com -->
+		<meta name="description" content="The digital compass uses a triaxial magnetometer. It must be calibrated and compensated to integrate the magnetic environment and the attitude of the aircraft">
+		<meta name="robots" content="max-image-preview:large">
+		<link rel="canonical" href="https://avionicsduino.com/index.php/en/digital-compass/">
+		<meta name="generator" content="All in One SEO (AIOSEO) 4.7.0">
+		<meta property="og:locale" content="en_US">
+		<meta property="og:site_name" content="Open source software and hardware avionics – Create your own avionics">
+		<meta property="og:type" content="article">
+		<meta property="og:title" content="Digital compass – Open source software and hardware avionics">
+		<meta property="og:description" content="The digital compass uses a triaxial magnetometer. It must be calibrated and compensated to integrate the magnetic environment and the attitude of the aircraft">
+		<meta property="og:url" content="https://avionicsduino.com/index.php/en/digital-compass/">
+		<meta property="article:published_time" content="2021-10-31T16:58:49+00:00">
+		<meta property="article:modified_time" content="2024-08-14T14:40:25+00:00">
+		<meta name="twitter:card" content="summary">
+		<meta name="twitter:title" content="Digital compass – Open source software and hardware avionics">
+		<meta name="twitter:description" content="The digital compass uses a triaxial magnetometer. It must be calibrated and compensated to integrate the magnetic environment and the attitude of the aircraft">
+		<script type="application/ld+json" class="aioseo-schema">
+			{"@context":"https:\/\/schema.org","@graph":[{"@type":"BreadcrumbList","@id":"https:\/\/avionicsduino.com\/index.php\/en\/digital-compass\/#breadcrumblist","itemListElement":[{"@type":"ListItem","@id":"https:\/\/avionicsduino.com\/#listItem","position":1,"name":"Home","item":"https:\/\/avionicsduino.com\/","nextItem":"https:\/\/avionicsduino.com\/index.php\/en\/digital-compass\/#listItem"},{"@type":"ListItem","@id":"https:\/\/avionicsduino.com\/index.php\/en\/digital-compass\/#listItem","position":2,"name":"Digital compass","previousItem":"https:\/\/avionicsduino.com\/#listItem"}]},{"@type":"Organization","@id":"https:\/\/avionicsduino.com\/#organization","name":"Open source software and hardware avionics","description":"Create your own avionics","url":"https:\/\/avionicsduino.com\/"},{"@type":"WebPage","@id":"https:\/\/avionicsduino.com\/index.php\/en\/digital-compass\/#webpage","url":"https:\/\/avionicsduino.com\/index.php\/en\/digital-compass\/","name":"Digital compass \u2013 Open source software and hardware avionics","description":"The digital compass uses a triaxial magnetometer. It must be calibrated and compensated to integrate the magnetic environment and the attitude of the aircraft","inLanguage":"en-US","isPartOf":{"@id":"https:\/\/avionicsduino.com\/#website"},"breadcrumb":{"@id":"https:\/\/avionicsduino.com\/index.php\/en\/digital-compass\/#breadcrumblist"},"datePublished":"2021-10-31T17:58:49+01:00","dateModified":"2024-08-14T15:40:25+01:00"},{"@type":"WebSite","@id":"https:\/\/avionicsduino.com\/#website","url":"https:\/\/avionicsduino.com\/","name":"Open source software and hardware avionics","description":"Create your own avionics","inLanguage":"en-US","publisher":{"@id":"https:\/\/avionicsduino.com\/#organization"}}]}
+		</script>
+		<!-- All in One SEO -->
+
+<link rel="alternate" href="https://avionicsduino.com/index.php/fr/le-compas-digital/" hreflang="fr">
+<link rel="alternate" href="https://avionicsduino.com/index.php/en/digital-compass/" hreflang="en">
+<link rel="dns-prefetch" href="https://fonts.googleapis.com/">
+<link href="https://fonts.gstatic.com/" crossorigin="" rel="preconnect">
+<link rel="alternate" type="application/rss+xml" title="Open source software and hardware avionics » Feed" href="https://avionicsduino.com/index.php/en/feed/">
+<link rel="alternate" type="application/rss+xml" title="Open source software and hardware avionics » Comments Feed" href="https://avionicsduino.com/index.php/en/comments/feed/">
+<link rel="alternate" type="application/rss+xml" title="Open source software and hardware avionics » Digital compass Comments Feed" href="https://avionicsduino.com/index.php/en/digital-compass/feed/">
+<script>
+window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/15.0.3\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/15.0.3\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/avionicsduino.com\/wp-includes\/js\/wp-emoji-release.min.js?ver=6.6.2"}};
+/*! This file is auto-generated */
+!function(i,n){var o,s,e;function c(e){try{var t={supportTests:e,timestamp:(new Date).valueOf()};sessionStorage.setItem(o,JSON.stringify(t))}catch(e){}}function p(e,t,n){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);var t=new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data),r=(e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(n,0,0),new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data));return t.every(function(e,t){return e===r[t]})}function u(e,t,n){switch(t){case"flag":return n(e,"\ud83c\udff3\ufe0f\u200d\u26a7\ufe0f","\ud83c\udff3\ufe0f\u200b\u26a7\ufe0f")?!1:!n(e,"\ud83c\uddfa\ud83c\uddf3","\ud83c\uddfa\u200b\ud83c\uddf3")&&!n(e,"\ud83c\udff4\udb40\udc67\udb40\udc62\udb40\udc65\udb40\udc6e\udb40\udc67\udb40\udc7f","\ud83c\udff4\u200b\udb40\udc67\u200b\udb40\udc62\u200b\udb40\udc65\u200b\udb40\udc6e\u200b\udb40\udc67\u200b\udb40\udc7f");case"emoji":return!n(e,"\ud83d\udc26\u200d\u2b1b","\ud83d\udc26\u200b\u2b1b")}return!1}function f(e,t,n){var r="undefined"!=typeof WorkerGlobalScope&&self instanceof WorkerGlobalScope?new OffscreenCanvas(300,150):i.createElement("canvas"),a=r.getContext("2d",{willReadFrequently:!0}),o=(a.textBaseline="top",a.font="600 32px Arial",{});return e.forEach(function(e){o[e]=t(a,e,n)}),o}function t(e){var t=i.createElement("script");t.src=e,t.defer=!0,i.head.appendChild(t)}"undefined"!=typeof Promise&&(o="wpEmojiSettingsSupports",s=["flag","emoji"],n.supports={everything:!0,everythingExceptFlag:!0},e=new Promise(function(e){i.addEventListener("DOMContentLoaded",e,{once:!0})}),new Promise(function(t){var n=function(){try{var e=JSON.parse(sessionStorage.getItem(o));if("object"==typeof e&&"number"==typeof e.timestamp&&(new Date).valueOf()<e.timestamp+604800&&"object"==typeof e.supportTests)return e.supportTests}catch(e){}return null}();if(!n){if("undefined"!=typeof Worker&&"undefined"!=typeof OffscreenCanvas&&"undefined"!=typeof URL&&URL.createObjectURL&&"undefined"!=typeof Blob)try{var e="postMessage("+f.toString()+"("+[JSON.stringify(s),u.toString(),p.toString()].join(",")+"));",r=new Blob([e],{type:"text/javascript"}),a=new Worker(URL.createObjectURL(r),{name:"wpTestEmojiSupports"});return void(a.onmessage=function(e){c(n=e.data),a.terminate(),t(n)})}catch(e){}c(n=f(s,u,p))}t(n)}).then(function(e){for(var t in e)n.supports[t]=e[t],n.supports.everything=n.supports.everything&&n.supports[t],"flag"!==t&&(n.supports.everythingExceptFlag=n.supports.everythingExceptFlag&&n.supports[t]);n.supports.everythingExceptFlag=n.supports.everythingExceptFlag&&!n.supports.flag,n.DOMReady=!1,n.readyCallback=function(){n.DOMReady=!0}}).then(function(){return e}).then(function(){var e;n.supports.everything||(n.readyCallback(),(e=n.source||{}).concatemoji?t(e.concatemoji):e.wpemoji&&e.twemoji&&(t(e.twemoji),t(e.wpemoji)))}))}((window,document),window._wpemojiSettings);
+</script>
+<style id="wp-emoji-styles-inline-css">
+
+	img.wp-smiley, img.emoji {
+		display: inline !important;
+		border: none !important;
+		box-shadow: none !important;
+		height: 1em !important;
+		width: 1em !important;
+		margin: 0 0.07em !important;
+		vertical-align: -0.1em !important;
+		background: none !important;
+		padding: 0 !important;
+	}
+</style>
+<link rel="stylesheet" id="wp-block-library-css" href="./Digital compass – Open source software and hardware avionics_files/style.min.css" media="all">
+<style id="wp-block-library-theme-inline-css">
+.wp-block-audio :where(figcaption){color:#555;font-size:13px;text-align:center}.is-dark-theme .wp-block-audio :where(figcaption){color:#ffffffa6}.wp-block-audio{margin:0 0 1em}.wp-block-code{border:1px solid #ccc;border-radius:4px;font-family:Menlo,Consolas,monaco,monospace;padding:.8em 1em}.wp-block-embed :where(figcaption){color:#555;font-size:13px;text-align:center}.is-dark-theme .wp-block-embed :where(figcaption){color:#ffffffa6}.wp-block-embed{margin:0 0 1em}.blocks-gallery-caption{color:#555;font-size:13px;text-align:center}.is-dark-theme .blocks-gallery-caption{color:#ffffffa6}:root :where(.wp-block-image figcaption){color:#555;font-size:13px;text-align:center}.is-dark-theme :root :where(.wp-block-image figcaption){color:#ffffffa6}.wp-block-image{margin:0 0 1em}.wp-block-pullquote{border-bottom:4px solid;border-top:4px solid;color:currentColor;margin-bottom:1.75em}.wp-block-pullquote cite,.wp-block-pullquote footer,.wp-block-pullquote__citation{color:currentColor;font-size:.8125em;font-style:normal;text-transform:uppercase}.wp-block-quote{border-left:.25em solid;margin:0 0 1.75em;padding-left:1em}.wp-block-quote cite,.wp-block-quote footer{color:currentColor;font-size:.8125em;font-style:normal;position:relative}.wp-block-quote.has-text-align-right{border-left:none;border-right:.25em solid;padding-left:0;padding-right:1em}.wp-block-quote.has-text-align-center{border:none;padding-left:0}.wp-block-quote.is-large,.wp-block-quote.is-style-large,.wp-block-quote.is-style-plain{border:none}.wp-block-search .wp-block-search__label{font-weight:700}.wp-block-search__button{border:1px solid #ccc;padding:.375em .625em}:where(.wp-block-group.has-background){padding:1.25em 2.375em}.wp-block-separator.has-css-opacity{opacity:.4}.wp-block-separator{border:none;border-bottom:2px solid;margin-left:auto;margin-right:auto}.wp-block-separator.has-alpha-channel-opacity{opacity:1}.wp-block-separator:not(.is-style-wide):not(.is-style-dots){width:100px}.wp-block-separator.has-background:not(.is-style-dots){border-bottom:none;height:1px}.wp-block-separator.has-background:not(.is-style-wide):not(.is-style-dots){height:2px}.wp-block-table{margin:0 0 1em}.wp-block-table td,.wp-block-table th{word-break:normal}.wp-block-table :where(figcaption){color:#555;font-size:13px;text-align:center}.is-dark-theme .wp-block-table :where(figcaption){color:#ffffffa6}.wp-block-video :where(figcaption){color:#555;font-size:13px;text-align:center}.is-dark-theme .wp-block-video :where(figcaption){color:#ffffffa6}.wp-block-video{margin:0 0 1em}:root :where(.wp-block-template-part.has-background){margin-bottom:0;margin-top:0;padding:1.25em 2.375em}
+</style>
+<style id="classic-theme-styles-inline-css">
+/*! This file is auto-generated */
+.wp-block-button__link{color:#fff;background-color:#32373c;border-radius:9999px;box-shadow:none;text-decoration:none;padding:calc(.667em + 2px) calc(1.333em + 2px);font-size:1.125em}.wp-block-file__button{background:#32373c;color:#fff;text-decoration:none}
+</style>
+<style id="global-styles-inline-css">
+:root{--wp--preset--aspect-ratio--square: 1;--wp--preset--aspect-ratio--4-3: 4/3;--wp--preset--aspect-ratio--3-4: 3/4;--wp--preset--aspect-ratio--3-2: 3/2;--wp--preset--aspect-ratio--2-3: 2/3;--wp--preset--aspect-ratio--16-9: 16/9;--wp--preset--aspect-ratio--9-16: 9/16;--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #fff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--color--dark-gray: #1a1a1a;--wp--preset--color--medium-gray: #686868;--wp--preset--color--light-gray: #e5e5e5;--wp--preset--color--blue-gray: #4d545c;--wp--preset--color--bright-blue: #007acc;--wp--preset--color--light-blue: #9adffd;--wp--preset--color--dark-brown: #402b30;--wp--preset--color--medium-brown: #774e24;--wp--preset--color--dark-red: #640c1f;--wp--preset--color--bright-red: #ff675f;--wp--preset--color--yellow: #ffef8e;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgba(6,147,227,1) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgba(252,185,0,1) 0%,rgba(255,105,0,1) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgba(255,105,0,1) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgba(255, 255, 255, 1), 6px 6px rgba(0, 0, 0, 1);--wp--preset--shadow--crisp: 6px 6px 0px rgba(0, 0, 0, 1);}:where(.is-layout-flex){gap: 0.5em;}:where(.is-layout-grid){gap: 0.5em;}body .is-layout-flex{display: flex;}.is-layout-flex{flex-wrap: wrap;align-items: center;}.is-layout-flex > :is(*, div){margin: 0;}body .is-layout-grid{display: grid;}.is-layout-grid > :is(*, div){margin: 0;}:where(.wp-block-columns.is-layout-flex){gap: 2em;}:where(.wp-block-columns.is-layout-grid){gap: 2em;}:where(.wp-block-post-template.is-layout-flex){gap: 1.25em;}:where(.wp-block-post-template.is-layout-grid){gap: 1.25em;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+:where(.wp-block-post-template.is-layout-flex){gap: 1.25em;}:where(.wp-block-post-template.is-layout-grid){gap: 1.25em;}
+:where(.wp-block-columns.is-layout-flex){gap: 2em;}:where(.wp-block-columns.is-layout-grid){gap: 2em;}
+:root :where(.wp-block-pullquote){font-size: 1.5em;line-height: 1.6;}
+</style>
+<link rel="stylesheet" id="twentysixteen-fonts-css" href="./Digital compass – Open source software and hardware avionics_files/css" media="all">
+<link rel="stylesheet" id="genericons-css" href="./Digital compass – Open source software and hardware avionics_files/genericons.css" media="all">
+<link rel="stylesheet" id="twentysixteen-style-css" href="./Digital compass – Open source software and hardware avionics_files/style.css" media="all">
+<style id="twentysixteen-style-inline-css">
+
+		/* Custom Page Background Color */
+		.site {
+			background-color: #e5dfd3;
+		}
+
+		mark,
+		ins,
+		button,
+		button[disabled]:hover,
+		button[disabled]:focus,
+		input[type="button"],
+		input[type="button"][disabled]:hover,
+		input[type="button"][disabled]:focus,
+		input[type="reset"],
+		input[type="reset"][disabled]:hover,
+		input[type="reset"][disabled]:focus,
+		input[type="submit"],
+		input[type="submit"][disabled]:hover,
+		input[type="submit"][disabled]:focus,
+		.menu-toggle.toggled-on,
+		.menu-toggle.toggled-on:hover,
+		.menu-toggle.toggled-on:focus,
+		.pagination .prev,
+		.pagination .next,
+		.pagination .prev:hover,
+		.pagination .prev:focus,
+		.pagination .next:hover,
+		.pagination .next:focus,
+		.pagination .nav-links:before,
+		.pagination .nav-links:after,
+		.widget_calendar tbody a,
+		.widget_calendar tbody a:hover,
+		.widget_calendar tbody a:focus,
+		.page-links a,
+		.page-links a:hover,
+		.page-links a:focus {
+			color: #e5dfd3;
+		}
+
+		@media screen and (min-width: 56.875em) {
+			.main-navigation ul ul li {
+				background-color: #e5dfd3;
+			}
+
+			.main-navigation ul ul:after {
+				border-top-color: #e5dfd3;
+				border-bottom-color: #e5dfd3;
+			}
+		}
+	
+</style>
+<link rel="stylesheet" id="twentysixteen-block-style-css" href="./Digital compass – Open source software and hardware avionics_files/blocks.css" media="all">
+<!--[if lt IE 10]>
+<link rel='stylesheet' id='twentysixteen-ie-css' href='https://avionicsduino.com/wp-content/themes/twentysixteen/css/ie.css?ver=20170530' media='all' />
+<![endif]-->
+<!--[if lt IE 9]>
+<link rel='stylesheet' id='twentysixteen-ie8-css' href='https://avionicsduino.com/wp-content/themes/twentysixteen/css/ie8.css?ver=20170530' media='all' />
+<![endif]-->
+<!--[if lt IE 8]>
+<link rel='stylesheet' id='twentysixteen-ie7-css' href='https://avionicsduino.com/wp-content/themes/twentysixteen/css/ie7.css?ver=20170530' media='all' />
+<![endif]-->
+<link rel="stylesheet" id="dco-comment-attachment-css" href="./Digital compass – Open source software and hardware avionics_files/dco-comment-attachment.css" media="all">
+<!--[if lt IE 9]>
+<script src="https://avionicsduino.com/wp-content/themes/twentysixteen/js/html5.js?ver=3.7.3" id="twentysixteen-html5-js"></script>
+<![endif]-->
+<script src="./Digital compass – Open source software and hardware avionics_files/jquery.min.js.download" id="jquery-core-js"></script>
+<script src="./Digital compass – Open source software and hardware avionics_files/jquery-migrate.min.js.download" id="jquery-migrate-js"></script>
+<link rel="https://api.w.org/" href="https://avionicsduino.com/index.php/wp-json/"><link rel="alternate" title="JSON" type="application/json" href="https://avionicsduino.com/index.php/wp-json/wp/v2/pages/765"><link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://avionicsduino.com/xmlrpc.php?rsd">
+<meta name="generator" content="WordPress 6.6.2">
+<link rel="shortlink" href="https://avionicsduino.com/?p=765">
+<link rel="alternate" title="oEmbed (JSON)" type="application/json+oembed" href="https://avionicsduino.com/index.php/wp-json/oembed/1.0/embed?url=https%3A%2F%2Favionicsduino.com%2Findex.php%2Fen%2Fdigital-compass%2F">
+<link rel="alternate" title="oEmbed (XML)" type="text/xml+oembed" href="https://avionicsduino.com/index.php/wp-json/oembed/1.0/embed?url=https%3A%2F%2Favionicsduino.com%2Findex.php%2Fen%2Fdigital-compass%2F&amp;format=xml">
+<!-- Analytics by WP Statistics v14.10 - https://wp-statistics.com/ -->
+<style id="custom-background-css">
+body.custom-background { background-image: url("https://avionicsduino.com/wp-content/uploads/2021/06/EcranEFISTeensy2.jpg"); background-position: left top; background-size: cover; background-repeat: no-repeat; background-attachment: fixed; }
+</style>
+	<style>img.zoooom,.zoooom img{padding:0!important;}</style><script></script><link rel="icon" href="https://avionicsduino.com/wp-content/uploads/2021/07/cropped-fpbcf-fond-bleu-32x32.jpg" sizes="32x32">
+<link rel="icon" href="https://avionicsduino.com/wp-content/uploads/2021/07/cropped-fpbcf-fond-bleu-192x192.jpg" sizes="192x192">
+<link rel="apple-touch-icon" href="https://avionicsduino.com/wp-content/uploads/2021/07/cropped-fpbcf-fond-bleu-180x180.jpg">
+<meta name="msapplication-TileImage" content="https://avionicsduino.com/wp-content/uploads/2021/07/cropped-fpbcf-fond-bleu-270x270.jpg">
+		<style id="wp-custom-css">
+			p { text-align: justify; }
+		</style>
+		<style id="wpforms-css-vars-root">
+				:root {
+					--wpforms-field-border-radius: 3px;
+--wpforms-field-border-style: solid;
+--wpforms-field-border-size: 1px;
+--wpforms-field-background-color: #ffffff;
+--wpforms-field-border-color: rgba( 0, 0, 0, 0.25 );
+--wpforms-field-border-color-spare: rgba( 0, 0, 0, 0.25 );
+--wpforms-field-text-color: rgba( 0, 0, 0, 0.7 );
+--wpforms-field-menu-color: #ffffff;
+--wpforms-label-color: rgba( 0, 0, 0, 0.85 );
+--wpforms-label-sublabel-color: rgba( 0, 0, 0, 0.55 );
+--wpforms-label-error-color: #d63637;
+--wpforms-button-border-radius: 3px;
+--wpforms-button-border-style: none;
+--wpforms-button-border-size: 1px;
+--wpforms-button-background-color: #066aab;
+--wpforms-button-border-color: #066aab;
+--wpforms-button-text-color: #ffffff;
+--wpforms-page-break-color: #066aab;
+--wpforms-background-image: none;
+--wpforms-background-position: center center;
+--wpforms-background-repeat: no-repeat;
+--wpforms-background-size: cover;
+--wpforms-background-width: 100px;
+--wpforms-background-height: 100px;
+--wpforms-background-color: rgba( 0, 0, 0, 0 );
+--wpforms-background-url: none;
+--wpforms-container-padding: 0px;
+--wpforms-container-border-style: none;
+--wpforms-container-border-width: 1px;
+--wpforms-container-border-color: #000000;
+--wpforms-container-border-radius: 3px;
+--wpforms-field-size-input-height: 43px;
+--wpforms-field-size-input-spacing: 15px;
+--wpforms-field-size-font-size: 16px;
+--wpforms-field-size-line-height: 19px;
+--wpforms-field-size-padding-h: 14px;
+--wpforms-field-size-checkbox-size: 16px;
+--wpforms-field-size-sublabel-spacing: 5px;
+--wpforms-field-size-icon-size: 1;
+--wpforms-label-size-font-size: 16px;
+--wpforms-label-size-line-height: 19px;
+--wpforms-label-size-sublabel-font-size: 14px;
+--wpforms-label-size-sublabel-line-height: 17px;
+--wpforms-button-size-font-size: 17px;
+--wpforms-button-size-height: 41px;
+--wpforms-button-size-padding-h: 15px;
+--wpforms-button-size-margin-top: 10px;
+--wpforms-container-shadow-size-box-shadow: none;
+
+				}
+			</style><script src="./Digital compass – Open source software and hardware avionics_files/wp-emoji-release.min.js.download" defer=""></script></head>
+
+<body class="page-template-default page page-id-765 custom-background wp-embed-responsive custom-background-image">
+<div id="page" class="site">
+	<div class="site-inner">
+		<a class="skip-link screen-reader-text" href="https://avionicsduino.com/index.php/en/digital-compass/#content">Skip to content</a>
+
+		<header id="masthead" class="site-header" role="banner">
+			<div class="site-header-main">
+				<div class="site-branding">
+					
+											<p class="site-title"><a href="https://avionicsduino.com/index.php/en/" rel="home">Open source software and hardware avionics</a></p>
+												<p class="site-description">Create your own avionics</p>
+									</div><!-- .site-branding -->
+
+									<button id="menu-toggle" class="menu-toggle">Menu</button>
+
+					<div id="site-header-menu" class="site-header-menu">
+													<nav id="site-navigation" class="main-navigation" role="navigation" aria-label="Primary Menu">
+								<div class="menu-anglais-container"><ul id="menu-anglais" class="primary-menu"><li id="menu-item-235" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home menu-item-has-children menu-item-235" aria-haspopup="true"><a href="https://avionicsduino.com/index.php/en/">Home</a><button class="dropdown-toggle" aria-expanded="false"><span class="screen-reader-text">expand child menu</span></button>
+<ul class="sub-menu">
+	<li id="menu-item-4116" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4116"><a href="https://avionicsduino.com/index.php/en/comments-section-general-tips/">Comments section: general tips</a></li>
+	<li id="menu-item-4784" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4784"><a href="https://avionicsduino.com/index.php/en/disclaimer-and-copyright-notice/">Disclaimer and&nbsp;copyright notice</a></li>
+</ul>
+</li>
+<li id="menu-item-1860" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1860"><a href="https://avionicsduino.com/index.php/en/whats-new-on-the-site/">What’s new on AvionicsDuino</a></li>
+<li id="menu-item-2443" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-2443" aria-haspopup="true"><a>Flight-tested systems</a><button class="dropdown-toggle" aria-expanded="false"><span class="screen-reader-text">expand child menu</span></button>
+<ul class="sub-menu">
+	<li id="menu-item-236" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-236"><a href="https://avionicsduino.com/index.php/en/open-source-avionics-2/micro-ems-arduino/">Arduino Micro-EMS</a></li>
+	<li id="menu-item-3129" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3129"><a href="https://avionicsduino.com/index.php/en/teensy-micro-ems/">Teensy Micro-EMS</a></li>
+	<li id="menu-item-357" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-357"><a href="https://avionicsduino.com/index.php/en/efis-2/">EFIS</a></li>
+	<li id="menu-item-1859" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1859"><a href="https://avionicsduino.com/index.php/en/ems-engine-monitoring-system-2/">EMS</a></li>
+</ul>
+</li>
+<li id="menu-item-2444" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-ancestor current-menu-parent menu-item-has-children menu-item-2444" aria-haspopup="true"><a>Hardware</a><button class="dropdown-toggle toggled-on" aria-expanded="false"><span class="screen-reader-text">expand child menu</span></button>
+<ul class="sub-menu toggled-on">
+	<li id="menu-item-279" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-279"><a href="https://avionicsduino.com/index.php/en/arduino-and-teensy-microcontroller-boards/">Microcontroller boards</a></li>
+	<li id="menu-item-350" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-350"><a href="https://avionicsduino.com/index.php/en/lcd-display-screens/">LCD screen</a></li>
+	<li id="menu-item-349" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-349"><a href="https://avionicsduino.com/index.php/en/the-ahrs/">AHRS : the heart of an EFIS</a></li>
+	<li id="menu-item-767" class="menu-item menu-item-type-post_type menu-item-object-post current-menu-item menu-item-767"><a href="https://avionicsduino.com/index.php/en/digital-compass/" aria-current="page">Digital compass</a></li>
+	<li id="menu-item-2168" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2168"><a href="https://avionicsduino.com/index.php/en/rotax-oil-pressure-sensor/">Rotax oil pressure sensor</a></li>
+	<li id="menu-item-2185" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2185"><a href="https://avionicsduino.com/index.php/en/temperature-sensors-on-rotax-engines/">Rotax temperature sensors</a></li>
+	<li id="menu-item-2257" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2257"><a href="https://avionicsduino.com/index.php/en/resistance-measurement/">Resistance measurement</a></li>
+	<li id="menu-item-2297" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2297"><a href="https://avionicsduino.com/index.php/en/exhaust-gaz-temperature-egt-measurement/">Exhaust Gaz Temperature (EGT) measurement</a></li>
+	<li id="menu-item-2394" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2394"><a href="https://avionicsduino.com/index.php/en/current-measurement/">Current measurement</a></li>
+	<li id="menu-item-2508" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2508"><a href="https://avionicsduino.com/index.php/en/power-supply/">Power supply</a></li>
+	<li id="menu-item-4092" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4092"><a href="https://avionicsduino.com/index.php/en/variable-reluctance-sensors-and-signal-conditioning/">Variable reluctance sensors and signal conditioning</a></li>
+	<li id="menu-item-4698" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4698"><a href="https://avionicsduino.com/index.php/en/efis-pressure-sensors/">EFIS pressure sensors</a></li>
+</ul>
+</li>
+<li id="menu-item-2445" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-2445" aria-haspopup="true"><a>Software</a><button class="dropdown-toggle" aria-expanded="false"><span class="screen-reader-text">expand child menu</span></button>
+<ul class="sub-menu">
+	<li id="menu-item-779" class="menu-item menu-item-type-post_type menu-item-object-post menu-item-779"><a href="https://avionicsduino.com/index.php/en/digital-filters/">Digital filter</a></li>
+	<li id="menu-item-1579" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1579"><a href="https://avionicsduino.com/index.php/en/serial-communication-of-numeric-variables-uart-or-can/">Serial communication of numeric variables (UART or CAN)</a></li>
+	<li id="menu-item-2064" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2064"><a href="https://avionicsduino.com/index.php/en/flight-data-recorder/">Flight Data Recorder</a></li>
+	<li id="menu-item-2863" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2863"><a href="https://avionicsduino.com/index.php/en/u-blox-neo-m9n-gnss-configuration/">U-Blox NEO-M9N GNSS Configuration</a></li>
+	<li id="menu-item-4208" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4208"><a href="https://avionicsduino.com/index.php/en/can-bus/">CAN bus</a></li>
+</ul>
+</li>
+<li id="menu-item-1489" class="pll-parent-menu-item menu-item menu-item-type-custom menu-item-object-custom current-menu-parent menu-item-has-children menu-item-1489" aria-haspopup="true"><a href="https://avionicsduino.com/index.php/en/digital-compass/#pll_switcher"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAALCAMAAABBPP0LAAAAmVBMVEViZsViZMJiYrf9gnL8eWrlYkjgYkjZYkj8/PujwPybvPz4+PetraBEgfo+fvo3efkydfkqcvj8Y2T8UlL8Q0P8MzP9k4Hz8/Lu7u4DdPj9/VrKysI9fPoDc/EAZ7z7IiLHYkjp6ekCcOTk5OIASbfY/v21takAJrT5Dg6sYkjc3Nn94t2RkYD+y8KeYkjs/v7l5fz0dF22YkjWvcOLAAAAgElEQVR4AR2KNULFQBgGZ5J13KGGKvc/Cw1uPe62eb9+Jr1EUBFHSgxxjP2Eca6AfUSfVlUfBvm1Ui1bqafctqMndNkXpb01h5TLx4b6TIXgwOCHfjv+/Pz+5vPRw7txGWT2h6yO0/GaYltIp5PT1dEpLNPL/SdWjYjAAZtvRPgHJX4Xio+DSrkAAAAASUVORK5CYII=" alt="" width="16" height="11" style="width: 16px; height: 11px;"><span style="margin-left:0.3em;">English</span></a><button class="dropdown-toggle" aria-expanded="false"><span class="screen-reader-text">expand child menu</span></button>
+<ul class="sub-menu">
+	<li id="menu-item-1489-fr" class="lang-item lang-item-5 lang-item-fr lang-item-first menu-item menu-item-type-custom menu-item-object-custom menu-item-1489-fr"><a href="https://avionicsduino.com/index.php/fr/le-compas-digital/" hreflang="fr-FR" lang="fr-FR"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAALCAMAAABBPP0LAAAAbFBMVEVzldTg4ODS0tLxDwDtAwDjAADD0uz39/fy8vL3k4nzgna4yOixwuXu7u7s6+zn5+fyd2rvcGPtZljYAABrjNCpvOHrWkxegsqfs93NAADpUUFRd8THAABBa7wnVbERRKa8vLyxsLCoqKigoKClCvcsAAAAXklEQVR4AS3JxUEAQQAEwZo13Mk/R9w5/7UERJCIGIgj5qfRJZEpPyNfCgJTjMR1eRRnJiExFJz5Mf1PokWr/UztIjRGQ3V486u0HO55m634U6dMcf0RNPfkVCTvKjO16xHA8miowAAAAABJRU5ErkJggg==" alt="" width="16" height="11" style="width: 16px; height: 11px;"><span style="margin-left:0.3em;">Français</span></a></li>
+	<li id="menu-item-1489-en" class="lang-item lang-item-2 lang-item-en current-lang menu-item menu-item-type-custom menu-item-object-custom menu-item-1489-en"><a href="https://avionicsduino.com/index.php/en/digital-compass/" hreflang="en-US" lang="en-US"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAALCAMAAABBPP0LAAAAmVBMVEViZsViZMJiYrf9gnL8eWrlYkjgYkjZYkj8/PujwPybvPz4+PetraBEgfo+fvo3efkydfkqcvj8Y2T8UlL8Q0P8MzP9k4Hz8/Lu7u4DdPj9/VrKysI9fPoDc/EAZ7z7IiLHYkjp6ekCcOTk5OIASbfY/v21takAJrT5Dg6sYkjc3Nn94t2RkYD+y8KeYkjs/v7l5fz0dF22YkjWvcOLAAAAgElEQVR4AR2KNULFQBgGZ5J13KGGKvc/Cw1uPe62eb9+Jr1EUBFHSgxxjP2Eca6AfUSfVlUfBvm1Ui1bqafctqMndNkXpb01h5TLx4b6TIXgwOCHfjv+/Pz+5vPRw7txGWT2h6yO0/GaYltIp5PT1dEpLNPL/SdWjYjAAZtvRPgHJX4Xio+DSrkAAAAASUVORK5CYII=" alt="" width="16" height="11" style="width: 16px; height: 11px;"><span style="margin-left:0.3em;">English</span></a></li>
+</ul>
+</li>
+</ul></div>							</nav><!-- .main-navigation -->
+						
+											</div><!-- .site-header-menu -->
+							</div><!-- .site-header-main -->
+
+											<div class="header-image">
+					<a href="https://avionicsduino.com/index.php/en/" rel="home">
+						<img src="./Digital compass – Open source software and hardware avionics_files/cropped-bandeau-site-avionics.jpg" srcset="https://avionicsduino.com/wp-content/uploads/2021/07/cropped-bandeau-site-avionics-300x70.jpg 300w, https://avionicsduino.com/wp-content/uploads/2021/07/cropped-bandeau-site-avionics-1024x239.jpg 1024w, https://avionicsduino.com/wp-content/uploads/2021/07/cropped-bandeau-site-avionics-768x179.jpg 768w, https://avionicsduino.com/wp-content/uploads/2021/07/cropped-bandeau-site-avionics.jpg 1200w" sizes="(max-width: 709px) 85vw, (max-width: 909px) 81vw, (max-width: 1362px) 88vw, 1200px" width="1200" height="280" alt="Open source software and hardware avionics">
+					</a>
+				</div><!-- .header-image -->
+					</header><!-- .site-header -->
+
+		<div id="content" class="site-content">
+
+<div id="primary" class="content-area">
+	<main id="main" class="site-main" role="main">
+		
+<article id="post-765" class="post-765 page type-page status-publish hentry">
+	<header class="entry-header">
+		<h1 class="entry-title">Digital compass</h1>	</header><!-- .entry-header -->
+
+	
+	<div class="entry-content">
+		
+<p style="font-size:10px"><em>(Digital compass: Last updated by Benjamin on August 14, 2024)</em></p>
+
+
+
+<p>The magnetic compass, the clock, the sextant, and the maps have long been the main navigation instruments, with the log in the Navy and the anemometer in aviation that measure speed and allow estimates of distance traveled as a function of the elapsed time. Some World War II planes were equipped with an astrodome to allow the radio navigator to take an astronomical point with the sextant. At the end of the 1950s, Air France had equipped its Super Starliners with a periscopic sextant!</p>
+
+
+
+<p>Radio navigation, then GPS, got the better of these almost ancestral navigation techniques. However, dead reckoning navigation, relying exclusively on the watch and the compass, is still taught. That is a good thing because this base is essential for a student pilot to acquire a good mental representation of the time and space in which our aircraft operate. The pilot who has gained more experience keeps his watch, but he no longer looks much at his magnetic compass. Except sometimes to reassure himself by thinking that he will be able to rely on it in the event of a failure of his GPS or tablet … on the condition of having kept the proper reflexes of dead reckoning navigation in mind!</p>
+
+
+
+<p>Apart from regulatory obligations, the traditional magnetic compass has become of little use or even obsolete for some. However, it retains another interest in its digital version when coupled with a computer and a GPS. For example, to precisely indicate to the pilot the wind direction and speed, thanks to a calculation involving the aircraft’s true airspeed, the true course and ground speed provided by the GPS, and the magnetic heading provided by the compass, corrected for the magnetic deviation.</p>
+
+
+
+<h3 class="wp-block-heading">Earth’s magnetic field</h3>
+
+
+
+<p><br>The Earth’s magnetic field is established between the north and south magnetic poles, not to be confused with the geographic poles, hence the magnetic deviation. As with a simple bar magnet, magnetic field lines radiate from the south to the north magnetic pole, as shown in Figure 1.</p>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-full is-resized"><img fetchpriority="high" decoding="async" width="566" height="503" src="./Digital compass – Open source software and hardware avionics_files/Earths_magnetic_field_schematic.png" alt="" class="wp-image-668" style="width:566px;height:503px" srcset="https://avionicsduino.com/wp-content/uploads/2021/10/Earths_magnetic_field_schematic.png 566w, https://avionicsduino.com/wp-content/uploads/2021/10/Earths_magnetic_field_schematic-300x267.png 300w" sizes="(max-width: 566px) 85vw, 566px"><figcaption class="wp-element-caption">Figure 1: Earth’s magnetic field lines (from<em>&nbsp;</em><a href="https://commons.wikimedia.org/wiki/File:Earth%27s_magnetic_field,_schematic.svg" target="_blank" rel="noreferrer noopener" title="Wikimedia Commons">Wikimedia Commons</a><em>)</em></figcaption></figure></div>
+
+
+<p>This schematic representation shows that the field lines are roughly parallel to the earth’s surface around the equator, perpendicular to this surface around the magnetic poles, and more or less inclined depending on the latitude. But regardless of geographic location, the projection of a magnetic field line onto a plane parallel to the Earth’s surface is always oriented toward a magnetic pole (although it is necessary to take into account local variations of the magnetic field). This is the basic principle of the compass, an instrument that must always be horizontal to indicate the direction of the magnetic pole.</p>
+
+
+
+<h3 class="wp-block-heading">The magnetometer, the heart of a digital compass</h3>
+
+
+
+<p>The heart of a digital compass is a triaxial magnetometer. This particular sensor analyzes the surrounding magnetic field and breaks it down into three vectors along the three orthogonal axes x, y, and z of its Cartesian coordinate system.</p>
+
+
+
+<p>There is a wide variety of magnetometers. Those that interest us within the framework of this site are of the magnetoresistive type. This technology makes it possible to obtain low-cost, precise, sensitive, and reliable sensors of infra-millimeter size. These sensors equip all smartphones on the market. These sensors are often associated with accelerometers and gyrometers within an IMU (Inertial Measurement Unit).</p>
+
+
+
+<p>If a magnetometer is placed horizontally on a table, with the z-axis vertical, the x and y axes are, therefore, in a horizontal plane parallel to the Earth’s surface. In this case, analysis of the x and y components alone is sufficient to calculate the magnetometer’s magnetic orientation.</p>
+
+
+
+<p>However, the magnetometer attached to an aircraft’s structure cannot always be horizontal. Consequently, the calculation of the magnetic orientation will have to involve the magnetometer’s three axes and integrate the aircraft’s pitch and bank angles.</p>
+
+
+
+<p>For this project, we chose to use the <a href="https://www.st.com/resource/en/datasheet/lis3mdl.pdf" target="_blank" rel="noopener" title="LIS3MDL datasheet">LIS3MDL </a>sensor from ST Microelectronics on an <a href="https://www.adafruit.com/product/4479" target="_blank" rel="noopener" title="LIS3MDL Adafruit board">Adafruit board</a>. This recent sensor communicates using the I2C or SPI bus. Several libraries are available.</p>
+
+
+
+<h3 class="wp-block-heading">Magnetometer calibration </h3>
+
+
+
+<p><br>The LIS3MDL is factory-calibrated for sensitivity and zero-gauss level. The corrective values are stored in non-volatile memory internal to the sensor. Each time the device is turned on, the parameters are loaded to the internal registers to be employed during active operation, which allows the device to be used without further calibration. Therefore, the user does not have to redo this particular calibration.</p>
+
+
+
+<p>On the other hand, the user must meticulously calibrate the sensor to consider the particular magnetic environment at its final location in the aircraft. Indeed, this environment can more or less severely disturb the Earth’s magnetic field.</p>
+
+
+
+<p>There are two sources of magnetic disturbances: hard iron and soft iron. To put it simply, hard iron refers to objects that produce a magnetic field, such as permanent magnets or current-carrying wires. Soft iron refers to certain metals such as iron or nickel, which, although not magnetized, can deflect the lines of the earth’s magnetic field. Many sites on the Internet explain 1) the theory of these disturbances, 2) calibration techniques, and 3) compensation methods. </p>
+
+
+
+<p>Without going into complex mathematical theories, which are beyond us, we will practically approach points 2 and 3, which can help the reader to calibrate any magnetometer, i.e., to determine the coefficients necessary for the compensation. Then, we will explain how to introduce these compensation coefficients in an algorithm to obtain an exact magnetic heading despite the magnetometer environment’s hard and soft iron disturbances. It is then up to the user to consider the local magnetic deviation where he is flying to calculate the proper geographical heading.</p>
+
+
+
+<p>The most evident precautionary measure is to install the magnetometer in the aircraft as far as possible from all sources of interference. For example, it could be installed in a wingtip, provided there are no strong current-carrying wires in the vicinity, for example, to feed flashing anti-collision lights.</p>
+
+
+
+<h3 class="wp-block-heading">The calibration procedure</h3>
+
+
+
+<p>It consists of collecting, at best in the magnetometer’s future environment, a large number of measurements of the magnetic field on the three axes in all the sensor’s possible positions. To do this, after connecting the magnetometer to a microcontroller (Arduino, Teensy, or other), you need to upload an elementary sketch that sends the raw values of the magnetic field on each of the three axes to the Arduino IDE terminal. </p>
+
+
+
+<p>All libraries offer this type of sketch as an example. You must adapt the sketch to obtain output data formatted according to the tool you will use to calculate the calibration parameters. Then, you have to start the sketch and manually rotate the sensor around all of its axes for approximately 30 to 60 seconds. Then, all you have to do is copy and paste the content of the terminal screen and save it in a “.txt” file. For example, we get this:</p>
+
+
+
+<div class="wp-block-file"><a id="wp-block-file--media-49d1b545-ccb1-4edb-8129-fd254b71b88a" href="https://avionicsduino.com/wp-content/uploads/2021/10/data_pour_Magneto12.txt">data formatted for Magneto 1.2</a><a href="https://avionicsduino.com/wp-content/uploads/2021/10/data_pour_Magneto12.txt" class="wp-block-file__button wp-element-button" download="" aria-describedby="wp-block-file--media-49d1b545-ccb1-4edb-8129-fd254b71b88a">Download</a></div>
+
+
+
+<p></p>
+
+
+
+<p>In this example, <span style="box-sizing: border-box; margin: 0px; padding: 0px;">the Magneto 1.2 software (downloadable <a href="https://esprtk.wap.sh/download/magneto12_Calibration_Helper.zip" target="_blank" rel="noopener" title="Download Magneto 1.2">here</a>) is used to calculate the calibration coefficients</span>. The .txt file must be formatted (for example, with NotePad ++ or any other text editor and the “find-replace” function) to contain the magnetic field values on each line, separated by a space, on the x, y, and z axes.</p>
+
+
+
+<p>Once the data has been saved, you must launch Magneto 1.2 and indicate the location of the text file to be processed. More explanations <a href="https://www.navsparkforum.com.tw/viewtopic.php?t=1673" target="_blank" rel="noreferrer noopener">here</a>, particularly for the entry to be made in the “Norm of Magnetic or Gravitational Field” box. It is necessary to proceed by successive approximations until the average of the three diagonal boxes circled in red on the screenshot below (Fig. 2) is as close as possible to 1.</p>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-full is-resized"><img decoding="async" width="694" height="637" src="./Digital compass – Open source software and hardware avionics_files/Magneto12_screenshot-2.jpg" alt="" class="wp-image-704" style="width:694px;height:637px" srcset="https://avionicsduino.com/wp-content/uploads/2021/10/Magneto12_screenshot-2.jpg 694w, https://avionicsduino.com/wp-content/uploads/2021/10/Magneto12_screenshot-2-300x275.jpg 300w" sizes="(max-width: 694px) 85vw, 694px"><figcaption class="wp-element-caption"><em>Figure 2: Magneto 1.2 screenshot</em></figcaption></figure></div>
+
+
+<p>In the green frame of Figure 2, we have all the calibration coefficients we need to introduce in the sketch that manages the magnetometer to perfectly compensate for the hard and soft iron distortions.</p>
+
+
+
+<p>These same coefficients can be obtained with another software: MotionCal, which is downloadable <a href="https://www.pjrc.com/store/prop_shield.html" target="_blank" rel="noopener" title="Download MotionCal">here</a>. Depending on the operating system and antivirus protection used, MotionCal can sometimes be a little tricky to download, probably because it is an executable file hosted on an unsecured page of the PJRC Website. PJRC is the manufacturer of Teensy boards. Copying and pasting the URL of the download page (see below) into a new browser tab usually resolves the issue.</p>
+
+
+
+<p class="has-text-align-center"><em>(http://www.pjrc.com/teensy/beta/imuread/MotionCal.exe).</em></p>
+
+
+
+<p>The principle of MotionCal is slightly different. This software uses the magnetometer data received on the serial port in real time without having to save them in a file. To do this, you must close the Arduino IDE terminal and indicate in MotionCal which serial port to use. This is the one where the Arduino or Teensy board is connected. </p>
+
+
+
+<p>Formatting the data output to the serial port is a bit more complicated than with Magneto 1.2, as MotionCal is designed to receive data from a 9 DOF IMU (triaxial accelerometer + triaxial gyro + triaxial magnetometer). If we take the first line of the file planned for Magneto 1.2, namely: “-52.27 -8.07 -40.49”, its formatting for MotionCal would be: “raw: 0,0,0,0,0,0,523,81,405”. The values ​​recorded on the three axes of the magnetometer are multiplied by ten and rounded to the nearest integer, preceded by six zeros, and separated by commas, with the word raw at the beginning of each line.</p>
+
+
+
+<p>The imucal .ino example from the Adafruit library for the LIS3MDL implements this particular formatting. During the magnetometer’s rotational movements for calibration, a sphere gradually appears in the MotionCal graphics window. When the sphere is complete and centered, the procedure can be stopped, and the values ​​shown in the green frame can be noted (see Figure 3).</p>
+
+
+
+<figure class="wp-block-image size-full is-resized"><img decoding="async" width="868" height="647" src="./Digital compass – Open source software and hardware avionics_files/MotionCal_screenshot.jpg" alt="" class="wp-image-711" style="width:868px;height:647px" srcset="https://avionicsduino.com/wp-content/uploads/2021/10/MotionCal_screenshot.jpg 868w, https://avionicsduino.com/wp-content/uploads/2021/10/MotionCal_screenshot-300x224.jpg 300w, https://avionicsduino.com/wp-content/uploads/2021/10/MotionCal_screenshot-768x572.jpg 768w" sizes="(max-width: 709px) 85vw, (max-width: 909px) 67vw, (max-width: 1362px) 62vw, 840px"><figcaption class="wp-element-caption">Figure 3: MotionCal screenshot</figcaption></figure>
+
+
+
+<p>Magneto v1.2 and MotionCal tools each provide two matrices of decimal numbers, and their comparison shows that the two software provide almost identical coefficients. These coefficients are to be used in the application software operating the magnetometer to achieve the hard and soft iron compensation.</p>
+
+
+
+<p>Of course, one can object to this calibration procedure, arguing that it only concerns the magnetometer itself, with the microcontroller directly attached to it, as well as the box that protects the assembly with its connections, but before fixing this assembly to the structure of the aircraft. The latter can, in fact, also generate magnetic disturbances. </p>
+
+
+
+<p>However, it is generally not possible to quickly rotate the entire aircraft around its three axes, except during aerobatic maneuvers. Hence, the utmost importance is carefully selecting the magnetometer’s location, as far as possible from magnetic disturbances. However, it is possible to record the raw data of the magnetometers in flight, in all likely attitudes of the aircraft, according to its flight envelope, and in all headings. After the flight, this recording should be submitted to Magneto 1.2 or MotionCal to see if the coefficients thus obtained are different from those obtained by simply rotating the magnetometer housing manually, as described above.</p>
+
+
+
+<h3 class="wp-block-heading">The hard and soft iron compensation procedure</h3>
+
+
+
+<p>To process the calibration parameters obtained in the previous step, we must find the product of a 3 × 3 matrix by a 3 × 1 matrix. If necessary, the reader can refer to an elementary matrix algebra tutorial to understand the algorithm.</p>
+
+
+
+<p>The calculation to be carried out is as follows:</p>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-full is-resized"><img loading="lazy" decoding="async" width="761" height="175" src="./Digital compass – Open source software and hardware avionics_files/matrix_calculation.jpg" alt="" class="wp-image-1368" style="width:761px;height:175px" srcset="https://avionicsduino.com/wp-content/uploads/2021/11/matrix_calculation.jpg 761w, https://avionicsduino.com/wp-content/uploads/2021/11/matrix_calculation-300x69.jpg 300w" sizes="(max-width: 761px) 85vw, 761px"></figure></div>
+
+
+<p>Where Xc, Yc, and Zc are the compensated values, C11 to C33, and Cx, Cy, and Cz are the coefficients calculated by MotionCal or Magneto 1.2, and X, Y, and Z are the magnetometer’s raw values.</p>
+
+
+
+<p>If we take, for example, the raw values mentioned above, namely “-52.27 -8.07 -40.49”, and we want to apply a compensation to them with the coefficients in Figure 3, we have:</p>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-full is-resized"><img loading="lazy" decoding="async" width="902" height="156" src="./Digital compass – Open source software and hardware avionics_files/matrix_calculation2-1.jpg" alt="" class="wp-image-720" style="width:902px;height:156px" srcset="https://avionicsduino.com/wp-content/uploads/2021/10/matrix_calculation2-1.jpg 902w, https://avionicsduino.com/wp-content/uploads/2021/10/matrix_calculation2-1-300x52.jpg 300w, https://avionicsduino.com/wp-content/uploads/2021/10/matrix_calculation2-1-768x133.jpg 768w" sizes="(max-width: 709px) 85vw, (max-width: 909px) 67vw, (max-width: 1362px) 62vw, 840px"></figure></div>
+
+
+<p>Then:</p>
+
+
+
+<p class="has-text-align-center">Xc= 0,985 x (-52,27+30,74) + 0,032 x (-8,07-1,88) + 0,003 x (-40,49 + 6,22) = -21,63</p>
+
+
+
+<p class="has-text-align-center">Yc= 0,032 x ( -52,27+30,74 ) + 0,988 x ( -8,07-1,88 ) -0,018 x ( -40,49 + 6,22 ) = -9,90</p>
+
+
+
+<p class="has-text-align-center">Zc = 0,003 x ( -52,27+30,74 ) -0,018 x ( -8,07-1,88 ) + 1,029 x ( -40,49 + 6,22 ) = -35,15</p>
+
+
+
+<p>Example of the corresponding code:</p>
+
+
+
+<pre class="wp-block-code" style="font-size:12px"><code>#include &lt;Adafruit_LIS3MDL.h&gt;
+Adafruit_LIS3MDL lis3mdl;
+#define LIS3MDL_ADDRESS 0x1C
+
+// Variables pour stocker les données brutes du magnétomètre
+float magx, magy, magz;
+
+// Données correctives issues de la calibration du magnétomètre. Ces données sont applicables à des mesures en µTesla.
+float MagOffset[3] = {-30.74, 1.88, -6.22}; // Offsets pour les axes x, y et z
+float mCal[3][3] = 
+{
+  {+0.985, +0.032, +0.003},
+  {+0.032, +0.988, -0.018},
+  {+0.003, -0.018, +1.029}
+};
+
+// Variables pour stocker les données magnétiques corrigées
+float magxc, magyc, magzc;
+float capmagnetique;
+
+void setup() {
+lis3mdl.begin_I2C(LIS3MDL_ADDRESS, &amp;Wire1);
+}
+
+void loop() {
+lis3mdl.read();      // Acquisition de X, Y et Z 
+  magx = lis3mdl.x/68.42; //Conversion des données digitale brutes en µTesla
+  magy = lis3mdl.y/68.42; //voir datasheet LIS3MDL p 8
+                          // (https://www.st.com/resource/en/datasheet/lis3mdl.pdf)
+  magz = lis3mdl.z/68.42;
+  
+// Calcul du produit des matrices
+  magxc = mCal[0][0]*(magx-MagOffset[0])+ mCal[0][1]*(magy-MagOffset[1]) + mCal[0][2]*(magz-MagOffset[2]);
+  magyc = mCal[1][0]*(magx-MagOffset[0])+ mCal[1][1]*(magy-MagOffset[1]) + mCal[1][2]*(magz-MagOffset[2]);
+  magzc = mCal[2][0]*(magx-MagOffset[0])+ mCal[2][1]*(magy-MagOffset[1]) + mCal[2][2]*(magz-MagOffset[2]);
+
+}</code></pre>
+
+
+
+<h3 class="wp-block-heading">Computation of the magnetic heading</h3>
+
+
+
+<p><br>Once the magnetometer has been calibrated and the calibration coefficients applied to the raw values, we have the necessary parameters to calculate a magnetic heading.</p>
+
+
+
+<p>In the simplest case, where the magnetometer is strictly horizontal, the z-axis is vertical, and its magnetic field component is not involved in the calculation. The magnetic heading (in degrees, from 0 to 360) can then be obtained very simply by the following two lines of code:</p>
+
+
+
+<pre class="wp-block-code" style="font-size:12px"><code>capmagnetique = atan2(magyc,magxc)*(180/PI);
+if (capmagnetique&lt;0) capmagnetique+=360;</code></pre>
+
+
+
+<p>However, this simple code is not appropriate for an airplane, where the roll and pitch angles must be considered. Therefore, the magnetic field component along the Z axis is involved, as well as the components along the X and Y axes. The roll and pitch angles are obtained from the AHRS in an airplane. One should not rely on the indications of a simple accelerometer because, in turn, the centrifugal force would not allow the latter to provide a vertical reference in the Earth’s reference frame.</p>
+
+
+
+<p>Therefore, it is necessary to first perform a tilt compensation for the aircraft’s inclinations according to the roll and pitch axes. This calculation makes it possible to determine the two components Xh and Yh in a horizontal plane (in the Earth’s reference frame) as a function of Xc, Yc, and Zc, the triaxial components measured and calibrated above.</p>
+
+
+
+<p>The equations are as follows:</p>
+
+
+
+<ul class="wp-block-list">
+<li>Xh = Xc * Cos(pitch) + Zc * Sin(pitch)</li>
+</ul>
+
+
+
+<ul class="wp-block-list">
+<li>Yh = Xc * sin(roll) * sin(pitch) + Yc * cos(roll) – Zc * Sin(roll) * Cos(pitch)</li>
+</ul>
+
+
+
+<p>The code for obtaining an exact magnetic heading based on the attitude of the aircraft and the calibrated data from the magnetometer, therefore becomes:</p>
+
+
+
+<pre class="wp-block-code" style="font-size:12px"><code>Xh = magxc * cos(pitch) + magzc * sin(pitch);
+Yh = magxc * sin(roll) * sin(pitch) + magyc * cos(roll) - magzc * sin(roll) * cos(pitch);
+capmagnetique = atan2(Yh,Xh)*(180/PI);
+if (capmagnetique&lt;0) capmagnetique+=360;</code></pre>
+
+
+
+<h3 class="wp-block-heading">The practical realization of the digital compass</h3>
+
+
+
+<p>Most magnetometers, like the LIS3MDL, have an I2C and/or SPI output. These interfaces are not intended to transmit signals over a great length. We have also seen that a good location must be away from magnetic disturbances, especially those related to the engine, DC power generation, and instrument panel.</p>
+
+
+
+<p>For these reasons, we have chosen to combine a magnetometer and a microcontroller in a remote module (Fig. 4). Measurements are transmitted to the main EFIS module, located on the instrument panel, via a CAN bus. Indeed, this high-speed bus allows for long lengths and is excellently immune to electromagnetic interference. </p>
+
+
+
+<p>The CAN Bus implemented in our project is particularly simple. It has only six nodes: the remote module described on this page, the main <a href="https://avionicsduino.com/index.php/en/efis-2/" title="EFIS">EFIS </a>module, the <a href="https://avionicsduino.com/index.php/en/the-ahrs/" title="AHRS">AHRS</a>, the <a href="https://avionicsduino.com/index.php/en/ems-engine-monitoring-system-2/" title="EMS">EMS</a>, the <a href="https://avionicsduino.com/index.php/en/teensy-micro-ems/" title="Micro-EMS">Micro-EMS</a>, and the <a href="https://avionicsduino.com/index.php/en/flight-data-recorder/" title="Flight Data Recorder">ESP32-based Flight Data Recorder</a>. Therefore, we have decided to bypass the complex constraints and recommendations of the CANaerospace protocol.</p>
+
+
+
+<p>The location chosen in a wing tip is also conducive to installing a temperature and humidity sensor, which is necessary for calculating the density altitude. We have chosen the Adafruit “SHT-30 Mesh-protected Weather-proof Temperature / Humidity Sensor” module, <a href="https://www.adafruit.com/product/4099" target="_blank" rel="noopener" title="Adafruit 4099">product ID 4099</a>. </p>
+
+
+
+<p>The microcontroller board is a Teensy 4.0, associated with an MCP2562EP CAN bus transceiver. Connections to the CAN bus and to the temperature and humidity sensor are made through a 9-pin D-SUB connector.</p>
+
+
+
+<p>Just like the AHRS module, the digital compass module must be perfectly aligned with the aircraft’s roll, pitch, and yaw angles. To do this, you must power on the EFIS and very precisely position the plane’s wheels in height so that the artificial horizon is perfectly horizontal. A simple spirit level is then sufficient to align the magnetometer module horizontally to within 0.1° in pitch and roll (fig. 4).</p>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-full"><img loading="lazy" decoding="async" width="1024" height="768" src="./Digital compass – Open source software and hardware avionics_files/CalageMagnetometre.jpg" alt="" class="wp-image-4163" srcset="https://avionicsduino.com/wp-content/uploads/2024/03/CalageMagnetometre.jpg 1024w, https://avionicsduino.com/wp-content/uploads/2024/03/CalageMagnetometre-300x225.jpg 300w, https://avionicsduino.com/wp-content/uploads/2024/03/CalageMagnetometre-768x576.jpg 768w" sizes="(max-width: 709px) 85vw, (max-width: 909px) 67vw, (max-width: 1362px) 62vw, 840px"><figcaption class="wp-element-caption">Figure 4: Procedure for aligning the remote magnetometer module (in its ABS enclosure) at the left wing tip.</figcaption></figure></div>
+
+
+<p>The orientation of the digital compass module (fig. 5) is as follows: the Teensy and LIS3MDL boards are on top, the LIS3MDL towards the front, and the D-SUB connector is on the right.</p>
+
+
+
+<figure class="wp-block-image size-large"><img loading="lazy" decoding="async" width="1024" height="655" src="./Digital compass – Open source software and hardware avionics_files/RemoteModule-1024x655.jpg" alt="Digital compass" class="wp-image-1256" srcset="https://avionicsduino.com/wp-content/uploads/2021/11/RemoteModule-1024x655.jpg 1024w, https://avionicsduino.com/wp-content/uploads/2021/11/RemoteModule-300x192.jpg 300w, https://avionicsduino.com/wp-content/uploads/2021/11/RemoteModule-768x491.jpg 768w, https://avionicsduino.com/wp-content/uploads/2021/11/RemoteModule-1536x982.jpg 1536w, https://avionicsduino.com/wp-content/uploads/2021/11/RemoteModule-1200x767.jpg 1200w, https://avionicsduino.com/wp-content/uploads/2021/11/RemoteModule.jpg 1600w" sizes="(max-width: 709px) 85vw, (max-width: 909px) 67vw, (max-width: 1362px) 62vw, 840px"><figcaption class="wp-element-caption">Figure 5: EFIS remote module</figcaption></figure>
+
+
+
+<div class="wp-block-file"><a id="wp-block-file--media-1c094758-a8f9-40c8-bdb9-9456602dd14f" href="https://avionicsduino.com/wp-content/uploads/2023/04/EFIS_Remote_Magnetometer_Module_Kicad_Files.zip">Download EFIS Remote Magnetometer Module Kicad Files</a></div>
+
+
+
+<div class="wp-block-file"><a id="wp-block-file--media-e967ccfc-dfdc-43e2-aa43-77d8f3d9131b" href="https://avionicsduino.com/wp-content/uploads/2023/05/EFIS_Remote_Module_Gerber_and_drill_files.zip">Download EFIS Remote Magnetometer Module Gerber and drill files<br></a></div>
+
+
+
+<p style="font-size:14px"><a href="https://github.com/bfrmd/EFIS-Remote-Module-AvionicsDuino" target="_blank" rel="noreferrer noopener" title="Download the source code on GitHub">Download the source code on GitHub</a></p>
+
+
+
+<h3 class="wp-block-heading">Results</h3>
+
+
+
+<p>This remote module has been flight-tested with success. Everything works as expected. Compared to the Dynon EFIS, magnetic headings are identical to plus or minus 5 degrees, and outside air temperature is identical to plus or minus 0.5°C. Density altitude, the calculation of which involves outside air temperature and relative humidity, is difficult to compare with that displayed by the Dynon, which does not include a humidity sensor. It is generally within a range of plus or minus 250 feet with that of the Dynon, which is perfectly consistent with the influence of relative humidity.</p>
+	</div><!-- .entry-content -->
+
+	
+</article><!-- #post-765 -->
+
+<div id="comments" class="comments-area">
+
+			<h2 class="comments-title">
+			8 thoughts on “Digital compass”		</h2>
+
+		
+		<ol class="comment-list">
+					<li id="comment-4303" class="comment byuser comment-author-benjamin-fremondwanadoo-fr bypostauthor even thread-even depth-1">
+			<article id="div-comment-4303" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt="" src="./Digital compass – Open source software and hardware avionics_files/7c3c74851388c33c3be3d7b325014c61.png" srcset="https://secure.gravatar.com/avatar/7c3c74851388c33c3be3d7b325014c61?s=84&amp;d=blank&amp;r=g 2x" class="avatar avatar-42 photo" height="42" width="42" loading="lazy" decoding="async">						<b class="fn"><a href="http://avionicsduino.com/" class="url" rel="ugc">Benjamin</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="https://avionicsduino.com/index.php/en/digital-compass/#comment-4303"><time datetime="2024-08-14T16:37:35+01:00">August 14, 2024 at 16:37</time></a>					</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Hello TINGYUN,<br>
+First of all, my apologies; several links were missing on the English page of the digital compass. They have just been added.<br>
+Method 2 with MotionCal is indeed easier to use.<br>
+The screenshot attached to your comment has far too few points, and they do not form a perfect sphere, as in Figure 3 above.<br>
+To obtain this sphere, it is first imperative to have a cable long enough for the module to freely perform complete 360° rotational movements around its 3 axes. It is indeed mandatory to perform and combine all of these movements until the sphere is complete and homogeneous. The four numbers Gaps, Variance, Wobble, and Fit Error must be as low as possible.<br>
+Of course, this calibration must be done in a magnetic environment that is as undisturbed as possible. The best environment is outdoors, far from a building or any large metal mass, far from any electronic device (like a computer).<br>
+If necessary, you will find more explanations <a href="https://www.youtube.com/watch?v=cGI8mrIanpk" target="_blank" rel="noopener nofollow ugc">here </a>and <a href="https://learn.adafruit.com/adafruit-sensorlab-magnetometer-calibration/magnetic-calibration-with-motioncal" target="_blank" rel="noopener nofollow ugc">there</a>.<br>
+Regards,<br>
+Benjamin</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+		</li><!-- #comment-## -->
+		<li id="comment-4294" class="comment odd alt thread-odd thread-alt depth-1">
+			<article id="div-comment-4294" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt="" src="./Digital compass – Open source software and hardware avionics_files/732bdc6cdc31c77ed7d699fe90deb7ec.png" srcset="https://secure.gravatar.com/avatar/732bdc6cdc31c77ed7d699fe90deb7ec?s=84&amp;d=blank&amp;r=g 2x" class="avatar avatar-42 photo" height="42" width="42" loading="lazy" decoding="async">						<b class="fn">TINGYUN</b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="https://avionicsduino.com/index.php/en/digital-compass/#comment-4294"><time datetime="2024-08-13T18:20:23+01:00">August 13, 2024 at 18:20</time></a>					</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>I adopted method one of data collection, but the final results were too biased.<br>
+And it has been verified using method two.<br>
+And I also purchased 3 sets of modules.<br>
+In the end, there was still too much data drift<br>
+How should we handle this</p>
+<p class="dco-attachment dco-image-attachment"><a href="https://avionicsduino.com/wp-content/uploads/2024/08/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20240814012006.png" class="dco-attachment-link dco-image-attachment-link" target="_blank"><img width="300" height="220" src="./Digital compass – Open source software and hardware avionics_files/微信图片_20240814012006-300x220.png" class="attachment-medium size-medium" alt="" decoding="async" loading="lazy" srcset="https://avionicsduino.com/wp-content/uploads/2024/08/微信图片_20240814012006-300x220.png 300w, https://avionicsduino.com/wp-content/uploads/2024/08/微信图片_20240814012006-768x563.png 768w, https://avionicsduino.com/wp-content/uploads/2024/08/微信图片_20240814012006.png 895w" sizes="(max-width: 300px) 85vw, 300px"></a></p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+		</li><!-- #comment-## -->
+		<li id="comment-1875" class="comment byuser comment-author-benjamin-fremondwanadoo-fr bypostauthor even thread-even depth-1">
+			<article id="div-comment-1875" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt="" src="./Digital compass – Open source software and hardware avionics_files/7c3c74851388c33c3be3d7b325014c61.png" srcset="https://secure.gravatar.com/avatar/7c3c74851388c33c3be3d7b325014c61?s=84&amp;d=blank&amp;r=g 2x" class="avatar avatar-42 photo" height="42" width="42" loading="lazy" decoding="async">						<b class="fn"><a href="http://avionicsduino.com/" class="url" rel="ugc">Benjamin</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="https://avionicsduino.com/index.php/en/digital-compass/#comment-1875"><time datetime="2024-01-05T19:33:18+01:00">January 5, 2024 at 19:33</time></a>					</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Hello Ralf,<br>
+I’m back home.<br>
+I tried to compile the remote magnetometer program, and also got an error with Wire!<br>
+After some research consisting of starting from an empty sketch, then gradually copying and pasting, line after line, the sketch that refused to compile, I quickly found the error. It was a bug on line 35: a comment line, with a separative role for clarity, consisting only of ‘*’ characters. A comment line where // was missing at the beginning!!!<br>
+The weird and unforeseen consequence was that line 76 (#include “Wire.h”) was ignored by the compiler!<br>
+I fixed the file on GitHub.<br>
+Please accept my apologies.<br>
+Benjamin</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+		</li><!-- #comment-## -->
+		<li id="comment-1861" class="comment byuser comment-author-benjamin-fremondwanadoo-fr bypostauthor odd alt thread-odd thread-alt depth-1">
+			<article id="div-comment-1861" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt="" src="./Digital compass – Open source software and hardware avionics_files/7c3c74851388c33c3be3d7b325014c61.png" srcset="https://secure.gravatar.com/avatar/7c3c74851388c33c3be3d7b325014c61?s=84&amp;d=blank&amp;r=g 2x" class="avatar avatar-42 photo" height="42" width="42" loading="lazy" decoding="async">						<b class="fn"><a href="http://avionicsduino.com/" class="url" rel="ugc">Benjamin</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="https://avionicsduino.com/index.php/en/digital-compass/#comment-1861"><time datetime="2024-01-03T11:35:08+01:00">January 3, 2024 at 11:35</time></a>					</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Hello Ralf,<br>
+I’m sorry for the long response time. I have been on vacation abroad for 3 weeks, without a PC, and often without any Internet connection.<br>
+I will be available again from the end of this week.<br>
+In the meantime, could you try to compile the sketch after installation of the latest version of TeensyDuino : <a href="https://forum.pjrc.com/index.php?threads/teensyduino-1-59-beta-4.73995/" target="_blank" rel="noopener nofollow ugc">1.59 Beta #4</a>.<br>
+We had many cases of compilation errors with version 1.58.<br>
+Don’t hesitate to post a new comment if this does not solve the issue.<br>
+Benjamin</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+		</li><!-- #comment-## -->
+		<li id="comment-1853" class="comment even thread-even depth-1">
+			<article id="div-comment-1853" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt="" src="./Digital compass – Open source software and hardware avionics_files/d6c9e5e721bd8fbda321e09dc3258507.png" srcset="https://secure.gravatar.com/avatar/d6c9e5e721bd8fbda321e09dc3258507?s=84&amp;d=blank&amp;r=g 2x" class="avatar avatar-42 photo" height="42" width="42" loading="lazy" decoding="async">						<b class="fn">Ralf</b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="https://avionicsduino.com/index.php/en/digital-compass/#comment-1853"><time datetime="2023-12-29T20:59:45+01:00">December 29, 2023 at 20:59</time></a>					</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Hello Benjamin,<br>
+I am trying to compile the code for the remote magnetometer and run into an error with the Wire1 object in line 149 of the EFIS_Remote_Module_AvionicsDuino.ino. All other codes compile fine. I wonder if anyone else had similar problems and what a potential fix could look like. I have downloaded the latest available versions from Github as referenced in the code and my TeensyDuino version is 1.58.1</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+		</li><!-- #comment-## -->
+		<li id="comment-1251" class="comment odd alt thread-odd thread-alt depth-1">
+			<article id="div-comment-1251" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt="" src="./Digital compass – Open source software and hardware avionics_files/a851337fafcfed3c716158355542ccfb.png" srcset="https://secure.gravatar.com/avatar/a851337fafcfed3c716158355542ccfb?s=84&amp;d=blank&amp;r=g 2x" class="avatar avatar-42 photo" height="42" width="42" loading="lazy" decoding="async">						<b class="fn">Mark</b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="https://avionicsduino.com/index.php/en/digital-compass/#comment-1251"><time datetime="2023-01-01T13:14:59+01:00">January 1, 2023 at 13:14</time></a>					</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>I tried magneto. It is some naive implementation or naive method.   Seems that adding calculated bias works better then subtracting..</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+		</li><!-- #comment-## -->
+		<li id="comment-1224" class="comment byuser comment-author-benjamin-fremondwanadoo-fr bypostauthor even thread-even depth-1">
+			<article id="div-comment-1224" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt="" src="./Digital compass – Open source software and hardware avionics_files/7c3c74851388c33c3be3d7b325014c61.png" srcset="https://secure.gravatar.com/avatar/7c3c74851388c33c3be3d7b325014c61?s=84&amp;d=blank&amp;r=g 2x" class="avatar avatar-42 photo" height="42" width="42" loading="lazy" decoding="async">						<b class="fn"><a href="http://avionicsduino.com/" class="url" rel="ugc">Benjamin</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="https://avionicsduino.com/index.php/en/digital-compass/#comment-1224"><time datetime="2022-12-05T19:39:47+01:00">December 5, 2022 at 19:39</time></a>					</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Hello Fred,<br>
+Thank you for your kind and encouraging comments!<br>
+Benjamin</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+		</li><!-- #comment-## -->
+		<li id="comment-1222" class="comment odd alt thread-odd thread-alt depth-1">
+			<article id="div-comment-1222" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt="" src="./Digital compass – Open source software and hardware avionics_files/5ab35843531a7f41c449ef35f4a33f1f.png" srcset="https://secure.gravatar.com/avatar/5ab35843531a7f41c449ef35f4a33f1f?s=84&amp;d=blank&amp;r=g 2x" class="avatar avatar-42 photo" height="42" width="42" loading="lazy" decoding="async">						<b class="fn">Fred</b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="https://avionicsduino.com/index.php/en/digital-compass/#comment-1222"><time datetime="2022-12-04T16:16:52+01:00">December 4, 2022 at 16:16</time></a>					</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Hello,</p>
+<p>Just wanted to say THANK YOU. </p>
+<p>I was looking for info about magnetometer calibration and fortunately stumbled on this page. Of course there was a ton of other pages about the subject on the web but this one is superior of them all. Short but still complete, in simple language and the most important – with practical examples. Whoever wrote this (Benjamin?) has a great and rare talent to explain sophisticated things in simple ways.</p>
+<p>Keep up the good work,<br>
+Fred</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+		</li><!-- #comment-## -->
+		</ol><!-- .comment-list -->
+
+		
+	
+	
+		<div id="respond" class="comment-respond">
+		<h2 id="reply-title" class="comment-reply-title">Leave a Reply</h2><form action="https://avionicsduino.com/wp-comments-post.php" method="post" id="commentform" class="comment-form" novalidate="" enctype="multipart/form-data"><p class="comment-notes"><span id="email-notes">Your email address will not be published.</span> <span class="required-field-message">Required fields are marked <span class="required">*</span></span></p><p class="comment-form-comment"><label for="comment">Comment <span class="required">*</span></label> <textarea id="comment" name="comment" cols="45" rows="8" maxlength="65525" required=""></textarea></p><p class="comment-form-author"><label for="author">Name <span class="required">*</span></label> <input id="author" name="author" type="text" value="" size="30" maxlength="245" autocomplete="name" required=""></p>
+<p class="comment-form-email"><label for="email">Email <span class="required">*</span></label> <input id="email" name="email" type="email" value="" size="30" maxlength="100" aria-describedby="email-notes" autocomplete="email" required=""></p>
+<p class="comment-form-url"><label for="url">Website</label> <input id="url" name="url" type="url" value="" size="30" maxlength="200" autocomplete="url"></p>
+		<p class="comment-form-attachment">
+							<label class="comment-form-attachment__label" for="attachment">
+					Attachments				</label>
+								<input class="comment-form-attachment__input" id="attachment" name="attachment[]" type="file" accept=".jpg,.png,.txt,.pdf,.zip" multiple="">
+								<span class="comment-form-attachment__file-size-notice">
+					The maximum upload file size: 5 MB.				</span>
+								<span class="comment-form-attachment__file-types-notice">
+					You can upload: <abbr title="jpg, png">image</abbr>, <abbr title="pdf">document</abbr>, <abbr title="txt">text</abbr>, <abbr title="zip">archive</abbr>.				</span>
+								<span class="comment-form-attachment__drop-area">
+					<span class="comment-form-attachment__drop-area-inner">
+						Drop files here					</span>
+				</span>
+						</p>
+		<p class="form-submit"><input name="submit" type="submit" id="submit" class="submit" value="Post Comment"> <input type="hidden" name="comment_post_ID" value="765" id="comment_post_ID">
+<input type="hidden" name="comment_parent" id="comment_parent" value="0">
+</p><p style="display: none;"><input type="hidden" id="akismet_comment_nonce" name="akismet_comment_nonce" value="075a00b2a3"></p><p style="display: none !important;" class="akismet-fields-container" data-prefix="ak_"><label>Δ<textarea name="ak_hp_textarea" cols="45" rows="8" maxlength="100"></textarea></label><input type="hidden" id="ak_js_1" name="ak_js" value="1726009150844"><script>document.getElementById( "ak_js_1" ).setAttribute( "value", ( new Date() ).getTime() );</script></p></form>	</div><!-- #respond -->
+	
+</div><!-- .comments-area -->
+
+	</main><!-- .site-main -->
+
+	
+</div><!-- .content-area -->
+
+
+	<aside id="secondary" class="sidebar widget-area" role="complementary">
+		<section id="search-2" class="widget widget_search">
+<form role="search" method="get" class="search-form" action="https://avionicsduino.com/index.php/en/">
+	<label>
+		<span class="screen-reader-text">Search for:</span>
+		<input type="search" class="search-field" placeholder="Search …" value="" name="s">
+	</label>
+	<button type="submit" class="search-submit"><span class="screen-reader-text">Search</span></button>
+</form>
+</section><section id="nav_menu-4" class="widget widget_nav_menu"><h2 class="widget-title">Menu</h2><nav class="menu-anglais-container" aria-label="Menu"><ul id="menu-anglais-1" class="menu"><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home menu-item-has-children menu-item-235"><a href="https://avionicsduino.com/index.php/en/">Home</a>
+<ul class="sub-menu">
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4116"><a href="https://avionicsduino.com/index.php/en/comments-section-general-tips/">Comments section: general tips</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4784"><a href="https://avionicsduino.com/index.php/en/disclaimer-and-copyright-notice/">Disclaimer and&nbsp;copyright notice</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1860"><a href="https://avionicsduino.com/index.php/en/whats-new-on-the-site/">What’s new on AvionicsDuino</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-2443"><a>Flight-tested systems</a>
+<ul class="sub-menu">
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-236"><a href="https://avionicsduino.com/index.php/en/open-source-avionics-2/micro-ems-arduino/">Arduino Micro-EMS</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3129"><a href="https://avionicsduino.com/index.php/en/teensy-micro-ems/">Teensy Micro-EMS</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-357"><a href="https://avionicsduino.com/index.php/en/efis-2/">EFIS</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1859"><a href="https://avionicsduino.com/index.php/en/ems-engine-monitoring-system-2/">EMS</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom current-menu-ancestor current-menu-parent menu-item-has-children menu-item-2444"><a>Hardware</a>
+<ul class="sub-menu">
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-279"><a href="https://avionicsduino.com/index.php/en/arduino-and-teensy-microcontroller-boards/">Microcontroller boards</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-350"><a href="https://avionicsduino.com/index.php/en/lcd-display-screens/">LCD screen</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-349"><a href="https://avionicsduino.com/index.php/en/the-ahrs/">AHRS : the heart of an EFIS</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-post current-menu-item menu-item-767"><a href="https://avionicsduino.com/index.php/en/digital-compass/" aria-current="page">Digital compass</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2168"><a href="https://avionicsduino.com/index.php/en/rotax-oil-pressure-sensor/">Rotax oil pressure sensor</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2185"><a href="https://avionicsduino.com/index.php/en/temperature-sensors-on-rotax-engines/">Rotax temperature sensors</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2257"><a href="https://avionicsduino.com/index.php/en/resistance-measurement/">Resistance measurement</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2297"><a href="https://avionicsduino.com/index.php/en/exhaust-gaz-temperature-egt-measurement/">Exhaust Gaz Temperature (EGT) measurement</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2394"><a href="https://avionicsduino.com/index.php/en/current-measurement/">Current measurement</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2508"><a href="https://avionicsduino.com/index.php/en/power-supply/">Power supply</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4092"><a href="https://avionicsduino.com/index.php/en/variable-reluctance-sensors-and-signal-conditioning/">Variable reluctance sensors and signal conditioning</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4698"><a href="https://avionicsduino.com/index.php/en/efis-pressure-sensors/">EFIS pressure sensors</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-2445"><a>Software</a>
+<ul class="sub-menu">
+	<li class="menu-item menu-item-type-post_type menu-item-object-post menu-item-779"><a href="https://avionicsduino.com/index.php/en/digital-filters/">Digital filter</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1579"><a href="https://avionicsduino.com/index.php/en/serial-communication-of-numeric-variables-uart-or-can/">Serial communication of numeric variables (UART or CAN)</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2064"><a href="https://avionicsduino.com/index.php/en/flight-data-recorder/">Flight Data Recorder</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2863"><a href="https://avionicsduino.com/index.php/en/u-blox-neo-m9n-gnss-configuration/">U-Blox NEO-M9N GNSS Configuration</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4208"><a href="https://avionicsduino.com/index.php/en/can-bus/">CAN bus</a></li>
+</ul>
+</li>
+<li class="pll-parent-menu-item menu-item menu-item-type-custom menu-item-object-custom current-menu-parent menu-item-has-children menu-item-1489"><a href="https://avionicsduino.com/index.php/en/digital-compass/#pll_switcher"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAALCAMAAABBPP0LAAAAmVBMVEViZsViZMJiYrf9gnL8eWrlYkjgYkjZYkj8/PujwPybvPz4+PetraBEgfo+fvo3efkydfkqcvj8Y2T8UlL8Q0P8MzP9k4Hz8/Lu7u4DdPj9/VrKysI9fPoDc/EAZ7z7IiLHYkjp6ekCcOTk5OIASbfY/v21takAJrT5Dg6sYkjc3Nn94t2RkYD+y8KeYkjs/v7l5fz0dF22YkjWvcOLAAAAgElEQVR4AR2KNULFQBgGZ5J13KGGKvc/Cw1uPe62eb9+Jr1EUBFHSgxxjP2Eca6AfUSfVlUfBvm1Ui1bqafctqMndNkXpb01h5TLx4b6TIXgwOCHfjv+/Pz+5vPRw7txGWT2h6yO0/GaYltIp5PT1dEpLNPL/SdWjYjAAZtvRPgHJX4Xio+DSrkAAAAASUVORK5CYII=" alt="" width="16" height="11" style="width: 16px; height: 11px;"><span style="margin-left:0.3em;">English</span></a>
+<ul class="sub-menu">
+	<li class="lang-item lang-item-5 lang-item-fr lang-item-first menu-item menu-item-type-custom menu-item-object-custom menu-item-1489-fr"><a href="https://avionicsduino.com/index.php/fr/le-compas-digital/" hreflang="fr-FR" lang="fr-FR"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAALCAMAAABBPP0LAAAAbFBMVEVzldTg4ODS0tLxDwDtAwDjAADD0uz39/fy8vL3k4nzgna4yOixwuXu7u7s6+zn5+fyd2rvcGPtZljYAABrjNCpvOHrWkxegsqfs93NAADpUUFRd8THAABBa7wnVbERRKa8vLyxsLCoqKigoKClCvcsAAAAXklEQVR4AS3JxUEAQQAEwZo13Mk/R9w5/7UERJCIGIgj5qfRJZEpPyNfCgJTjMR1eRRnJiExFJz5Mf1PokWr/UztIjRGQ3V486u0HO55m634U6dMcf0RNPfkVCTvKjO16xHA8miowAAAAABJRU5ErkJggg==" alt="" width="16" height="11" style="width: 16px; height: 11px;"><span style="margin-left:0.3em;">Français</span></a></li>
+	<li class="lang-item lang-item-2 lang-item-en current-lang menu-item menu-item-type-custom menu-item-object-custom menu-item-1489-en"><a href="https://avionicsduino.com/index.php/en/digital-compass/" hreflang="en-US" lang="en-US"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAALCAMAAABBPP0LAAAAmVBMVEViZsViZMJiYrf9gnL8eWrlYkjgYkjZYkj8/PujwPybvPz4+PetraBEgfo+fvo3efkydfkqcvj8Y2T8UlL8Q0P8MzP9k4Hz8/Lu7u4DdPj9/VrKysI9fPoDc/EAZ7z7IiLHYkjp6ekCcOTk5OIASbfY/v21takAJrT5Dg6sYkjc3Nn94t2RkYD+y8KeYkjs/v7l5fz0dF22YkjWvcOLAAAAgElEQVR4AR2KNULFQBgGZ5J13KGGKvc/Cw1uPe62eb9+Jr1EUBFHSgxxjP2Eca6AfUSfVlUfBvm1Ui1bqafctqMndNkXpb01h5TLx4b6TIXgwOCHfjv+/Pz+5vPRw7txGWT2h6yO0/GaYltIp5PT1dEpLNPL/SdWjYjAAZtvRPgHJX4Xio+DSrkAAAAASUVORK5CYII=" alt="" width="16" height="11" style="width: 16px; height: 11px;"><span style="margin-left:0.3em;">English</span></a></li>
+</ul>
+</li>
+</ul></nav></section>	</aside><!-- .sidebar .widget-area -->
+
+		</div><!-- .site-content -->
+
+		<footer id="colophon" class="site-footer" role="contentinfo">
+							<nav class="main-navigation" role="navigation" aria-label="Footer Primary Menu">
+					<div class="menu-anglais-container"><ul id="menu-anglais-2" class="primary-menu"><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home menu-item-has-children menu-item-235" aria-haspopup="true"><a href="https://avionicsduino.com/index.php/en/">Home</a><button class="dropdown-toggle" aria-expanded="false"><span class="screen-reader-text">expand child menu</span></button>
+<ul class="sub-menu">
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4116"><a href="https://avionicsduino.com/index.php/en/comments-section-general-tips/">Comments section: general tips</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4784"><a href="https://avionicsduino.com/index.php/en/disclaimer-and-copyright-notice/">Disclaimer and&nbsp;copyright notice</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1860"><a href="https://avionicsduino.com/index.php/en/whats-new-on-the-site/">What’s new on AvionicsDuino</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-2443" aria-haspopup="true"><a>Flight-tested systems</a><button class="dropdown-toggle" aria-expanded="false"><span class="screen-reader-text">expand child menu</span></button>
+<ul class="sub-menu">
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-236"><a href="https://avionicsduino.com/index.php/en/open-source-avionics-2/micro-ems-arduino/">Arduino Micro-EMS</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3129"><a href="https://avionicsduino.com/index.php/en/teensy-micro-ems/">Teensy Micro-EMS</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-357"><a href="https://avionicsduino.com/index.php/en/efis-2/">EFIS</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1859"><a href="https://avionicsduino.com/index.php/en/ems-engine-monitoring-system-2/">EMS</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom current-menu-ancestor current-menu-parent menu-item-has-children menu-item-2444" aria-haspopup="true"><a>Hardware</a><button class="dropdown-toggle toggled-on" aria-expanded="false"><span class="screen-reader-text">expand child menu</span></button>
+<ul class="sub-menu toggled-on">
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-279"><a href="https://avionicsduino.com/index.php/en/arduino-and-teensy-microcontroller-boards/">Microcontroller boards</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-350"><a href="https://avionicsduino.com/index.php/en/lcd-display-screens/">LCD screen</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-349"><a href="https://avionicsduino.com/index.php/en/the-ahrs/">AHRS : the heart of an EFIS</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-post current-menu-item menu-item-767"><a href="https://avionicsduino.com/index.php/en/digital-compass/" aria-current="page">Digital compass</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2168"><a href="https://avionicsduino.com/index.php/en/rotax-oil-pressure-sensor/">Rotax oil pressure sensor</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2185"><a href="https://avionicsduino.com/index.php/en/temperature-sensors-on-rotax-engines/">Rotax temperature sensors</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2257"><a href="https://avionicsduino.com/index.php/en/resistance-measurement/">Resistance measurement</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2297"><a href="https://avionicsduino.com/index.php/en/exhaust-gaz-temperature-egt-measurement/">Exhaust Gaz Temperature (EGT) measurement</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2394"><a href="https://avionicsduino.com/index.php/en/current-measurement/">Current measurement</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2508"><a href="https://avionicsduino.com/index.php/en/power-supply/">Power supply</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4092"><a href="https://avionicsduino.com/index.php/en/variable-reluctance-sensors-and-signal-conditioning/">Variable reluctance sensors and signal conditioning</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4698"><a href="https://avionicsduino.com/index.php/en/efis-pressure-sensors/">EFIS pressure sensors</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-2445" aria-haspopup="true"><a>Software</a><button class="dropdown-toggle" aria-expanded="false"><span class="screen-reader-text">expand child menu</span></button>
+<ul class="sub-menu">
+	<li class="menu-item menu-item-type-post_type menu-item-object-post menu-item-779"><a href="https://avionicsduino.com/index.php/en/digital-filters/">Digital filter</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1579"><a href="https://avionicsduino.com/index.php/en/serial-communication-of-numeric-variables-uart-or-can/">Serial communication of numeric variables (UART or CAN)</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2064"><a href="https://avionicsduino.com/index.php/en/flight-data-recorder/">Flight Data Recorder</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2863"><a href="https://avionicsduino.com/index.php/en/u-blox-neo-m9n-gnss-configuration/">U-Blox NEO-M9N GNSS Configuration</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4208"><a href="https://avionicsduino.com/index.php/en/can-bus/">CAN bus</a></li>
+</ul>
+</li>
+<li class="pll-parent-menu-item menu-item menu-item-type-custom menu-item-object-custom current-menu-parent menu-item-has-children menu-item-1489" aria-haspopup="true"><a href="https://avionicsduino.com/index.php/en/digital-compass/#pll_switcher"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAALCAMAAABBPP0LAAAAmVBMVEViZsViZMJiYrf9gnL8eWrlYkjgYkjZYkj8/PujwPybvPz4+PetraBEgfo+fvo3efkydfkqcvj8Y2T8UlL8Q0P8MzP9k4Hz8/Lu7u4DdPj9/VrKysI9fPoDc/EAZ7z7IiLHYkjp6ekCcOTk5OIASbfY/v21takAJrT5Dg6sYkjc3Nn94t2RkYD+y8KeYkjs/v7l5fz0dF22YkjWvcOLAAAAgElEQVR4AR2KNULFQBgGZ5J13KGGKvc/Cw1uPe62eb9+Jr1EUBFHSgxxjP2Eca6AfUSfVlUfBvm1Ui1bqafctqMndNkXpb01h5TLx4b6TIXgwOCHfjv+/Pz+5vPRw7txGWT2h6yO0/GaYltIp5PT1dEpLNPL/SdWjYjAAZtvRPgHJX4Xio+DSrkAAAAASUVORK5CYII=" alt="" width="16" height="11" style="width: 16px; height: 11px;"><span style="margin-left:0.3em;">English</span></a><button class="dropdown-toggle" aria-expanded="false"><span class="screen-reader-text">expand child menu</span></button>
+<ul class="sub-menu">
+	<li class="lang-item lang-item-5 lang-item-fr lang-item-first menu-item menu-item-type-custom menu-item-object-custom menu-item-1489-fr"><a href="https://avionicsduino.com/index.php/fr/le-compas-digital/" hreflang="fr-FR" lang="fr-FR"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAALCAMAAABBPP0LAAAAbFBMVEVzldTg4ODS0tLxDwDtAwDjAADD0uz39/fy8vL3k4nzgna4yOixwuXu7u7s6+zn5+fyd2rvcGPtZljYAABrjNCpvOHrWkxegsqfs93NAADpUUFRd8THAABBa7wnVbERRKa8vLyxsLCoqKigoKClCvcsAAAAXklEQVR4AS3JxUEAQQAEwZo13Mk/R9w5/7UERJCIGIgj5qfRJZEpPyNfCgJTjMR1eRRnJiExFJz5Mf1PokWr/UztIjRGQ3V486u0HO55m634U6dMcf0RNPfkVCTvKjO16xHA8miowAAAAABJRU5ErkJggg==" alt="" width="16" height="11" style="width: 16px; height: 11px;"><span style="margin-left:0.3em;">Français</span></a></li>
+	<li class="lang-item lang-item-2 lang-item-en current-lang menu-item menu-item-type-custom menu-item-object-custom menu-item-1489-en"><a href="https://avionicsduino.com/index.php/en/digital-compass/" hreflang="en-US" lang="en-US"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAALCAMAAABBPP0LAAAAmVBMVEViZsViZMJiYrf9gnL8eWrlYkjgYkjZYkj8/PujwPybvPz4+PetraBEgfo+fvo3efkydfkqcvj8Y2T8UlL8Q0P8MzP9k4Hz8/Lu7u4DdPj9/VrKysI9fPoDc/EAZ7z7IiLHYkjp6ekCcOTk5OIASbfY/v21takAJrT5Dg6sYkjc3Nn94t2RkYD+y8KeYkjs/v7l5fz0dF22YkjWvcOLAAAAgElEQVR4AR2KNULFQBgGZ5J13KGGKvc/Cw1uPe62eb9+Jr1EUBFHSgxxjP2Eca6AfUSfVlUfBvm1Ui1bqafctqMndNkXpb01h5TLx4b6TIXgwOCHfjv+/Pz+5vPRw7txGWT2h6yO0/GaYltIp5PT1dEpLNPL/SdWjYjAAZtvRPgHJX4Xio+DSrkAAAAASUVORK5CYII=" alt="" width="16" height="11" style="width: 16px; height: 11px;"><span style="margin-left:0.3em;">English</span></a></li>
+</ul>
+</li>
+</ul></div>				</nav><!-- .main-navigation -->
+			
+			
+			<div class="site-info">
+								<span class="site-title"><a href="https://avionicsduino.com/index.php/en/" rel="home">Open source software and hardware avionics</a></span>
+								<a href="https://wordpress.org/" class="imprint">
+					Powered by WordPress Twenty Sixteen				</a>
+			</div><!-- .site-info -->
+		</footer><!-- .site-footer -->
+	</div><!-- .site-inner -->
+</div><!-- .site -->
+
+<script id="wp-statistics-tracker-js-extra">
+var WP_Statistics_Tracker_Object = {"requestUrl":"https:\/\/avionicsduino.com\/index.php\/wp-json\/wp-statistics\/v2","ajaxUrl":"https:\/\/avionicsduino.com\/wp-admin\/admin-ajax.php","hitParams":{"wp_statistics_hit":1,"source_type":"page","source_id":765,"search_query":"","signature":"e3b11fd7365c78115baa8fa36787c83f","endpoint":"hit"},"onlineParams":{"wp_statistics_hit":1,"source_type":"page","source_id":765,"search_query":"","signature":"e3b11fd7365c78115baa8fa36787c83f","endpoint":"online"},"option":{"userOnline":"1","consentLevel":"disabled","dntEnabled":"","bypassAdBlockers":false,"isWpConsentApiActive":false,"trackAnonymously":false,"isPreview":false},"jsCheckTime":"60000"};
+</script>
+<script src="./Digital compass – Open source software and hardware avionics_files/tracker.js.download" id="wp-statistics-tracker-js"></script>
+<script src="./Digital compass – Open source software and hardware avionics_files/skip-link-focus-fix.js.download" id="twentysixteen-skip-link-focus-fix-js"></script>
+<script id="twentysixteen-script-js-extra">
+var screenReaderText = {"expand":"expand child menu","collapse":"collapse child menu"};
+</script>
+<script src="./Digital compass – Open source software and hardware avionics_files/functions.js.download" id="twentysixteen-script-js"></script>
+<script id="dco-comment-attachment-js-extra">
+var dco_ca = {"commenting_form_not_found":"The commenting form not found."};
+</script>
+<script src="./Digital compass – Open source software and hardware avionics_files/dco-comment-attachment.js.download" id="dco-comment-attachment-js"></script>
+<script defer="" src="./Digital compass – Open source software and hardware avionics_files/akismet-frontend.js.download" id="akismet-frontend-js"></script>
+<script>
+(function() {
+				var expirationDate = new Date();
+				expirationDate.setTime( expirationDate.getTime() + 31536000 * 1000 );
+				document.cookie = "pll_language=en; expires=" + expirationDate.toUTCString() + "; path=/; secure; SameSite=Lax";
+			}());
+
+</script>
+
+
+
+
+</body></html>
