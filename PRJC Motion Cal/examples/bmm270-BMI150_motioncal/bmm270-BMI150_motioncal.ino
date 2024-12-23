@@ -26,7 +26,7 @@ void setup() {
   while (!Serial) ; // wait for serial port open
   delay(800);
 
-  IMU.setAcellConfig(BMI2_ACC_ODR_100HZ, BMI2_ACC_RANGE_16G, BMI2_ACC_NORMAL_AVG4);
+  IMU.setAcellConfig(BMI2_ACC_ODR_100HZ, BMI2_ACC_RANGE_8G, BMI2_ACC_NORMAL_AVG4);
   IMU.setGyroConfig(BMI2_GYR_ODR_200HZ, BMI2_GYR_RANGE_2000, BMI2_GYR_NORMAL_MODE);
   IMU.setMagConfig(BMM150_POWERMODE_NORMAL, BMM150_PRESETMODE_REGULAR);
 
@@ -243,9 +243,9 @@ void getCalIMU(float *val) {
     IMU.readGyroscope(gx, gy, gz);
     new_gyro_data = 1;
   }
-  val[3] = gx * deg2rad;
-  val[4] = -gy * deg2rad;
-  val[5] = -gz * deg2rad;
+  val[3] = gx ;
+  val[4] = -gy ;
+  val[5] = -gz ;
 
   if (IMU.magneticFieldAvailable()) {
     IMU.readMagneticField(mx, my, mz);

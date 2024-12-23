@@ -54,9 +54,9 @@ int calibrateAccel() {
     readIMU(values);
       if(new_accel_data){
         icount += 1;
-        _axbD += (values[0] * G/_axs + _axb)/((double)_numSamples);
-        _aybD += (values[1] * G/_ays + _ayb)/((double)_numSamples);
-        _azbD += (values[2] * G/_azs + _azb)/((double)_numSamples);
+        _axbD += (values[0]/_axs + _axb)/((double)_numSamples);
+        _aybD += (values[1]/_ays + _ayb)/((double)_numSamples);
+        _azbD += (values[2] /_azs + _azb)/((double)_numSamples);
       }
   }
 
